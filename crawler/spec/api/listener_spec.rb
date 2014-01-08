@@ -1,6 +1,7 @@
 require "api/listener"
 
 module Api
+
   class TestScheduler
     @@pushed=0
     def self.pushed
@@ -12,7 +13,6 @@ module Api
     def push(args={})
       @@pushed+=1
     end
-
   end
 
 
@@ -25,7 +25,6 @@ module Api
       5.times {TCPSocket.new("localhost", 9000)}
       sleep 0.05
       TestScheduler.pushed.should==5
-      Celluloid.shutdown
     end
     
   end
