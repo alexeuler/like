@@ -4,13 +4,6 @@ require "tempfile"
 module Api
   describe "Api::Manager" do
     it "Reads from request_queue, chooses token, delays to conform frequency and spawns a requester" do
-      requester=double
-      async=double
-      requester.stub(:async).and_return(async)
-      async.should_receive(:push).with({socket: "Test", request: "Req1&access_token=qwe"})
-      async.should_receive(:push).with({socket: "Test", request: "Req2&access_token=rty"})
-      async.should_receive(:push).with({socket: "Test", request: "Req3&access_token=qwe"})
-
       token_file=Tempfile.new('tokens')
       token_file.puts("qwe;1;1")
       token_file.puts("rty;1;2")
@@ -20,6 +13,15 @@ module Api
       Manager::request_queue.push({socket: "Test", request: "Req1&"})
       Manager::request_queue.push({socket: "Test", request: "Req2&"})
       Manager::request_queue.push({socket: "Test", request: "Req3&"})
+
+      requester=double
+      async=double
+      requester.stub(:async).and_return(async)
+      async.should_receive(:push).with({socket: "Test", request: "Req1&access_token=qwe"})
+      async.should_receive(:push).with({socket: "Test", request: "Req2&access_token=rty"})
+      async.should_receive(:push).with({socket: "Test", request: "Req3&access_token=qwe"})
+
+
 
       manager=Manager.new token_filename: token_file.path, requester: requester
       manager.async.start

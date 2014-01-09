@@ -11,7 +11,7 @@ module Api
       request={method: "users.get", params: {id: 1, v: 5}}
       client.puts request.to_json
       sleep 0.05
-      Scheduler.request_queue.pop(true).should=="https://api.vk.com/method/users.get?id=1&v=5&"
+      Scheduler.request_queue.pop(true).should=={socket: server, request:"https://api.vk.com/method/users.get?id=1&v=5&"}
     end
   end
 end

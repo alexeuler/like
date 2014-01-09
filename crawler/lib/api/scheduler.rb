@@ -12,7 +12,7 @@ module Api
     def push(args={})
       socket=args[:socket]
       request=process_request socket.gets
-      self.class.request_queue.push request
+      self.class.request_queue.push({socket: socket, request: request})
     end
 
     private
