@@ -14,6 +14,7 @@ module Api
       loop {@scheduler.async.push socket: @server.accept}
     end
 
+
     private
     def defaults
       {host: "localhost", port: 9000}

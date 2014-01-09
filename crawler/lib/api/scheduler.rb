@@ -1,4 +1,5 @@
 require "json"
+require "celluloid"
 module Api
   class Scheduler
 
@@ -20,9 +21,7 @@ module Api
     def process_request(request)
       hash=JSON.parse(request)
       res="https://api.vk.com/method/#{hash["method"]}?"
-      hash["params"].each_pair do |key,value|
-        res+="#{key}=#{value}&"
-      end
+      hash["params"].each_pair {|key,value| res+="#{key}=#{value}&"} if hash["params"]
       res
     end
 
