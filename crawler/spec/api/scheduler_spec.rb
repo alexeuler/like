@@ -13,9 +13,6 @@ module Api
       sleep 0.05
       Scheduler.request_queue.pop(true).should=="https://api.vk.com/method/users.get?id=1&v=5&"
     end
-
-
-
   end
 end
 
