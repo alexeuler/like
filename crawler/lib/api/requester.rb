@@ -9,6 +9,7 @@ module Api
       uri=URI.parse(args[:request])
       response=Net::HTTP.get_response(uri).body
       socket.puts response
+      socket.close
     end
   end
 end

@@ -1,0 +1,20 @@
+vk_api_daemon: process with pid 30184 started.
+daemon.rb:11:in `block in <main>': uninitialized constant Server (NameError)
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/application.rb:255:in `call'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/application.rb:255:in `block in start_proc'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/daemonize.rb:82:in `call'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/daemonize.rb:82:in `call_as_daemon'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/application.rb:259:in `start_proc'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/application.rb:296:in `start'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/controller.rb:70:in `run'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons.rb:197:in `block in run_proc'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/cmdline.rb:109:in `call'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons/cmdline.rb:109:in `catch_exceptions'
+	from /home/alex/.rvm/gems/ruby-2.0.0-p247@rails4/gems/daemons-1.1.9/lib/daemons.rb:196:in `run_proc'
+	from daemon.rb:4:in `<main>'
+vk_api_daemon: process with pid 30247 started.
+D, [2014-01-09T14:28:39.458737 #30247] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T14:28:39.514251 #30247]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T14:28:39.530537 #30247]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T14:28:49.475676 #30247] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 30793 started.
