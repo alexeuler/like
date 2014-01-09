@@ -430,3 +430,8 @@ D, [2014-01-09T23:36:39.905536 #15621] DEBUG -- : Terminating 64 actors...
 W, [2014-01-09T23:36:39.910894 #15621]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 W, [2014-01-09T23:36:39.930084 #15621]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 E, [2014-01-09T23:36:49.905678 #15621] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 16460 started.
+D, [2014-01-10T00:06:21.973314 #16460] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T00:06:21.979522 #16460]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T00:06:22.012845 #16460]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T00:06:31.973249 #16460] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!

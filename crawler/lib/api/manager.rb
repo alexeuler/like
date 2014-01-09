@@ -50,18 +50,19 @@ module Api
     private
 
     def load_tokens
-      @tokens=[]
+      tokens=[]
       File.open(@token_filename, "r") do |f|
         while line=f.gets
           values=line.split(";")
           token=Token.new(values[0],Time.at(values[1].to_i), values[2],Time.now)
-          @tokens << token
+          tokens << token
         end
       end
+      @tokens=tokens
     end
 
     def defaults
-      {server_requests_per_sec: 10, id_requests_per_sec: 3}
+      {server_requests_per_sec: 5, id_requests_per_sec: 3}
     end
 
   end
