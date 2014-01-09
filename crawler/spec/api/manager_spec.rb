@@ -14,18 +14,16 @@ module Api
       Manager::request_queue.push({socket: "Test", request: "Req2&"})
       Manager::request_queue.push({socket: "Test", request: "Req3&"})
 
-      requester=double
-      async=double
+      requester=double("requester")
+      async=double("async")
       requester.stub(:async).and_return(async)
       async.should_receive(:push).with({socket: "Test", request: "Req1&access_token=qwe"})
       async.should_receive(:push).with({socket: "Test", request: "Req2&access_token=rty"})
       async.should_receive(:push).with({socket: "Test", request: "Req3&access_token=qwe"})
 
-
-
       manager=Manager.new token_filename: token_file.path, requester: requester
       manager.async.start
-      sleep 0.5
+      sleep 1
       token_file.unlink
     end
 
