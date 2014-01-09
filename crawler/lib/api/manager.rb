@@ -30,8 +30,8 @@ module Api
         tuple[:request] << "access_token=#{token.value}"
         now=Time.now
         sleep sleep_time(token, now)
-        token.last_access=now
         @requester.async.push tuple
+        token.last_access=Time.now
       end
     end
 

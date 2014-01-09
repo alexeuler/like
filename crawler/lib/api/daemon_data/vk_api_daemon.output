@@ -18,3 +18,415 @@ W, [2014-01-09T14:28:39.514251 #30247]  WARN -- : Terminating task: type=:finali
 W, [2014-01-09T14:28:39.530537 #30247]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 E, [2014-01-09T14:28:49.475676 #30247] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
 vk_api_daemon: process with pid 30793 started.
+vk_api_daemon: process with pid 9391 started.
+E, [2014-01-09T22:47:14.989905 #9391] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T22:47:32.899159 #9391] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T22:47:32.942129 #9391]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T22:47:32.975280 #9391]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T22:47:42.898708 #9391] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 9665 started.
+E, [2014-01-09T22:53:08.692967 #9665] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T22:53:09.442937 #9665] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T22:53:09.485684 #9665]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T22:53:09.520720 #9665]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T22:53:19.443064 #9665] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 9948 started.
+E, [2014-01-09T22:59:39.537871 #9948] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:00:43.125580 #9948] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T23:00:43.170513 #9948]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:00:43.210794 #9948]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:00:53.124482 #9948] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 10183 started.
+E, [2014-01-09T23:00:55.006107 #10183] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:01:13.725370 #10183] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T23:01:13.767827 #10183]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:01:13.800956 #10183]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:01:23.724462 #10183] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 10421 started.
+E, [2014-01-09T23:01:25.543174 #10421] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:01:56.716575 #10421] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T23:01:56.760096 #10421]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:01:56.796158 #10421]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:02:06.716575 #10421] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 10657 started.
+E, [2014-01-09T23:02:08.588159 #10657] ERROR -- : Api::Manager crashed!
+Errno::ENOENT: No such file or directory - /home/alex/Development/like/crawler/lib/api/tokens.csv
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `open'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:54:in `load_tokens'
+	/home/alex/Development/like/crawler/lib/api/manager.rb:26:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:06:10.525847 #10657] DEBUG -- : Terminating 203 actors...
+W, [2014-01-09T23:06:10.570915 #10657]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:06:10.605079 #10657]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:06:20.525518 #10657] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 11246 started.
+E, [2014-01-09T23:06:22.923280 #11246] ERROR -- : Api::Requester crashed!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:06:22.923848 #11246] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:07:56.697128 #11246] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:07:56.763485 #11246]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:07:56.781780 #11246]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:08:06.696050 #11246] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 11501 started.
+E, [2014-01-09T23:08:09.102084 #11501] ERROR -- : Api::Requester crashed!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:08:09.102766 #11501] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:17:31.272986 #11501] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:17:31.327568 #11501]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:17:31.367518 #11501]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:17:41.272068 #11501] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 12013 started.
+D, [2014-01-09T23:17:44.073229 #12013] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+E, [2014-01-09T23:17:44.073729 #12013] ERROR -- : Api::Requester crashed!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:19:30.185088 #12013] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:19:30.227198 #12013]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:19:30.268535 #12013]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:19:40.185226 #12013] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 12481 started.
+E, [2014-01-09T23:19:42.592288 #12481] ERROR -- : Api::Requester crashed!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:19:42.592938 #12481] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:10:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-09T23:23:09.743419 #12481] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:23:09.793750 #12481]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:23:09.832840 #12481]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:23:19.741805 #12481] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 13481 started.
+D, [2014-01-09T23:23:22.622710 #13481] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:23:22.700032 #13481]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:23:22.741472 #13481]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:23:32.621865 #13481] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 13718 started.
+D, [2014-01-09T23:23:55.059217 #13718] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:23:55.140085 #13718]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:23:55.194705 #13718]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:24:05.058018 #13718] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14027 started.
+D, [2014-01-09T23:25:42.757706 #14027] DEBUG -- : Terminating 204 actors...
+W, [2014-01-09T23:25:42.811811 #14027]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:25:42.842115 #14027]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:25:52.756098 #14027] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14299 started.
+D, [2014-01-09T23:26:54.889089 #14299] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:26:54.896074 #14299]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:26:54.928496 #14299]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:27:04.889018 #14299] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14415 started.
+D, [2014-01-09T23:27:26.429066 #14415] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:27:26.434205 #14415]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:27:26.468410 #14415]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:27:36.429421 #14415] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14559 started.
+D, [2014-01-09T23:31:31.426203 #14559] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:31:31.434567 #14559]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:31:31.466464 #14559]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:31:41.426285 #14559] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14678 started.
+D, [2014-01-09T23:32:26.051110 #14678] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:32:26.057246 #14678]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:32:26.090957 #14678]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:32:36.051451 #14678] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14795 started.
+D, [2014-01-09T23:32:46.773270 #14795] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:32:46.778643 #14795]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:32:46.812919 #14795]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:32:56.773703 #14795] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 14911 started.
+D, [2014-01-09T23:33:13.751114 #14911] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:33:13.757217 #14911]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:33:13.790892 #14911]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:33:23.751123 #14911] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15038 started.
+D, [2014-01-09T23:34:19.474864 #15038] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:34:19.480142 #15038]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:34:19.517077 #15038]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:34:29.474863 #15038] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15154 started.
+D, [2014-01-09T23:34:39.827044 #15154] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:34:39.833006 #15154]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:34:39.865786 #15154]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:34:49.826985 #15154] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15272 started.
+D, [2014-01-09T23:35:19.289682 #15272] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:35:19.298533 #15272]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:35:19.328426 #15272]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:35:29.289796 #15272] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15388 started.
+D, [2014-01-09T23:35:39.671379 #15388] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:35:39.677511 #15388]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:35:39.710681 #15388]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:35:49.671568 #15388] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15504 started.
+D, [2014-01-09T23:36:09.358268 #15504] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:36:09.363825 #15504]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:36:09.383009 #15504]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:36:19.358606 #15504] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 15621 started.
+D, [2014-01-09T23:36:39.905536 #15621] DEBUG -- : Terminating 64 actors...
+W, [2014-01-09T23:36:39.910894 #15621]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-09T23:36:39.930084 #15621]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-09T23:36:49.905678 #15621] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
