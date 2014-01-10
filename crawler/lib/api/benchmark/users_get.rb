@@ -13,9 +13,10 @@ Benchmark.bm do |x|
     18.times do
       threads << Thread.new do
         line=s.gets
-        res=JSON.parse line
+        #res=JSON.parse line
+        res=line
         puts res
-        puts res if res["error"]
+        #puts res if res["error"]
       end
     end
     threads.each {|t| t.join}

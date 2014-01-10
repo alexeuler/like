@@ -15,15 +15,14 @@ module Api
     include Celluloid
     def push(args={})
       socket=args[:socket]
-      begin
-        while line=socket.gets
-          request=process_request line
-          self.class.request_queue.push({socket: socket, request: request})
-          log.info "Pushed request: #{request}"
-        end
-      ensure
-        self.class.request_queue.push({socket: socket, request: "service", close: true}) #to close the socket after all requests are finished
+      id=0
+      while line=socket.gets
+        id+=1
+        request=process_request line
+        self.class.request_queue.push({socket: socket, request: request, id: id})
+        log.info "Pushed request: #{request}"
       end
+        self.class.request_queue.push({socket: socket, request: "service", close: true}) #to close the socket after all requests are finished
     end
 
     private
