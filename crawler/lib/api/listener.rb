@@ -1,7 +1,9 @@
 require 'celluloid'
+require_relative "logger"
 module Api
   class Listener
     include Celluloid
+    include Logger
     def initialize(args={})
       args=defaults.merge args
       @host=args[:host]
@@ -11,6 +13,7 @@ module Api
 
     def start
       @server=TCPServer.new @host, @port
+      log.info "Started server on #{@host}:#{@port}"
       loop {@scheduler.async.push socket: @server.accept}
     end
 

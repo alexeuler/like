@@ -435,3 +435,138 @@ D, [2014-01-10T00:06:21.973314 #16460] DEBUG -- : Terminating 64 actors...
 W, [2014-01-10T00:06:21.979522 #16460]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 W, [2014-01-10T00:06:22.012845 #16460]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 E, [2014-01-10T00:06:31.973249 #16460] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 3463 started.
+D, [2014-01-10T23:26:05.824853 #3463] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:26:05.846157 #3463]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:26:05.866653 #3463]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:26:15.825082 #3463] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 3580 started.
+D, [2014-01-10T23:28:22.881671 #3580] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:28:22.897823 #3580]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:28:22.916709 #3580]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:28:32.881928 #3580] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 3697 started.
+D, [2014-01-10T23:28:41.247961 #3697] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:28:41.268011 #3697]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:28:41.286281 #3697]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:28:51.248114 #3697] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 3823 started.
+D, [2014-01-10T23:29:31.026184 #3823] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:29:31.041255 #3823]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:29:31.060245 #3823]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:29:41.026107 #3823] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 3939 started.
+D, [2014-01-10T23:29:48.479585 #3939] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:29:48.501102 #3939]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:29:48.518285 #3939]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:29:58.479876 #3939] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4055 started.
+D, [2014-01-10T23:30:06.362208 #4055] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:30:06.383540 #4055]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:30:06.396209 #4055]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:30:16.362508 #4055] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4171 started.
+D, [2014-01-10T23:30:24.612770 #4171] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:30:24.633331 #4171]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:30:24.650396 #4171]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:30:34.613096 #4171] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4384 started.
+D, [2014-01-10T23:34:33.820208 #4384] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:34:33.858695 #4384]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:34:43.820436 #4384] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4523 started.
+D, [2014-01-10T23:39:01.203979 #4523] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:39:01.223056 #4523]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:39:01.241550 #4523]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:39:11.204120 #4523] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4653 started.
+D, [2014-01-10T23:40:47.629014 #4653] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:40:47.648452 #4653]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:40:47.666681 #4653]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:40:57.628968 #4653] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4845 started.
+D, [2014-01-10T23:48:10.007382 #4845] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:48:10.030004 #4845]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:48:10.047502 #4845]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:48:20.007153 #4845] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 4990 started.
+D, [2014-01-10T23:57:47.844780 #4990] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:57:47.850883 #4990]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:57:47.868274 #4990]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:57:57.845184 #4990] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5256 started.
+E, [2014-01-10T23:58:01.224004 #5256] ERROR -- : Api::Scheduler crashed!
+TypeError: no implicit conversion of nil into String
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `initialize'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `new'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:26:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:18:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-10T23:58:01.224321 #5256] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+TypeError: no implicit conversion of nil into String
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `initialize'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `new'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:26:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:18:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-10T23:58:16.592384 #5256] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:58:16.596990 #5256]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:58:16.615094 #5256]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:58:26.593153 #5256] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5357 started.
+D, [2014-01-10T23:58:33.533898 #5357] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:58:33.541412 #5357]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:58:33.577626 #5357]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:58:43.534261 #5357] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5472 started.
+D, [2014-01-10T23:58:57.141559 #5472] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:58:57.166086 #5472]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:58:57.185510 #5472]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:59:07.141560 #5472] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5588 started.
+D, [2014-01-10T23:59:14.530421 #5588] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:59:14.554970 #5588]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:59:14.573738 #5588]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:59:24.530738 #5588] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5704 started.
+D, [2014-01-10T23:59:33.236149 #5704] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:59:33.262702 #5704]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:59:33.280834 #5704]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-10T23:59:43.236499 #5704] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5820 started.
+D, [2014-01-10T23:59:52.754648 #5820] DEBUG -- : Terminating 64 actors...
+W, [2014-01-10T23:59:52.775336 #5820]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-10T23:59:52.795402 #5820]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:00:02.754859 #5820] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 5936 started.
+D, [2014-01-11T00:00:16.970286 #5936] DEBUG -- : Terminating 64 actors...
+W, [2014-01-11T00:00:16.990543 #5936]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:00:17.010375 #5936]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:00:26.970467 #5936] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!

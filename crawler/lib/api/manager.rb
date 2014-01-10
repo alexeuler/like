@@ -1,7 +1,8 @@
 require "celluloid"
+require_relative "logger"
 module Api
   class Manager
-
+    include Logger
     include Celluloid
 
     # Token file structure
@@ -26,10 +27,13 @@ module Api
       load_tokens
       loop do
         tuple=self.class.request_queue.pop
+        log.info "Popped from request from queue: #{tuple[:request]}"
         token=pick_token
         tuple[:request] << "access_token=#{token.value}"
         now=Time.now
-        sleep sleep_time(token, now)
+        delay=sleep_time(token, now).round(3)
+        sleep delay if delay>0
+        log.info "Starting request #{tuple[:request]}"
         @requester.async.push tuple
         token.last_access=Time.now
       end
@@ -44,6 +48,7 @@ module Api
       last_id_access=token.last_access
       server_delay=[1.0/@server_requests_per_sec-now.to_f+last_server_access.to_f,0].max
       id_delay=[1.0/@id_requests_per_sec-now.to_f+last_id_access.to_f,0].max
+      log.info "Delay: #{[server_delay, id_delay].max}"
       [server_delay, id_delay].max
     end
 

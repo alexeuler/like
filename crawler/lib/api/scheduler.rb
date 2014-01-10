@@ -1,9 +1,12 @@
 require "json"
 require "celluloid"
+require_relative "logger"
 module Api
   class Scheduler
-
+    
     #JSON protocol : {method: <name>, params: {<param1>: <value1>}}
+
+    include Logger
 
     class << self 
       attr_accessor :request_queue
@@ -14,6 +17,7 @@ module Api
       socket=args[:socket]
       request=process_request socket.gets
       self.class.request_queue.push({socket: socket, request: request})
+      log.info "Pushed request: #{request}"
     end
 
     private
