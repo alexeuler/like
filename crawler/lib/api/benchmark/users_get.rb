@@ -2,22 +2,19 @@ require 'benchmark'
 require 'socket'
 require 'json'
 
-sockets=[]
-20.times do
-  s=TCPSocket.new "localhost", 9000
-  sockets << s
-end
-
-request={method: "users.get"}.to_json
+s=TCPSocket.new "localhost", 9000
+requests=(1..18).map {|i| {method: "users.get", params: {uids: i}}.to_json}
 
 Benchmark.bm do |x|
-  x.report("users.get 20 times") do
+  x.report("users.get 18 times") do
     threads=[]
-    sockets.each do |s|
+    s=TCPSocket.new "localhost", 9000
+    18.times {|i| s.puts requests[i]}
+    18.times do
       threads << Thread.new do
-        s.puts request
         line=s.gets
         res=JSON.parse line
+        puts res
         puts res if res["error"]
       end
     end

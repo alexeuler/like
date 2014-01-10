@@ -7,7 +7,7 @@ module Api
   class Server
     def self.start
       Scheduler.request_queue=Manager.request_queue=Queue.new
-      scheduler=Scheduler.pool size: 10 #these threads are fast
+      scheduler=Scheduler.pool size: 20 #up to 20 simultaneous connections
       listener=Listener.new host: "localhost", port: 9000, scheduler: scheduler
       listener.async.start
       requester=Requester.pool size: 50 #these require heavy IO

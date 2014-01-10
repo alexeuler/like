@@ -570,3 +570,928 @@ D, [2014-01-11T00:00:16.970286 #5936] DEBUG -- : Terminating 64 actors...
 W, [2014-01-11T00:00:16.990543 #5936]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 W, [2014-01-11T00:00:17.010375 #5936]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
 E, [2014-01-11T00:00:26.970467 #5936] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 6389 started.
+D, [2014-01-11T00:10:27.430724 #6389] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:10:27.440894 #6389]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:10:27.477092 #6389]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:10:37.430474 #6389] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 6515 started.
+D, [2014-01-11T00:10:44.705255 #6515] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:10:44.713693 #6515]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:10:44.748537 #6515]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+vk_api_daemon: process with pid 6641 started.
+E, [2014-01-11T00:10:48.595312 #6641] ERROR -- : Api::Listener crashed!
+Errno::EADDRINUSE: Address already in use - bind(2)
+	/home/alex/Development/like/crawler/lib/api/listener.rb:15:in `initialize'
+	/home/alex/Development/like/crawler/lib/api/listener.rb:15:in `new'
+	/home/alex/Development/like/crawler/lib/api/listener.rb:15:in `start'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+E, [2014-01-11T00:10:54.705924 #6515] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+D, [2014-01-11T00:11:02.873155 #6641] DEBUG -- : Terminating 73 actors...
+E, [2014-01-11T00:11:12.873433 #6641] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 6765 started.
+D, [2014-01-11T00:11:19.852491 #6765] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:11:19.862347 #6765]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:11:19.896461 #6765]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:11:29.852712 #6765] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 6893 started.
+D, [2014-01-11T00:12:27.309897 #6893] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:12:27.319428 #6893]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:12:27.352125 #6893]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:12:37.310098 #6893] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 7237 started.
+D, [2014-01-11T00:23:26.935578 #7237] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:23:26.937691 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.938169 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.938746 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.941748 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.942978 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.943882 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.945627 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.947106 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.948829 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.951574 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.951873 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.953159 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.954204 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.955690 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.957730 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.959053 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.977989 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.978986 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.979599 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.980796 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.981739 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.982402 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.982973 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.983770 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.985442 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.986616 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.987224 #7237]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:23:26.987474 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.988664 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.988967 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.989339 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.989742 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.990039 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.990315 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.990605 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.990886 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.991184 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.991566 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.991868 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.992145 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:26.992540 #7237] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:26.992835 #7237]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:23:36.935713 #7237] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+W, [2014-01-11T00:23:36.941367 #7237]  WARN -- : Terminating task: type=:call, meta={:method_name=>:start}, status=:sleeping
+vk_api_daemon: process with pid 7363 started.
+D, [2014-01-11T00:23:49.973790 #7363] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:23:49.975920 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.976561 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.977292 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.978879 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.980136 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.981011 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.981850 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.986347 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.987054 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.987735 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.988191 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.989025 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.989702 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.991029 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.992022 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.993087 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.994197 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.995211 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:49.996870 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:49.997777 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.014845 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.016294 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.017523 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.017925 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.018954 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.020035 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.020858 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.021267 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.021924 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.022974 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.023883 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+W, [2014-01-11T00:23:50.024353 #7363]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+D, [2014-01-11T00:23:50.024676 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.025835 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.026157 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.026443 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.026741 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.027136 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.027435 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.027713 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:23:50.028002 #7363] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:23:50.028278 #7363]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:23:59.974025 #7363] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+W, [2014-01-11T00:23:59.981022 #7363]  WARN -- : Terminating task: type=:call, meta={:method_name=>:start}, status=:sleeping
+vk_api_daemon: process with pid 7499 started.
+E, [2014-01-11T00:29:55.308959 #7499] ERROR -- : Api::Scheduler crashed!
+JSON::ParserError: 757: unexpected token at '{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}
+'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:32:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:20:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:29:55.309488 #7499] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+JSON::ParserError: 757: unexpected token at '{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}{"method":"users.get"}
+'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:32:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:20:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:30:47.428876 #7499] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:30:47.436779 #7499]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:30:47.459260 #7499]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:30:57.428495 #7499] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 7629 started.
+E, [2014-01-11T00:31:03.661277 #7629] ERROR -- : Api::Requester crashed!
+Errno::EPIPE: Broken pipe
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `write'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `puts'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:31:03.661861 #7629] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Errno::EPIPE: Broken pipe
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `write'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `puts'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+E, [2014-01-11T00:31:03.676282 #7629] ERROR -- : Api::Requester crashed!
+Errno::EPIPE: Broken pipe
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `write'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `puts'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:31:03.676983 #7629] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Errno::EPIPE: Broken pipe
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `write'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `puts'
+	/home/alex/Development/like/crawler/lib/api/requester.rb:12:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:37:36.661902 #7629] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:37:36.691290 #7629]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:37:36.711068 #7629]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:37:46.662245 #7629] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 7833 started.
+D, [2014-01-11T00:37:53.224305 #7833] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:37:53.233336 #7833]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:37:53.234027 #7833] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:37:53.235187 #7833]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:37:53.236284 #7833] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:37:53.237086 #7833]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:37:53.271254 #7833]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:38:03.224562 #7833] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 7966 started.
+D, [2014-01-11T00:41:07.398610 #7966] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:41:07.403193 #7966]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:41:07.403962 #7966] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:41:07.404142 #7966]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:41:07.404771 #7966] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:41:07.405250 #7966]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:41:07.427478 #7966]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:41:17.398011 #7966]  WARN -- : Terminating task: type=:call, meta={:method_name=>:start}, status=:sleeping
+E, [2014-01-11T00:41:17.398671 #7966] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 8090 started.
+D, [2014-01-11T00:41:27.151251 #8090] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:41:27.159594 #8090]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:41:27.160440 #8090] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:41:27.161839 #8090]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:41:27.162543 #8090] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:41:27.163274 #8090]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:41:27.199741 #8090]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:41:37.151370 #8090] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 8218 started.
+D, [2014-01-11T00:42:18.389777 #8218] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:42:18.394560 #8218]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:42:18.395109 #8218] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:42:18.395462 #8218]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:42:18.395908 #8218] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:42:18.398018 #8218]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:42:18.420742 #8218]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:42:28.389361 #8218] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 8345 started.
+D, [2014-01-11T00:42:41.153153 #8345] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:42:41.160339 #8345]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:42:41.160667 #8345] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:42:41.160852 #8345]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:42:41.161104 #8345] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:42:41.161358 #8345]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:42:41.193694 #8345]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:42:51.153781 #8345] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 8504 started.
+E, [2014-01-11T00:43:53.351206 #8504] ERROR -- : Api::Scheduler crashed!
+JSON::ParserError: 757: unexpected token at '?uids=0
+'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:32:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:20:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:43:53.351461 #8504] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+JSON::ParserError: 757: unexpected token at '?uids=0
+'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/json/common.rb:155:in `parse'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:32:in `process_request'
+	/home/alex/Development/like/crawler/lib/api/scheduler.rb:20:in `push'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:67:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:92:in `value'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/sync_proxy.rb:33:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/proxies/actor_proxy.rb:20:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:41:in `_send_'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/pool_manager.rb:123:in `method_missing'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `public_send'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:25:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/calls.rb:122:in `dispatch'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:322:in `block in handle_message'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:416:in `block in task'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks.rb:55:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:13:in `block in create'
+D, [2014-01-11T00:45:21.576107 #8504] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:45:21.587779 #8504]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:45:21.624344 #8504]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:45:31.576187 #8504] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
+vk_api_daemon: process with pid 8639 started.
+D, [2014-01-11T00:45:38.247868 #8639] DEBUG -- : Terminating 74 actors...
+W, [2014-01-11T00:45:38.256425 #8639]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:45:38.258350 #8639] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:45:38.259522 #8639]  WARN -- : Terminating task: type=:call, meta={:method_name=>:push}, status=:callwait
+D, [2014-01-11T00:45:38.260223 #8639] DEBUG -- : Celluloid::PoolManager: async call `push` aborted!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+W, [2014-01-11T00:45:38.261613 #8639]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-01-11T00:45:38.294240 #8639]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+E, [2014-01-11T00:45:48.248087 #8639] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!

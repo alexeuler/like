@@ -5,10 +5,12 @@ module Api
   class Requester
     include Celluloid
     def push(args)
-      response=Net::HTTP.get_response(URI.parse(args[:request]))
-      socket=args[:socket]
-      socket.puts response.body
-      socket.close
+      if args[:close]
+        args[:socket].close
+      else
+        response=Net::HTTP.get_response(URI.parse(args[:request]))
+        args[:socket].write response.body+"\r\n"
+      end
     end
   end
 end
