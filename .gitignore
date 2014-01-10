@@ -1,2 +1,2 @@
 tokens.csv
-crawler/lib/api/daemon_data
+crawler/lib/api/daemon_data/*
