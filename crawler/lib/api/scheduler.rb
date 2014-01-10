@@ -20,7 +20,6 @@ module Api
         id+=1
         request=process_request line
         self.class.request_queue.push({socket: socket, request: request, id: id})
-        log.info "Pushed request: #{request}"
       end
         self.class.request_queue.push({socket: socket, request: "service", close: true}) #to close the socket after all requests are finished
     end
