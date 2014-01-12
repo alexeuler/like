@@ -6,6 +6,7 @@ require_relative "requester"
 module Api
   class Server
     def self.start
+      Celluloid.logger = nil
       Scheduler.request_queue=Manager.request_queue=Queue.new
       scheduler=Scheduler.pool size: 20 #up to 20 simultaneous connections
       listener=Listener.new host: "localhost", port: 9000, scheduler: scheduler
