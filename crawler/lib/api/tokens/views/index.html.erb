@@ -11,8 +11,8 @@
       <td><%=token[:value]%></td>
       <td><%=token[:expires]%></td>
       <td><%=token[:id]%></td>
-      <td><a href="<%="http://api.vk.com/oauth/authorize?client_id=#{@id}&redirect_uri=#{@redirect_uri}"%>">Update</a></td>
+      <td><a href="<%="?delete=#{token[:id]}"%>">Delete</a></td>
     </tr>
   <% end %>
-
 </table>
+  <p><a href="<%="http://api.vk.com/oauth/authorize?client_id=#{@id}&redirect_uri=#{@redirect_uri}"%>">New / Update</a></p>
