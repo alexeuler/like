@@ -1,4 +1,4 @@
-require "api/manager"
+require_relative "../../lib/api/manager"
 require "tempfile"
 
 module Api
@@ -36,6 +36,7 @@ module Api
         tokens << Manager::Token.new(i, now+100, i, now+i.to_f/serv_freq)
       end
       manager=Manager.new(server_requests_per_sec: serv_freq, id_requests_per_sec: id_freq)
+      manager.stub(:load_tokens)
       manager.tokens=tokens
       now+=3.0/serv_freq      # now is the time of last request
       manager.sleep_time(tokens[0],now).round(3).should==(1.0/serv_freq).round(3) # here only server delay matters
