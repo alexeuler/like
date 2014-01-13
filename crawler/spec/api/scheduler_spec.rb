@@ -1,6 +1,4 @@
 require "api/scheduler"
-
-
 module Api
   describe "Api::Scheduler" do
     it "reads json from socket and pushes request string into request queue" do
