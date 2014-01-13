@@ -65,12 +65,16 @@ class Controller
 
   def load_tokens
     tokens=[]
-    File.open(FILENAME, "r") do |f|
-      while line=f.gets
-        values=line.chomp.split(";")
-        token=Token.new(values[0],values[1], values[2])
-        tokens << token
+    begin
+      File.open(FILENAME, "r") do |f|
+        while line=f.gets
+          values=line.chomp.split(";")
+          token=Token.new(values[0],values[1], values[2])
+          tokens << token
+        end
       end
+    rescue Exception => e
+      tokens=[]
     end
     tokens
   end
