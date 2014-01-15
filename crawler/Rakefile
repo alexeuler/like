@@ -28,6 +28,7 @@ namespace :api do
     require "socket"
     require "irb"
     require_relative "lib/vk_api"
+    require_relative "config/activerecord"
     ARGV.clear
     begin
       s=TCPSocket.new("localhost", 9000)
@@ -52,7 +53,6 @@ db_namespace=namespace :db do
   end
 
   task :migrate => :environment do
-    
     ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths)
     db_namespace['dump'].invoke
   end
