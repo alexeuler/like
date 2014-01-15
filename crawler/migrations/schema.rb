@@ -11,6 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140115232246) do
+
+  create_table "users", force: true do |t|
+    t.integer  "vk_id",                   null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "access_mask", default: 0
+    t.string   "photo"
+    t.integer  "sex"
+    t.date     "birthday"
+    t.string   "university"
+    t.string   "faculty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
