@@ -2,10 +2,10 @@ require 'benchmark'
 require 'socket'
 require 'json'
 
-TIMES=3*20
+TIMES=3*10
 
 Benchmark.bm do |x|
-  x.report("users.get 18 times") do
+  x.report("users.get #{TIMES} times") do
     s=TCPSocket.new "localhost", 9000
     requests=(1..TIMES).map {|i| {method: "users.get", params: {uids: i}}.to_json}
     threads=[]

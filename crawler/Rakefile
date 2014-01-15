@@ -1,0 +1,27 @@
+dir=File.expand_path(File.dirname(__FILE__))
+
+  task :spec do
+    system "cd #{dir} && rspec -c --format documentation" 
+  end
+
+  namespace :api do
+    task :start do
+      system "cd #{dir}/lib/api && ruby daemon.rb start && cd #{dir}"
+    end
+
+    task :stop do
+      system "cd #{dir}/lib/api && ruby daemon.rb stop && cd #{dir}"
+    end
+
+    task :restart do
+      system "cd #{dir}/lib/api && ruby daemon.rb restart && cd #{dir}"
+    end
+
+    task :benchmark do
+      Rake::Task["api:restart"].invoke
+      sleep(2)
+      require "#{dir}/lib/api/benchmark/users_get.rb"
+      Rake::Task["api:stop"].invoke
+    end
+
+end
