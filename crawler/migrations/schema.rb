@@ -11,17 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116001155) do
+ActiveRecord::Schema.define(version: 20140116010552) do
 
   create_table "friends", force: true do |t|
-    t.integer  "vk_id",      null: false
-    t.integer  "friend_id",  null: false
+    t.string   "vk_id",      null: false
+    t.string   "friend_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: true do |t|
+    t.string   "post_id",    null: false
+    t.string   "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "vk_id",                        null: false
+    t.string   "owner_id",                     null: false
+    t.text     "text"
+    t.integer  "attachment_type"
+    t.string   "attachment_image"
+    t.text     "attachment_text"
+    t.string   "attachment_url"
+    t.integer  "likes",            default: 0
+    t.integer  "resposts",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.integer  "vk_id",                   null: false
+    t.string   "vk_id",                   null: false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "access_mask", default: 0
