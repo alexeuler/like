@@ -75,7 +75,9 @@ db_namespace=namespace :db do
     file_name = "#{ActiveRecord::Migrator.migrations_paths[0]}/#{Time.now.strftime("%Y%m%d%H%M%S")}_#{args.name}.rb" 
     file=File.new(file_name, "w")
     file.puts("class #{args.name.split('_').each {|s| s.capitalize!}.join('')} < ActiveRecord::Migration")
+    file.puts("  def change")
     file.puts
+    file.puts("  end")
     file.puts("end")
     file.close
   end
