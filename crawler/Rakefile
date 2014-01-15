@@ -1,27 +1,82 @@
 dir=File.expand_path(File.dirname(__FILE__))
 
-  task :spec do
-    system "cd #{dir} && rspec -c --format documentation" 
+task :spec do
+  system "cd #{dir} && rspec -c --format documentation" 
+end
+
+namespace :api do
+  task :start do
+    system "cd #{dir}/lib/api && ruby daemon.rb start && cd #{dir}"
   end
 
-  namespace :api do
-    task :start do
-      system "cd #{dir}/lib/api && ruby daemon.rb start && cd #{dir}"
-    end
+  task :stop do
+    system "cd #{dir}/lib/api && ruby daemon.rb stop && cd #{dir}"
+  end
 
-    task :stop do
-      system "cd #{dir}/lib/api && ruby daemon.rb stop && cd #{dir}"
-    end
+  task :restart do
+    system "cd #{dir}/lib/api && ruby daemon.rb restart && cd #{dir}"
+  end
 
-    task :restart do
-      system "cd #{dir}/lib/api && ruby daemon.rb restart && cd #{dir}"
-    end
+  task :benchmark do
+    Rake::Task["api:restart"].invoke
+    sleep(2)
+    require "#{dir}/lib/api/benchmark/users_get.rb"
+    Rake::Task["api:stop"].invoke
+  end
 
-    task :benchmark do
+  task :test do
+    require "socket"
+    require "irb"
+    require_relative "lib/vk_api"
+    ARGV.clear
+    begin
+      s=TCPSocket.new("localhost", 9000)
+    rescue Exception => e
       Rake::Task["api:restart"].invoke
       sleep(2)
-      require "#{dir}/lib/api/benchmark/users_get.rb"
-      Rake::Task["api:stop"].invoke
+      s=TCPSocket.new("localhost", 9000)
+    end
+    @api=VkApi.new socket: s
+    IRB.start
+    s.close
+    Rake::Task["api:stop"].invoke
+  end
+  
+end
+
+db_namespace=namespace :db do
+
+  task :environment do
+    require_relative "config/activerecord"
+    ActiveRecord::Migrator.migrations_paths=File.expand_path(File.dirname(__FILE__))+"/migrations"
+  end
+
+  task :migrate => :environment do
+    
+    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths)
+    db_namespace['dump'].invoke
+  end
+
+  task :rollback => :environment do
+    ActiveRecord::Migrator.rollback(ActiveRecord::Migrator.migrations_paths, 1)
+    db_namespace['dump'].invoke
+  end
+  
+    task :dump => :environment do
+      require 'active_record/schema_dumper'
+      filename = File.join(ActiveRecord::Migrator.migrations_paths, 'schema.rb')
+      File.open(filename, "w:utf-8") do |file|
+        ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
+      end
+      db_namespace['dump'].reenable
     end
 
+  task :migration, [:name]  => [:environment] do |task, args|
+    file_name = "#{ActiveRecord::Migrator.migrations_paths[0]}/#{Time.now.strftime("%Y%m%d%H%M%S")}_#{args.name}.rb" 
+    file=File.new(file_name, "w")
+    file.puts("class #{args.name.split('_').each {|s| s.capitalize!}.join('')} < ActiveRecord::Migration")
+    file.puts
+    file.puts("end")
+    file.close
+  end
 end
