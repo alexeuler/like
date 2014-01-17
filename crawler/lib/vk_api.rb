@@ -14,10 +14,14 @@ class VkApi
   end
   
   def method_missing(method, *args, &block)
+    if args[0]
+      batch=args[0][:batch]
+      args[0].delete_if { |key, value| key==:batch }
+    end
     req=request(method, *args).to_json
-    @requests << {data: req, retries: @retries}
+    @requests << {data: req, retries: @retries, id: @requests.count}
     @socket.puts req
-    get_all_responses
+    get unless batch
   end
 
   def retry_request
@@ -28,25 +32,25 @@ class VkApi
     request[:retries]>0
   end
 
-  def get_all_responses
+  def get
     result=[]
     while @requests.count>0
       resp=""
       begin
-        puts @requests.count
         resp=Timeout::timeout(@timeout) {@socket.gets}
         resp=JSON.parse resp, :symbolize_names => true
         resp["error"] && if resp["error"]["error_msg"]=~/Too many requests/i
                            continue if retry_request
                            result << nil
                          end
-        @requests.shift
-        result << resp
+        result << {data: resp, id: @requests.shift[:id]}
       rescue Exception => e
         continue if retry_request
         result << nil
       end
     end
+    result.sort! {|a,b| a[:id] <=> b[:id] }
+    result.map! { |r| r[:data] }
     result.count==1 ? result[0] : result
   end
   

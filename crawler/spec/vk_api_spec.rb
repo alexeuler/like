@@ -20,18 +20,32 @@ describe "VkApi" do
     before :each do
       @api.stub(:request).and_return "request"
     end
-    context "sends a request to predefined socket and w8s for the reply" do
-      context "if server responds with an answer" do
-        it "returns answer hash" do
-          ans={response: "success"}
-          @server.puts ans.to_json
-          @api.users_get.should==ans
+    context ":batch parameter set to true" do
+      context "sends 3 requests to predefined socket and w8s for the reply" do
+        context "if server responds with valid answers" do
+          it "returns answer hash" do
+            ans=[]
+            3.times do |i| 
+              @server.puts({response: "Success#{i}"}.to_json)
+            end
+            3.times {@api.users_get batch: true}
+            @api.get.should==[{response: "Success0"}, {response: "Success1"}, {response: "Success2"}]
+          end
+        end
+        context "if server doesn't respond or responds with \"too many requests\" error" do
+          it "does #{VkApi::RETRIES} retries then returns nil"
         end
       end
-      context "if server doesn't respond or responds with \"too many requests\" error" do
-        it "does #{VkApi::RETRIES} retries then returns nil"
+    end
+
+    context ":batch parameter is ommited" do
+      it "sends a request to predefined socket and returns a reply hash" do
+        ans={response: "success"}
+        @server.puts ans.to_json
+        @api.users_get.should==ans
       end
     end
+    
   end
   
 end
