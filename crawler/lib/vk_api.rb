@@ -10,27 +10,46 @@ class VkApi
     @socket=args[:socket]
     @timeout=args[:timeout]
     @retries=args[:retries]
+    @requests=[]
   end
   
   def method_missing(method, *args, &block)
-    success=false
-    request=request(method, *args).to_json
-    resp=""
-    while (not success) and @retries > 0
-      begin
-        @socket.puts request
-        resp=Timeout::timeout(@timeout) {@socket.gets}
-        resp["error"] && if resp["error"]["error_msg"]=~/Too many requests/i
-          @retries-=1
-          continue
-        end
-      rescue Exception => e
-        @retries-=1
-      end
-    end
-    JSON.parse resp
+    req=request(method, *args).to_json
+    @requests << {data: req, retries: @retries}
+    @socket.puts req
+    get_all_responses
   end
 
+  def retry_request
+    request=@requests.shift
+    request[:retries]-=1
+    @requests << request
+    @socket.puts request[:data]
+    request[:retries]>0
+  end
+
+  def get_all_responses
+    result=[]
+    while @requests.count>0
+      resp=""
+      begin
+        puts @requests.count
+        resp=Timeout::timeout(@timeout) {@socket.gets}
+        resp=JSON.parse resp, :symbolize_names => true
+        resp["error"] && if resp["error"]["error_msg"]=~/Too many requests/i
+                           continue if retry_request
+                           result << nil
+                         end
+        @requests.shift
+        result << resp
+      rescue Exception => e
+        continue if retry_request
+        result << nil
+      end
+    end
+    result.count==1 ? result[0] : result
+  end
+  
   def request(method, *args)
     method=method.to_s
     method.gsub!("_",".")
