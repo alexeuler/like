@@ -1,6 +1,33 @@
 require "vk_api"
 require "socket"
 require "json"
+require "timeout"
+
+class TestServer
+  def initialize(args={})
+    @socket=args[:socket]
+    @counter=0
+  end
+
+  def start
+    continue=true
+    while continue do
+      begin
+        Timeout::timeout(1) do
+          line=@socket.gets
+          hash=JSON.parse line
+          hash={reponse: hash}
+          @socket.puts hash.to_json if @counter % 2 == 0
+          @counter+=1
+        end
+      rescue Exception => e
+        continue=false
+      end
+    end
+  end
+end
+
+
 describe "VkApi" do
   before :each do
     @client, @server=Socket.pair(:UNIX, :DGRAM, 0)
@@ -17,9 +44,6 @@ describe "VkApi" do
   end
 
   describe "#method_missing" do
-    before :each do
-      @api.stub(:request).and_return "request"
-    end
     context ":batch parameter set to true" do
       context "sends 3 requests to predefined socket and w8s for the reply" do
         context "if server responds with valid answers" do
@@ -32,20 +56,38 @@ describe "VkApi" do
             @api.get.should==[{response: "Success0"}, {response: "Success1"}, {response: "Success2"}]
           end
         end
-        context "if server doesn't respond or responds with \"too many requests\" error" do
-          it "does #{VkApi::RETRIES} retries then returns nil"
+        context "if server doesn't respond" do
+          it "does #{VkApi::RETRIES} retries then returns nil" do
+            3.times {@api.users_get batch: true}
+            @api.get.should==[nil, nil, nil]
+          end
+        end
+        context "if server responds with \"Too many requests error\"" do
+          it "does #{VkApi::RETRIES} retries then returns nil" do
+            3.times {@server.puts({error: {error_msg:"Too many requests per second."}}.to_json)}
+            3.times {@api.users_get batch: true}
+            @api.get.should==[nil, nil, nil]
+          end
+        end
+        context "in environment with mixed responses" do
+          it "also behaves correctly", now: true do
+            test=TestServer.new socket: @server
+            thread=Thread.new {test.start}
+            3.times {|i| @api.users_get uid: i.to_s, batch: true}
+            @api.get.should==[nil, nil, nil]
+            thread.join
+          end
         end
       end
     end
+  end
 
-    context ":batch parameter is ommited" do
-      it "sends a request to predefined socket and returns a reply hash" do
-        ans={response: "success"}
-        @server.puts ans.to_json
-        @api.users_get.should==ans
-      end
+  context ":batch parameter is ommited" do
+    it "sends a request to predefined socket and returns a reply hash" do
+      ans={response: "success"}
+      @server.puts ans.to_json
+      @api.users_get.should==ans
     end
-    
   end
   
 end

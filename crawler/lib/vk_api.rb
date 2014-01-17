@@ -25,11 +25,17 @@ class VkApi
   end
 
   def retry_request
-    request=@requests.shift
-    request[:retries]-=1
-    @requests << request
-    @socket.puts request[:data]
-    request[:retries]>0
+    debugger
+    req=@requests.shift
+    req[:retries]-=1
+    if req[:retries]>0 
+      @requests << req
+      @socket.puts req[:data]
+      true
+    else
+      @requests.unshift req
+      false
+    end
   end
 
   def get
@@ -37,16 +43,18 @@ class VkApi
     while @requests.count>0
       resp=""
       begin
+        debugger
         resp=Timeout::timeout(@timeout) {@socket.gets}
         resp=JSON.parse resp, :symbolize_names => true
-        resp["error"] && if resp["error"]["error_msg"]=~/Too many requests/i
-                           continue if retry_request
-                           result << nil
+        resp[:error] && if resp[:error][:error_msg]=~/Too many requests/i
+                           next if retry_request
+                           result << {data: nil, id: @requests.shift[:id]}
                          end
         result << {data: resp, id: @requests.shift[:id]}
       rescue Exception => e
-        continue if retry_request
-        result << nil
+        puts e.message
+        next if retry_request
+        result << {data: nil, id: @requests.shift[:id]}
       end
     end
     result.sort! {|a,b| a[:id] <=> b[:id] }
