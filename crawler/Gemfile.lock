@@ -23,6 +23,8 @@ GEM
       timers (~> 1.1.0)
     daemons (1.0.10)
     diff-lcs (1.2.5)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
     gem_plugin (0.2.3)
     i18n (0.6.9)
     minitest (4.7.5)
@@ -53,6 +55,7 @@ DEPENDENCIES
   activesupport
   celluloid
   daemons
+  factory_girl
   mongrel (>= 1.2.0.pre2)
   mysql2
   rack
