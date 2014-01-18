@@ -41,6 +41,7 @@ class VkApi
   #resonses from socket (result variable in #get) is like {hash_from_vk, incoming: requests[:data] 
 
   def get
+    raise "VkApi: no requests is sent and #get is called" if @requests.count == 0
     result=[]
     while @requests.count>result.count
       resp=Timeout::timeout(@timeout) {@socket.gets}
