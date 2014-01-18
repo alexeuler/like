@@ -21,7 +21,7 @@ module Api
         rescue Timeout::Error =>e
           response={error: {error_msg: "Request timeout in #{VK_TIMEOUT} seconds"}}
         end
-        response[:id]=args[:id]
+        response[:incoming]=args[:incoming]
         args[:socket].write response.to_json+"\r\n"
       end
     end

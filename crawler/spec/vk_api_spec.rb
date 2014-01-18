@@ -15,9 +15,10 @@ class TestServer
       begin
         Timeout::timeout(1) do
           line=@socket.gets
-          hash=JSON.parse line
-          hash={reponse: hash}
-          @socket.puts hash.to_json if @counter % 2 == 0
+          line.chomp!
+          hash=JSON.parse line, symbolize_names: true
+          @counter % 2 == 0 ? hash={response: hash[:params][:uid], incoming: line} : hash={error: hash[:params][:uid], incoming: line}
+          @socket.puts hash.to_json 
           @counter+=1
         end
       rescue Exception => e
@@ -57,24 +58,24 @@ describe "VkApi" do
           end
         end
         context "if server doesn't respond" do
-          it "does #{VkApi::RETRIES} retries then returns nil" do
+          it "does #{VkApi::RETRIES} retries then raises exception" do
             3.times {@api.users_get batch: true}
-            @api.get.should==[nil, nil, nil]
+            expect {@api.get}.to raise_error
           end
         end
         context "if server responds with \"Too many requests error\"" do
           it "does #{VkApi::RETRIES} retries then returns nil" do
             3.times {@server.puts({error: {error_msg:"Too many requests per second."}}.to_json)}
             3.times {@api.users_get batch: true}
-            @api.get.should==[nil, nil, nil]
+            expect {@api.get}.to raise_error
           end
         end
         context "in environment with mixed responses" do
           it "also behaves correctly", now: true do
             test=TestServer.new socket: @server
             thread=Thread.new {test.start}
-            3.times {|i| @api.users_get uid: i.to_s, batch: true}
-            @api.get.should==[nil, nil, nil]
+            3.times {|i| @api.users_get uid: i, batch: true}
+            @api.get.should==[{response: 0}, {response: 1}, {response: 2}]
             thread.join
           end
         end

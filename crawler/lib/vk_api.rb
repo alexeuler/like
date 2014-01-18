@@ -2,6 +2,8 @@ require "json"
 require "timeout"
 class VkApi
 
+  #Batch doesn't support fully identical requests
+  
   TIMEOUT=30
   RETRIES=3
 
@@ -19,46 +21,41 @@ class VkApi
       args[0].delete_if { |key, value| key==:batch }
     end
     req=request(method, *args).to_json
-    @requests << {data: req, retries: @retries, id: @requests.count}
+    @requests << {data: req, retries: @retries}
     @socket.puts req
     get unless batch
   end
 
-  def retry_request
-    debugger
-    req=@requests.shift
+  def retry_request(resp)
+    req=@requests.select {|x| x[:data]==resp[:incoming]}.first
     req[:retries]-=1
-    if req[:retries]>0 
-      @requests << req
-      @socket.puts req[:data]
-      true
+    if req[:retries]>=0
+      @socket.puts resp[:incoming]
     else
-      @requests.unshift req
-      false
+      raise "Could not complete request in #{RETRIES} times"
     end
   end
 
+  #requests is like [data: json like {method: users.get}, retries:3]
+  #resonses from socket (result variable in #get) is like {hash_from_vk, incoming: requests[:data] 
+
   def get
     result=[]
-    while @requests.count>0
-      resp=""
-      begin
-        debugger
-        resp=Timeout::timeout(@timeout) {@socket.gets}
-        resp=JSON.parse resp, :symbolize_names => true
-        resp[:error] && if resp[:error][:error_msg]=~/Too many requests/i
-                           next if retry_request
-                           result << {data: nil, id: @requests.shift[:id]}
-                         end
-        result << {data: resp, id: @requests.shift[:id]}
-      rescue Exception => e
-        puts e.message
-        next if retry_request
-        result << {data: nil, id: @requests.shift[:id]}
+    while @requests.count>result.count
+      resp=Timeout::timeout(@timeout) {@socket.gets}
+      resp=JSON.parse resp, :symbolize_names => true
+      if resp[:error]
+        retry_request(resp)
+        next
       end
+      result << resp
     end
-    result.sort! {|a,b| a[:id] <=> b[:id] }
-    result.map! { |r| r[:data] }
+    result.sort! do |a,b|
+      a_elem=@requests.select {|x| x[:data]==a[:incoming]}.first
+      b_elem=@requests.select {|x| x[:data]==b[:incoming]}.first
+      @requests.find_index(a_elem) <=> @requests.index(b_elem)
+    end
+    result.each {|x| x.delete :incoming}
     result.count==1 ? result[0] : result
   end
   

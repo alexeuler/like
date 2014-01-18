@@ -5,7 +5,8 @@ module Api
   class Scheduler
     
     #JSON protocol : {method: <name>, params: {<param1>: <value1>}}
-
+    CONNECTION_TIMEOUT=360
+    
     include Logger
 
     class << self 
@@ -15,13 +16,16 @@ module Api
     include Celluloid
     def push(args={})
       socket=args[:socket]
-      id=0
-      while line=socket.gets
-        id+=1
+      begin
+      while line=Timeout::timeout(CONNECTION_TIMEOUT) {socket.gets}
+        line.chomp!
         request=process_request line
-        self.class.request_queue.push({socket: socket, request: request, id: id})
+        self.class.request_queue.push({socket: socket, request: request, incoming: line})
       end
         self.class.request_queue.push({socket: socket, request: "service", close: true}) #to close the socket after all requests are finished
+      ensure
+        socket.close
+      end
     end
 
     private
