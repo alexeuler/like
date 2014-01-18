@@ -17,7 +17,7 @@ class TestServer
           line=@socket.gets
           line.chomp!
           hash=JSON.parse line, symbolize_names: true
-          @counter % 2 == 0 ? hash={response: hash[:params][:uid], incoming: line} : hash={error: hash[:params][:uid], incoming: line}
+          @counter % 2 == 0 ? hash={response: hash[:params][:uid], incoming: line} : hash={error: {error_msg: "tOO many requests per sec"}, incoming: line}
           @socket.puts hash.to_json 
           @counter+=1
         end
@@ -46,45 +46,46 @@ describe "VkApi" do
 
   describe "#method_missing" do
     context ":batch parameter set to true" do
-      context "sends 3 requests to predefined socket and w8s for the reply" do
-        context "if server responds with valid answers" do
-          it "returns answer hash" do
-            ans=[]
-            3.times do |i| 
-              @server.puts({response: "Success#{i}"}.to_json)
-            end
-            3.times {@api.users_get batch: true}
-            @api.get.should==[{response: "Success0"}, {response: "Success1"}, {response: "Success2"}]
+      it "doesn't support fully identical requests" do
+        
+      end
+      context "if server responds with valid answers and #get is called" do
+        it "returns proper responses array" do
+          ans=[]
+          3.times do |i| 
+            @server.puts({response: "Success#{i}"}.to_json)
           end
+          3.times {@api.users_get batch: true}
+          @api.get.should==[{response: "Success0"}, {response: "Success1"}, {response: "Success2"}]
         end
-        context "if server doesn't respond" do
-          it "does #{VkApi::RETRIES} retries then raises exception" do
-            3.times {@api.users_get batch: true}
-            expect {@api.get}.to raise_error
-          end
+      end
+      context "if server doesn't respond and #get is called" do
+        it "raises error: \"#{VkApi::TIMEOUT_ERR_MESSAGE}\"" do
+          3.times {@api.users_get batch: true}
+          expect {@api.get}.to raise_error
         end
-        context "if server responds with \"Too many requests error\"" do
-          it "does #{VkApi::RETRIES} retries then returns nil" do
-            3.times {@server.puts({error: {error_msg:"Too many requests per second."}}.to_json)}
-            3.times {@api.users_get batch: true}
-            expect {@api.get}.to raise_error
-          end
+      end
+      context "if VK responds with \"Too many requests\" error and #get is called" do
+        it "does #{VkApi::RETRIES} retries then raises error: \"#{VkApi::TIMEOUT_ERR_MESSAGE}\"" do
+          3.times {@server.puts({error: {error_msg:"Too many requests per second."}}.to_json)}
+          3.times {@api.users_get batch: true}
+          expect {@api.get}.to raise_error
         end
-        context "in environment with mixed responses" do
-          it "also behaves correctly", now: true do
-            test=TestServer.new socket: @server
-            thread=Thread.new {test.start}
-            3.times {|i| @api.users_get uid: i, batch: true}
-            @api.get.should==[{response: 0}, {response: 1}, {response: 2}]
-            thread.join
-          end
+      end
+      context "if VK fails from time to time" do
+        it "returns proper responses array", now: true do
+          test=TestServer.new socket: @server
+          thread=Thread.new {test.start}
+          3.times {|i| @api.users_get uid: i, batch: true}
+          @api.get.should==[{response: 0}, {response: 1}, {response: 2}]
+          thread.join
         end
       end
     end
   end
 
   context ":batch parameter is ommited" do
-    it "sends a request to predefined socket and returns a reply hash" do
+    it "returns proper response hash" do
       ans={response: "success"}
       @server.puts ans.to_json
       @api.users_get.should==ans

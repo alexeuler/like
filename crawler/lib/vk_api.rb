@@ -6,6 +6,7 @@ class VkApi
   
   TIMEOUT=30
   RETRIES=3
+  TIMEOUT_ERR_MESSAGE="Could not complete request in #{RETRIES} times"
 
   def initialize(args={})
     args=defaults.merge args
@@ -32,7 +33,7 @@ class VkApi
     if req[:retries]>=0
       @socket.puts resp[:incoming]
     else
-      raise "Could not complete request in #{RETRIES} times"
+      raise TIMEOUT_ERR_MESSAGE
     end
   end
 
@@ -44,7 +45,7 @@ class VkApi
     while @requests.count>result.count
       resp=Timeout::timeout(@timeout) {@socket.gets}
       resp=JSON.parse resp, :symbolize_names => true
-      if resp[:error]
+      resp[:error] && if resp[:error][:error_msg]=~/Too many requests/i
         retry_request(resp)
         next
       end
@@ -56,6 +57,7 @@ class VkApi
       @requests.find_index(a_elem) <=> @requests.index(b_elem)
     end
     result.each {|x| x.delete :incoming}
+    @requests=[]
     result.count==1 ? result[0] : result
   end
   
@@ -68,6 +70,6 @@ class VkApi
   private
 
   def defaults
-    {timeout:TIMEOUT, retires: RETRIES}
+    {timeout:TIMEOUT, retries: RETRIES}
   end
 end
