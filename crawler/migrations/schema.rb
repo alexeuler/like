@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120191714) do
+ActiveRecord::Schema.define(version: 20140121003319) do
 
   create_table "friends", force: true do |t|
     t.string   "vk_id",      null: false
@@ -42,22 +42,22 @@ ActiveRecord::Schema.define(version: 20140120191714) do
   end
 
   create_table "user_profiles", force: true do |t|
-    t.string   "vk_id",                            null: false
+    t.integer  "vk_id",                            null: false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "access_mask",          default: 0
     t.string   "photo"
     t.integer  "sex"
     t.date     "birthday"
-    t.string   "university"
-    t.string   "faculty"
+    t.integer  "university"
+    t.integer  "faculty"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "city"
-    t.string   "country"
+    t.integer  "city"
+    t.integer  "country"
     t.string   "rate"
     t.string   "contacts"
-    t.string   "has_mobile"
+    t.integer  "has_mobile"
     t.integer  "albums_count"
     t.integer  "videos_count"
     t.integer  "audios_count"

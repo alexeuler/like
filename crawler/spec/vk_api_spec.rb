@@ -73,7 +73,7 @@ describe "VkApi" do
         end
       end
       context "if VK fails from time to time" do
-        it "returns proper responses array", now: true do
+        it "returns proper responses array" do
           test=TestServer.new socket: @server
           thread=Thread.new {test.start}
           3.times {|i| @api.users_get uid: i, batch: true}
