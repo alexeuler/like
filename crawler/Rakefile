@@ -1,9 +1,5 @@
 dir=File.expand_path(File.dirname(__FILE__))
 
-task :spec do
-  system "cd #{dir} && rspec -c --format documentation" 
-end
-
 namespace :api do
   task :start do
     system "cd #{dir}/lib/api && ruby daemon.rb start && cd #{dir}"
@@ -17,6 +13,10 @@ namespace :api do
     system "cd #{dir}/lib/api && ruby daemon.rb restart && cd #{dir}"
   end
 
+  task :tokens do
+    system "cd #{dir}/lib/api/tokens && rackup" 
+  end
+  
   task :benchmark do
     Rake::Task["api:restart"].invoke
     sleep(2)
@@ -62,14 +62,14 @@ db_namespace=namespace :db do
     db_namespace['dump'].invoke
   end
   
-    task :dump => :environment do
-      require 'active_record/schema_dumper'
-      filename = File.join(ActiveRecord::Migrator.migrations_paths, 'schema.rb')
-      File.open(filename, "w:utf-8") do |file|
-        ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
-      end
-      db_namespace['dump'].reenable
+  task :dump => :environment do
+    require 'active_record/schema_dumper'
+    filename = File.join(ActiveRecord::Migrator.migrations_paths, 'schema.rb')
+    File.open(filename, "w:utf-8") do |file|
+      ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
     end
+    db_namespace['dump'].reenable
+  end
 
   task :migration, [:name]  => [:environment] do |task, args|
     file_name = "#{ActiveRecord::Migrator.migrations_paths[0]}/#{Time.now.strftime("%Y%m%d%H%M%S")}_#{args.name}.rb" 
