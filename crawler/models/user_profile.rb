@@ -36,21 +36,24 @@ class UserProfile < ActiveRecord::Base
     uids=[uids] unless uids.class.name=="Array"
     uids=uids[0..MAX_UIDS_PER_REQUEST-1]
     result=api.users_get uids: uids.join(","), fields:FIELDS
-    fetch_from_api_response(result)
+    profile=fetch_from_api_response(result)
+    profile.save if args[:save]
+    profile
   end
 
-  def self.fetch_from_api_response(data)
+  def self.fetch_from_api_response(data, args={})
     return unless data[:response]
     results=[]
     data[:response].each do |response|
       result=self.new
       Mapping.each do |key,value|
-        value = key=~/_count$/ ? response[:counters][value] : response[value]
+        value = key=~/_count$/ ? response[:counters] && response[:counters][value] : response[value]
         value=value.to_i if INTEGERS.include? key.to_s
         result.send "#{key}=".to_sym, value
       end
       results << result
     end
+    results.each {|res| res.save} if args[:save]
     results.count > 1 ?  results : results[0]
   end
 
