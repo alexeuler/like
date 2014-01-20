@@ -1,5 +1,6 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
+  
   FIELDS="uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters"
   MAX_UIDS_PER_REQUEST=1000
   Mapping={
@@ -30,6 +31,10 @@ class UserProfile < ActiveRecord::Base
 
   INTEGERS=%w(vk_id sex university faculty city country has_mobile albums_count videos_count audios_count notes_count photos_count groups_count friends_count online_friends_count user_videos_count followers_count)
 
+  #Usage:
+  #UserProfile.fetch (uids: [1,2])
+  #UserProfile.fetch (uids: 1, api: api, save: true)
+
   def self.fetch(args={})
     uids=args[:uids]
     api=args[:api] || @@api
@@ -41,6 +46,9 @@ class UserProfile < ActiveRecord::Base
     profile
   end
 
+  #Usage:
+  #UserProfile.fetch_from_api_response ("{response: ...}", save: true)
+  
   def self.fetch_from_api_response(data, args={})
     return unless data[:response]
     results=[]

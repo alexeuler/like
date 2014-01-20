@@ -38,17 +38,17 @@ RESPONSE={response:
 }
 
 PROFILE={
-  vk_id: 20,  #make it int
+  vk_id: 20, 
   first_name:"Sergey",
   last_name:"Zolin",
   photo:"http://cs315126.vk.me/u20/e_sa5c7sdfb1.jpg",
   sex: 2,
   birthday: Date.new(1987, 2, 28),
-  university: 2, #make it int
-  faculty: 23, #make it int
-  city: 1,  #make it int
-  country: 1,  #make it int
-  has_mobile: 1,  #make it int
+  university: 2, 
+  faculty: 23, 
+  city: 1,  
+  country: 1, 
+  has_mobile: 1, 
   albums_count: 2,
   videos_count: 14,
   audios_count: 44,
@@ -64,14 +64,24 @@ PROFILE={
 
 describe UserProfile do
   context "::fetch" do
+    before :each do
+      @api=double("api")
+    end
+    
     it "fecthes user profiles from vk specified by uids parameter" do
-      api=double("api")
-      api.should_receive(:users_get).with({uids: "1,2,3", fields: UserProfile::FIELDS}).and_return("test")
+      @api.should_receive(:users_get).with({uids: "1,2,3", fields: UserProfile::FIELDS}).and_return("test")
       UserProfile.should_receive(:fetch_from_api_response).with("test")
-      UserProfile.fetch(uids: [1,2,3], api: api)
+      UserProfile.fetch(uids: [1,2,3], api: @api)
     end
 
-    context "::fetch(uid:1, save: true)" do
+    it "accepts no more than #{UserProfile::MAX_UIDS_PER_REQUEST} uids (cuts the rest)" do
+      uids=(1..1010).to_a
+      @api.should_receive(:users_get).with({uids: (1..1000).to_a.join(","), fields: UserProfile::FIELDS}).and_return("test")
+      UserProfile.stub(:fetch_from_api_response)
+      UserProfile.fetch(uids: uids, api: @api)
+    end
+    
+    context "::fetch(uids:1, save: true)" do
       it "persists the object" do
         api=double("api")
         api.stub(:users_get)
