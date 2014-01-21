@@ -119,22 +119,37 @@ MODELS={
 }
 
 def make_sample(name)
-  res=POSTS[:body]
+  res=POSTS[:body].clone
   res[:attachment]=POSTS[name.to_sym]
   res
 end
 
 describe Post do
   context "::fecth_from_api_response" do
-    it "creates new Post with filled attributes", now: true do
-      post=Post.fetch_from_api_response({response: [make_sample(:link)]})
-      require "pp"
-      PP.pp post
-      MODELS[:link].each do |key,value| 
-        post[key].should==value
+    it "creates new Posts with filled attributes from vk wall.get" do
+      attachs=[:video, :photo, :link]
+      samples=attachs.map {|x| make_sample(x)}
+      samples.unshift 3         # count - the structure of VK response
+      posts=Post.fetch_from_api_response({response: samples})
+      i=0
+      attachs.each do |name| 
+        MODELS[name].each do |key,value| 
+          posts[i][key].should==value
+        end
+        i+=1
       end
     end
 
+    context "::fetch(response, save: true)" do
+      it "persists the object" do
+        Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1},{id: 2, to_id: 2}]}, save: true)
+        Post.all.count.should==2
+      end
+    end
+
+    
   end
+
 end
+
 

@@ -40,12 +40,14 @@ class Post < ActiveRecord::Base
   def self.fetch_from_api_response(data, args={})
     raise "Error: invalid response. #{data}" unless data[:response]
     data=data[:response]
+    data.shift                  # removes count  - the structure of VK response
     results=[]
     data.each do |response|
       result=self.new
       fetch_data(result, response, Mapping)
       results << result
     end
+    results.each {|res| res.save} if args[:save]
     results.count > 1 ?  results : results[0]
   end
 
