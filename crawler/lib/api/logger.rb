@@ -7,8 +7,8 @@ module Api
 
     def self.log
       if @log.nil?
-        @log=::Logger.new(File.dirname(__FILE__)+"/daemon_data/daemon.log")
-        log.level = ::Logger::ERROR
+        @log=::Logger.new(File.dirname(__FILE__)+"/daemon_data/daemon.log", 2 , 512_000)
+        log.level = ::Logger::INFO
       end
       @log
     end

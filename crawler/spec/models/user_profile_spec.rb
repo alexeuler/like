@@ -74,11 +74,14 @@ describe UserProfile do
       UserProfile.fetch(uids: [1,2,3], api: @api)
     end
 
-    it "accepts no more than #{UserProfile::MAX_UIDS_PER_REQUEST} uids (cuts the rest)" do
-      uids=(1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a
-      @api.should_receive(:users_get).with({uids: (1..UserProfile::MAX_UIDS_PER_REQUEST).to_a.join(","), fields: UserProfile::FIELDS}).and_return("test")
-      UserProfile.stub(:fetch_from_api_response)
-      UserProfile.fetch(uids: uids, api: @api)
+    context "uids count > #{UserProfile::MAX_UIDS_PER_REQUEST}" do
+      it "splits requests into chunks of size #{UserProfile::MAX_UIDS_PER_REQUEST} then concatenates results", now: true do
+        uids=(1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a
+        @api.should_receive(:users_get).with({uids: (1..UserProfile::MAX_UIDS_PER_REQUEST).to_a.join(","), fields: UserProfile::FIELDS}).and_return([1,2])
+        @api.should_receive(:users_get).with({uids: (UserProfile::MAX_UIDS_PER_REQUEST+1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a.join(","), fields: UserProfile::FIELDS}).and_return([3,4])
+        UserProfile.stub(:fetch_from_api_response) {|x| x}
+        UserProfile.fetch(uids: uids, api: @api).should == [1,2,3,4]
+      end
     end
     
     context "::fetch(uids:1, save: true)" do

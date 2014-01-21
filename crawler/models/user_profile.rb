@@ -2,7 +2,7 @@ require "active_record"
 class UserProfile < ActiveRecord::Base
 
   FIELDS="uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters"
-  MAX_UIDS_PER_REQUEST=900
+  MAX_UIDS_PER_REQUEST=100 #In theory it is allowed to do 1000 uids, however vk denies if you do these often, 100 is a pretty safe level
   Mapping={
     vk_id: :uid,
     first_name: :first_name,
@@ -39,11 +39,16 @@ class UserProfile < ActiveRecord::Base
     uids=args[:uids]
     api=args[:api] || @@api
     uids=[uids] unless uids.class.name=="Array"
-    uids=uids[0..MAX_UIDS_PER_REQUEST-1]
-    result=api.users_get uids: uids.join(","), fields:FIELDS
-    profile=fetch_from_api_response(result)
-    profile.each {|p| p.save } if args[:save]
-    profile
+    profile_chunks=[]
+    profile_chunks_count=uids.count / MAX_UIDS_PER_REQUEST + 1
+    profile_chunks_count.times do |i| 
+      uids_cut=uids[MAX_UIDS_PER_REQUEST*i..MAX_UIDS_PER_REQUEST*(i+1)-1]
+      result=api.users_get uids: uids_cut.join(","), fields:FIELDS
+      profile=fetch_from_api_response(result)
+      profile.each {|p| p.save } if args[:save]
+      profile_chunks << profile
+    end
+    profile_chunks.inject {|sum,x| sum+x}
   end
 
   #Usage:

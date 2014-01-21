@@ -6,7 +6,7 @@ require "timeout"
 module Api
   class Requester
     
-    VK_TIMEOUT=10
+    VK_TIMEOUT=30
     include Celluloid
 
     def push(args)
@@ -16,7 +16,7 @@ module Api
         end
         response=JSON.parse vk_response.body
       rescue Timeout::Error =>e
-        response={error: {error_msg: "Request timeout in #{VK_TIMEOUT} seconds"}}
+        response={error: {error_msg: "Requester timeout in #{VK_TIMEOUT} seconds"}}
       rescue JSON::ParserError => e
         response={error: {error_msg: "Unable to parse json from vk"}}
       rescue Exception => e
