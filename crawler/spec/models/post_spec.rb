@@ -75,8 +75,8 @@ MODELS={
     attachment_image: "http://cs617529.vk.me/u10115843/video/l_39a5077c.jpg",
     attachment_text: "Yan Voytikhov<br>https://vk.com/coub_vk",
     attachment_url: nil,
-    likes: 20,               
-    resposts: 30,       
+    likes_count: 20,               
+    resposts_count: 30,       
     attachment_id: 167941262,
     attachment_owner_id: -46172262,
     attachment_title: "The video"
@@ -92,8 +92,8 @@ MODELS={
     attachment_image: "http://cs7010.vk.me/c7008/v7008038/efe5/dHMVvPn0d1Q.jpg",
     attachment_text: nil,
     attachment_url: nil,
-    likes: 20,               
-    resposts: 30,       
+    likes_count: 20,               
+    resposts_count: 30,       
     attachment_id: 317588824,
     attachment_owner_id: 129244038,
     attachment_title: nil
@@ -109,8 +109,8 @@ MODELS={
     attachment_image: nil,
     attachment_text: "Desc",
     attachment_url: "http://habrahabr.ru/post/207508/",
-    likes: 20,               
-    resposts: 30,       
+    likes_count: 20,               
+    resposts_count: 30,       
     attachment_id: nil,
     attachment_owner_id: nil,
     attachment_title: "Iron Maiden"
@@ -127,11 +127,12 @@ end
 describe Post do
   context "::fecth_from_api_response" do
     it "creates new Post with filled attributes", now: true do
-      puts make_sample(:link)
-      #post=Post.fetch_from_api_response(Mapping)
-      #PROFILE.each do |key, value|
-      #profile[key].should==value
-      #end
+      post=Post.fetch_from_api_response({response: [make_sample(:link)]})
+      require "pp"
+      PP.pp post
+      MODELS[:link].each do |key,value| 
+        post[key].should==value
+      end
     end
 
   end

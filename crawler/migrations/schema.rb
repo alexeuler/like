@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121192904) do
+ActiveRecord::Schema.define(version: 20140121230941) do
 
   create_table "friends", force: true do |t|
     t.string   "vk_id",      null: false
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20140121192904) do
     t.string   "attachment_image"
     t.text     "attachment_text"
     t.string   "attachment_url"
-    t.integer  "likes",               default: 0
-    t.integer  "resposts",            default: 0
+    t.integer  "likes_count",         default: 0
+    t.integer  "reposts_count",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "attachment_id"

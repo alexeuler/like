@@ -1,12 +1,14 @@
 class Post < ActiveRecord::Base
   Mapping={
-    uid: :vk_id,
+    id: :vk_id,
+    to_id: :owner_id,
     text: :text,
+    date: :vk_date,
     likes:{
-      count: :likes
+      count: :likes_count
     },
     reposts:{
-      count: :reposts
+      count: :reposts_count
     },
     attachment:{
       type: :attachment_type,
@@ -34,5 +36,25 @@ class Post < ActiveRecord::Base
   }
 
   def self.fetch_from_api_response(data, args={})
+    raise "Error: invalid response. #{data}" unless data[:response]
+    data=data[:response]
+    results=[]
+    data.each do |response|
+      result=self.new
+      fetch_data(result, response, Mapping)
+      results << result
+    end
+    results.count > 1 ?  results : results[0]
   end
+
+  private
+
+  def self.fetch_data(model, data, mapping)
+    mapping.each do |key,value|
+      next if data[key]==nil
+      value.class.name=="Hash" ? fetch_data(model, data[key], value) : model.send("#{value}=".to_sym, data[key])
+    end
+  end
+  
 end
+
