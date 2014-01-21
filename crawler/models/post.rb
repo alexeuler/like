@@ -3,7 +3,9 @@ class Post < ActiveRecord::Base
     id: :vk_id,
     to_id: :owner_id,
     text: :text,
-    date: :vk_date,
+    date: :date,
+    copy_owner_id: :copy_owner_id,
+    copy_post_id: :copy_post_id,
     likes:{
       count: :likes_count
     },

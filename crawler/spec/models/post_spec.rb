@@ -12,7 +12,7 @@ POSTS={
     :copy_post_date=>1387535605,
     :copy_post_type=>"post",
     :copy_owner_id=>129244038,
-    :copy_post_id=>170140,
+    :copy_post_id=>17014,
     :can_delete=>1,
     :likes=>{:count=>20},
     :reposts=>{:count=>30}
@@ -76,7 +76,7 @@ MODELS={
     attachment_text: "Yan Voytikhov<br>https://vk.com/coub_vk",
     attachment_url: nil,
     likes_count: 20,               
-    resposts_count: 30,       
+    reposts_count: 30,       
     attachment_id: 167941262,
     attachment_owner_id: -46172262,
     attachment_title: "The video"
@@ -93,7 +93,7 @@ MODELS={
     attachment_text: nil,
     attachment_url: nil,
     likes_count: 20,               
-    resposts_count: 30,       
+    reposts_count: 30,       
     attachment_id: 317588824,
     attachment_owner_id: 129244038,
     attachment_title: nil
@@ -110,7 +110,7 @@ MODELS={
     attachment_text: "Desc",
     attachment_url: "http://habrahabr.ru/post/207508/",
     likes_count: 20,               
-    resposts_count: 30,       
+    reposts_count: 30,       
     attachment_id: nil,
     attachment_owner_id: nil,
     attachment_title: "Iron Maiden"
