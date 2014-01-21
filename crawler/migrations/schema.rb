@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121003319) do
+ActiveRecord::Schema.define(version: 20140121132319) do
 
   create_table "friends", force: true do |t|
     t.string   "vk_id",      null: false
@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 20140121003319) do
     t.datetime "updated_at"
     t.integer  "city"
     t.integer  "country"
-    t.string   "rate"
-    t.string   "contacts"
     t.integer  "has_mobile"
     t.integer  "albums_count"
     t.integer  "videos_count"
