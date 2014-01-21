@@ -14,8 +14,6 @@ class UserProfile < ActiveRecord::Base
     faculty: :faculty,
     city: :city,
     country: :country,
-    rate: :rate,
-    contacts: :contacts,
     has_mobile: :has_mobile,
     albums_count: :albums,
     videos_count: :videos,
