@@ -140,16 +140,33 @@ describe Post do
       end
     end
 
-    context "::fetch(response, save: true)" do
+    context "::fetch_from_api(response, save: true)" do
       it "persists the object" do
         Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1},{id: 2, to_id: 2}]}, save: true)
         Post.all.count.should==2
       end
     end
-
-    
   end
 
+  context "::fetch" do
+    before :each do
+      @api=double("api")
+    end
+    
+    it "fecthes users wall posts from vk specified by uids parameter" do
+      @api.should_receive(:wall_get).with({owner_id: 1}).exactly(3).times.and_return("test")
+      Post.should_receive(:fetch_from_api_response).with("test", {}).exactly(3).times
+      Post.fetch(uids: [1,1,1], api: @api)
+    end
+
+    context "::fetch(uids:1, save: true)" do
+      it "persists the object" do
+        @api.should_receive(:wall_get).with({owner_id: 1}).exactly(3).times.and_return("test")
+        Post.should_receive(:fetch_from_api_response).with("test", {save: true}).exactly(3).times
+        Post.fetch(uids: [1,1,1], api: @api, save: true)
+      end
+    end
+  end
 end
 
 
