@@ -15,27 +15,49 @@ module Api
 
     include Celluloid
     def push(args={})
-      socket=args[:socket]
+      @socket=args[:socket]
       begin
-      while line=Timeout::timeout(CONNECTION_TIMEOUT) {socket.gets}
-        line.chomp!
-        request=process_request line
-        self.class.request_queue.push({socket: socket, request: request, incoming: line})
-      end
-        self.class.request_queue.push({socket: socket, request: "service", close: true}) #to close the socket after all requests are finished
+        while line=Timeout::timeout(CONNECTION_TIMEOUT) {@socket.gets}
+          line.chomp!
+          request=process_request line
+          request && self.class.request_queue.push({socket: @socket, request: request, incoming: line})
+        end
       ensure
-        socket.close
+        @socket.close unless @socket.nil?
       end
     end
 
     private
 
     def process_request(request)
-      hash=JSON.parse(request)
+      begin
+        hash=JSON.parse(request)
+      rescue JSON::ParserError => e
+        send_error("Unable to parse request")
+        return
+      end
+      unless hash["method"]
+        send_error("Method is not specified")
+        return
+      end
       res="https://api.vk.com/method/#{hash["method"]}?"
-      hash["params"].each_pair {|key,value| res+="#{key}=#{value}&"} if hash["params"]
+      if hash["params"]
+        if hash["params"].class.name=="Hash"
+          hash["params"].each_pair {|key,value| res+="#{key.to_s}=#{value.to_s}&"} if hash["params"]
+        else
+          send_error("Params must be a hash")
+          return
+        end
+      end
       res
     end
 
+    private
+
+    def send_error(message)
+      message={error: message}.to_json
+      @socket.puts message
+    end
+    
   end
 end
