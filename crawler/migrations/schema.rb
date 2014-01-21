@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121132319) do
+ActiveRecord::Schema.define(version: 20140121192904) do
 
   create_table "friends", force: true do |t|
     t.string   "vk_id",      null: false
@@ -28,17 +28,23 @@ ActiveRecord::Schema.define(version: 20140121132319) do
   end
 
   create_table "posts", force: true do |t|
-    t.string   "vk_id",                        null: false
-    t.string   "owner_id",                     null: false
+    t.integer  "vk_id",                           null: false
+    t.integer  "owner_id",                        null: false
     t.text     "text"
     t.integer  "attachment_type"
     t.string   "attachment_image"
     t.text     "attachment_text"
     t.string   "attachment_url"
-    t.integer  "likes",            default: 0
-    t.integer  "resposts",         default: 0
+    t.integer  "likes",               default: 0
+    t.integer  "resposts",            default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "attachment_id"
+    t.integer  "attachment_owner_id"
+    t.integer  "attachment_title"
+    t.integer  "date"
+    t.integer  "copy_owner_id"
+    t.integer  "copy_post_id"
   end
 
   create_table "user_profiles", force: true do |t|
