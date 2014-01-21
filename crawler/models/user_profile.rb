@@ -1,8 +1,8 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
-  
+
   FIELDS="uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters"
-  MAX_UIDS_PER_REQUEST=1000
+  MAX_UIDS_PER_REQUEST=900
   Mapping={
     vk_id: :uid,
     first_name: :first_name,
@@ -42,7 +42,7 @@ class UserProfile < ActiveRecord::Base
     uids=uids[0..MAX_UIDS_PER_REQUEST-1]
     result=api.users_get uids: uids.join(","), fields:FIELDS
     profile=fetch_from_api_response(result)
-    profile.save if args[:save]
+    profile.each {|p| p.save } if args[:save]
     profile
   end
 
@@ -50,7 +50,7 @@ class UserProfile < ActiveRecord::Base
   #UserProfile.fetch_from_api_response ("{response: ...}", save: true)
   
   def self.fetch_from_api_response(data, args={})
-    return unless data[:response]
+    raise "Error: invalid response. #{data}" unless data[:response]
     results=[]
     data[:response].each do |response|
       result=self.new

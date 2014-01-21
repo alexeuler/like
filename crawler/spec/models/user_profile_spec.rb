@@ -75,8 +75,8 @@ describe UserProfile do
     end
 
     it "accepts no more than #{UserProfile::MAX_UIDS_PER_REQUEST} uids (cuts the rest)" do
-      uids=(1..1010).to_a
-      @api.should_receive(:users_get).with({uids: (1..1000).to_a.join(","), fields: UserProfile::FIELDS}).and_return("test")
+      uids=(1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a
+      @api.should_receive(:users_get).with({uids: (1..UserProfile::MAX_UIDS_PER_REQUEST).to_a.join(","), fields: UserProfile::FIELDS}).and_return("test")
       UserProfile.stub(:fetch_from_api_response)
       UserProfile.fetch(uids: uids, api: @api)
     end
@@ -86,8 +86,8 @@ describe UserProfile do
         api=double("api")
         api.stub(:users_get)
         profile=double "profile"
-        UserProfile.stub(:fetch_from_api_response).and_return(profile)
-        profile.should_receive(:save)
+        UserProfile.stub(:fetch_from_api_response).and_return([profile,profile,profile])
+        profile.should_receive(:save).exactly(3).times
         UserProfile.fetch(uids: [1,2,3], api: api, save: true)
       end
     end
@@ -103,8 +103,14 @@ describe UserProfile do
 
     context "::fetch(response, save: true)" do
       it "persists the object" do
-        UserProfile.fetch_from_api_response({response: [{}]}, save: true)
-        UserProfile.all.count.should==1
+        UserProfile.fetch_from_api_response({response: [{},{}]}, save: true)
+        UserProfile.all.count.should==2
+      end
+    end
+
+    context "response from vk is not {response: ... }" do
+      it "raises error" do
+        expect {UserProfile.fetch_from_api_response({error: [{}]})}.to raise_error
       end
     end
     
