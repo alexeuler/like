@@ -1,6 +1,20 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user_profile
+
+  def get_friends
+    friends+inverse_friends
+  end
+
+  def remove_friend(id)
+    friendships.where("(user_profile_id = ? AND friend_id = ?) OR (user_profile_id = ? AND friend_id = ?)", vk_id, id, id, vk_id).delete_all
+  end
+  
   FIELDS="uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters"
   MAX_UIDS_PER_REQUEST=100 #In theory it is allowed to do 1000 uids, however vk denies if you do these often, 100 is a pretty safe level
   Mapping={

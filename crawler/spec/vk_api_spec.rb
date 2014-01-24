@@ -91,7 +91,7 @@ describe "VkApi" do
       end
     end
 
-    it "sanitizes response from unreadable UTF-8", now: true do
+    it "sanitizes response from unreadable UTF-8 chars", now: true do
       ans={response: "123\u{1f506}"}
       @server.puts ans.to_json
       @api.users_get[:response].should=="123"
