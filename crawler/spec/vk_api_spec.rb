@@ -45,6 +45,7 @@ describe "VkApi" do
   end
 
   describe "#method_missing" do
+
     context ":batch parameter set to true" do
       it "doesn't support fully identical requests" do
         
@@ -82,14 +83,23 @@ describe "VkApi" do
         end
       end
     end
+    context ":batch parameter is ommited" do
+      it "returns proper response hash immediately" do
+        ans={response: "success"}
+        @server.puts ans.to_json
+        @api.users_get.should==ans
+      end
+    end
+
+    it "sanitizes response from unreadable UTF-8", now: true do
+      ans={response: "123\u{1f506}"}
+      @server.puts ans.to_json
+      @api.users_get[:response].should=="123"
+      
+    end
+    
   end
 
-  context ":batch parameter is ommited" do
-    it "returns proper response hash" do
-      ans={response: "success"}
-      @server.puts ans.to_json
-      @api.users_get.should==ans
-    end
-  end
+
   
 end

@@ -45,11 +45,12 @@ class VkApi
     result=[]
     while @requests.count>result.count
       resp=Timeout::timeout(@timeout) {@socket.gets}
+      resp=resp.force_encoding("UTF-8").each_char.select{|c| c.bytes.count < 4 }.join('') # remove all special characters
       resp=JSON.parse resp, :symbolize_names => true
       resp[:error] && if resp[:error][:error_msg]=~/Too many requests/i
-        retry_request(resp)
-        next
-      end
+                        retry_request(resp)
+                        next
+                      end
       result << resp
     end
     result.sort! do |a,b|

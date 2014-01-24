@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+  POSTS_NUMBER=90
+  
   Mapping={
     id: :vk_id,
     to_id: :owner_id,
@@ -41,15 +44,16 @@ class Post < ActiveRecord::Base
     uids=args[:uids]
     api=args[:api] || @@api
     uids=[uids] unless uids.class.name=="Array"
-    posts=[]
+    uid_posts=[]
     uids.each do |uid| 
-      result=api.wall_get owner_id: uid
+      result=api.wall_get owner_id: uid, count: POSTS_NUMBER
       options={}
       options[:save]=true if args[:save]
-      post=fetch_from_api_response(result, options)
-      posts << post
+      posts=fetch_from_api_response(result, options)
+      uid_posts << posts
     end
-    posts
+    uid_posts.compact!
+    uid_posts.inject {|sum,x| sum+x}
   end
   
 

@@ -154,15 +154,15 @@ describe Post do
     end
     
     it "fecthes users wall posts from vk specified by uids parameter" do
-      @api.should_receive(:wall_get).with({owner_id: 1}).exactly(3).times.and_return("test")
-      Post.should_receive(:fetch_from_api_response).with("test", {}).exactly(3).times
-      Post.fetch(uids: [1,1,1], api: @api)
+      @api.should_receive(:wall_get).with({owner_id: 1, count: Post::POSTS_NUMBER}).exactly(3).times.and_return("test")
+      Post.should_receive(:fetch_from_api_response).with("test", {}).exactly(3).times.and_return([1,2])
+      Post.fetch(uids: [1,1,1], api: @api).should==[1,2,1,2,1,2]
     end
 
     context "::fetch(uids:1, save: true)" do
       it "persists the object" do
-        @api.should_receive(:wall_get).with({owner_id: 1}).exactly(3).times.and_return("test")
-        Post.should_receive(:fetch_from_api_response).with("test", {save: true}).exactly(3).times
+        @api.should_receive(:wall_get).with({owner_id: 1, count: Post::POSTS_NUMBER}).exactly(3).times.and_return("test")
+        Post.should_receive(:fetch_from_api_response).with("test", {save: true}).exactly(3).times.and_return([1,2])
         Post.fetch(uids: [1,1,1], api: @api, save: true)
       end
     end
