@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125011234) do
+ActiveRecord::Schema.define(version: 20140126004316) do
 
   create_table "friendships", force: true do |t|
     t.integer "user_profile_id"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140125011234) do
   end
 
   create_table "likes", force: true do |t|
-    t.string   "post_id",    null: false
-    t.string   "user_id",    null: false
+    t.integer  "post_id",         null: false
+    t.integer  "user_profile_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,11 +1,16 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
 
+  has_many :likes
+  has_many :likes_posts, through: :likes, source: "post"
+  
   has_many :primary_friendships, :class_name => "Friendship", :foreign_key => "user_profile_id"
   has_many :primary_friends, through: :primary_friendships, :source => :friend
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user_profile
 
+  
+  
   def friends
     primary_friends+inverse_friends
   end

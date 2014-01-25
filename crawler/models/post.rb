@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-
+  has_many :likes
+  has_many :likes_user_profiles, through: :likes, source: "user_profile"
+  
   POSTS_NUMBER=90
   
   Mapping={
