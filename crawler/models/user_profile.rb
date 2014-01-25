@@ -1,18 +1,19 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
 
-  has_many :friendships
-  has_many :friends, through: :friendships
-
+  has_many :primary_friendships, :class_name => "Friendship", :foreign_key => "user_profile_id"
+  has_many :primary_friends, through: :primary_friendships, :source => :friend
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user_profile
 
-  def get_friends
-    friends+inverse_friends
+  def friends
+    primary_friends+inverse_friends
   end
 
-  def remove_friend(id)
-    friendships.where("(user_profile_id = ? AND friend_id = ?) OR (user_profile_id = ? AND friend_id = ?)", vk_id, id, id, vk_id).delete_all
+  def add_friends(user_profiles)
+    common=friends & user_profiles
+    user_profiles.delete_if {|x| common.include? x}
+    primary_friends << user_profiles
   end
   
   FIELDS="uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters"

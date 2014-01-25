@@ -1,4 +1,5 @@
 require "user_profile"
+require "friendship"
 require "config/active_record"
 
 RESPONSE={response:
@@ -63,6 +64,35 @@ PROFILE={
 
 
 describe UserProfile do
+
+  context "#friends" do
+    it "returns a list of all primary and inverse friends" do
+      user=FactoryGirl.create(:user_profile_with_friends)
+      user.friends.map(&:id).should == [user.id+1,user.id+2,user.id+3]
+      3.times do |i|
+        user.friends[i].friends.count.should == 1
+        user.friends[i].friends[0].id.should == user.id
+      end 
+    end
+  end
+
+  context "#add_friends" do
+    it "adds friends that are not already primary or inverse friends" do
+      user=FactoryGirl.create(:user_profile)
+      primary_friend=FactoryGirl.create(:user_profile)
+      inverse_friend=FactoryGirl.create(:user_profile)
+      user.primary_friends << primary_friend
+      inverse_friend.primary_friends << user
+      new_friend=FactoryGirl.create(:user_profile)
+      user.primary_friends.should_receive(:<<) do |args|
+        args.count.should == 1
+        args[0].id.should == new_friend.id
+      end
+      user.add_friends [primary_friend, inverse_friend, new_friend]
+      
+    end
+  end
+  
   context "::fetch" do
     before :each do
       @api=double("api")
@@ -75,7 +105,7 @@ describe UserProfile do
     end
 
     context "uids count > #{UserProfile::MAX_UIDS_PER_REQUEST}" do
-      it "splits requests into chunks of size #{UserProfile::MAX_UIDS_PER_REQUEST} then concatenates results", now: true do
+      it "splits requests into chunks of size #{UserProfile::MAX_UIDS_PER_REQUEST} then concatenates results" do
         uids=(1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a
         @api.should_receive(:users_get).with({uids: (1..UserProfile::MAX_UIDS_PER_REQUEST).to_a.join(","), fields: UserProfile::FIELDS}).and_return([1,2])
         @api.should_receive(:users_get).with({uids: (UserProfile::MAX_UIDS_PER_REQUEST+1..UserProfile::MAX_UIDS_PER_REQUEST+10).to_a.join(","), fields: UserProfile::FIELDS}).and_return([3,4])
