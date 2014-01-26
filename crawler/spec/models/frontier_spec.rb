@@ -1,9 +1,6 @@
 require "config/active_record"
 require "frontier"
 describe Frontier do
-  after :each do
-    Frontier.delete_all
-  end
   context "::pull" do
     it "gets the vk_id of the next UserProfile to fetch and marks that profile as busy (status=1)" do
       FactoryGirl.create(:frontier_of_3)
@@ -38,6 +35,11 @@ describe Frontier do
         Frontier.find(min_id+2).status.should==0
       end
     end
-    
+
+    context "frontier is empty or busy" do
+      it "raises frontier is empty error" do
+        expect {Frontier.pull}.to raise_error
+      end
+    end
   end 
 end

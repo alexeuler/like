@@ -5,14 +5,12 @@ class Frontier < ActiveRecord::Base
   def self.pull
     self.free_busy
     frontier=self.where(status: 0).first
+    raise "frontier is empty or busy" if frontier.nil? 
     frontier.status=1
     frontier.save
     frontier.vk_id
   end
 
-  def self.done(vk_id)
-    self.where(vk_id: vk_id).delete_all
-  end
   
   private
   
