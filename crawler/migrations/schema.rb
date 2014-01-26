@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126004316) do
+ActiveRecord::Schema.define(version: 20140126233706) do
 
   create_table "friendships", force: true do |t|
     t.integer "user_profile_id"
     t.integer "friend_id"
+  end
+
+  create_table "frontiers", force: true do |t|
+    t.integer  "vk_id",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "status",     default: 0
   end
 
   create_table "likes", force: true do |t|
