@@ -1,6 +1,11 @@
 require "active_record"
 class UserProfile < ActiveRecord::Base
 
+  class << self
+    attr_accessor :api
+  end
+
+  
   has_many :likes
   has_many :likes_posts, through: :likes, source: "post"
   
@@ -55,7 +60,7 @@ class UserProfile < ActiveRecord::Base
 
   def self.fetch(args={})
     uids=args[:uids]
-    api=args[:api] || @@api
+    args[:api] && api=args[:api]
     uids=[uids] unless uids.class.name=="Array"
     profile_chunks=[]
     profile_chunks_count=uids.count / MAX_UIDS_PER_REQUEST + 1

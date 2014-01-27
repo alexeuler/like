@@ -42,9 +42,13 @@ class Post < ActiveRecord::Base
     }
   }
 
+  class << self
+    attr_accessor :api
+  end
+  
   def self.fetch(args={})
     uids=args[:uids]
-    api=args[:api] || @@api
+    args[:api] && api=args[:api]
     uids=[uids] unless uids.class.name=="Array"
     uid_posts=[]
     uids.each do |uid| 

@@ -1,6 +1,6 @@
 require "config/active_record"
 require "manager"
-describe Manager, now: true do
+describe Manager do
   before :each do
     @manager=Manager.new
   end
