@@ -5,15 +5,15 @@ describe Manager do
     @manager=Manager.new
   end
   context "#get_work" do
-    it "gets the vk_id from Frontier" do
+    it "returns the vk_id from Frontier" do
       Frontier.stub(:pull).and_return("123")
       @manager.get_work.should=="123"
     end
 
     context "crawler work is complete" do
-      it "throws :done" do
+      it "returns nil" do
         @manager.stub(:stop?).and_return(true)
-        expect {@manager.get_work}.to throw_symbol(:done)
+        @manager.get_work.should == nil
       end
     end
   end

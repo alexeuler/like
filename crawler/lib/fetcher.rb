@@ -8,21 +8,21 @@ class Fetcher
   attr_accessor :manager, :socket
   
   def initialize(args={})
-    @socket=args[:socket]
     @manager=args[:manager]
   end
 
   def start
-    catch :done do
-      loop do
-        id=manager.get_work
-        #user=UserProfile.fetch(uids: id, save: true)
-        #posts=Post.fetch(uids: id, save: true)
-        #friends=user.fetch_friends(uids: id, save: true)
-        #manager.push(friends) unless manager.full_frontier?
-        #manager.done(id)
-      end
+    while id=manager.get_work do
+      new_work=fetch(id)
+      manager.push(new_work) unless manager.full_frontier?
+      manager.done(id)
     end
   end
 
+  def fetch(id)
+    posts=Post.fetch(uids: id, save: true)
+    user=UserProfile.fetch(uids: id, save: true)
+    user.fetch_friends(uids: id, save: true)
+  end
+  
 end

@@ -4,7 +4,7 @@ class Manager
   MAX_POSTS=500_000
 
   def get_work
-    throw :done if stop?
+    return nil if stop?
     Frontier.pull
   end
   
