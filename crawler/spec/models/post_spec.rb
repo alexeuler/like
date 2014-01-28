@@ -140,20 +140,21 @@ describe Post do
       end
     end
 
-    context "::fetch_from_api(response, save: true)" do
+    context "::fetch_from_api_response(response, save: true)" do
       it "persists the object" do
         Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1},{id: 2, to_id: 2}]}, save: true)
         Post.all.count.should==2
       end
     end
 
-    context "::fetch_from_api(response, save: true, likes: 2)" do
+    context "::fetch_from_api_response(response, save: true, min_likes: 2)" do
       it "persists the object if likes >= 2", now: true do
-        Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1, likes: {count: 3}},{id: 2, to_id: 2}]}, save: true, likes: 2)
+        Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1, likes: {count: 3}},{id: 2, to_id: 2}]}, save: true, min_likes: 2)
         Post.all.count.should==1
       end
     end
 
+    
   end
 
   context "::fetch" do
@@ -175,6 +176,17 @@ describe Post do
       end
     end
   end
+
+  describe "#fetch_like_uids" do
+    it "returns uids of users who liked this post", now: true do
+      Post.api=double("api")
+      Post.api.should_receive(:likes_getList).with({item_id: 5, owner_id: 6, type: "post"}).and_return({response:{count: 2, users:[3,4]}})
+      post=Post.new(vk_id: 5, owner_id: 6)
+      post.fetch_like_uids.should == [3,4]
+    end
+  end
+
+  
 end
 
 
