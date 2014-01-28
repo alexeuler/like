@@ -146,6 +146,14 @@ describe Post do
         Post.all.count.should==2
       end
     end
+
+    context "::fetch_from_api(response, save: true, likes: 2)" do
+      it "persists the object if likes >= 2", now: true do
+        Post.fetch_from_api_response({response: [2,{id: 1, to_id: 1, likes: {count: 3}},{id: 2, to_id: 2}]}, save: true, likes: 2)
+        Post.all.count.should==1
+      end
+    end
+
   end
 
   context "::fetch" do

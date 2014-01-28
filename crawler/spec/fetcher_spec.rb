@@ -1,7 +1,6 @@
 require "fetcher"
 describe Fetcher do
   let (:manager) {double("manager")}
-  let (:user) {double("user").as_null_object}
   let (:fetcher) {Fetcher.new manager: manager}
 
   describe "#start" do

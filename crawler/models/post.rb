@@ -54,7 +54,8 @@ class Post < ActiveRecord::Base
     uids.each do |uid| 
       result=api.wall_get owner_id: uid, count: POSTS_NUMBER
       options={}
-      options[:save]=true if args[:save]
+      args[:save] && options[:save]=args[:save]
+      args[:likes] && options[:likes]=args[:likes] 
       posts=fetch_from_api_response(result, options)
       uid_posts << posts
     end
@@ -65,6 +66,7 @@ class Post < ActiveRecord::Base
 
 def self.fetch_from_api_response(data, args={})
   raise "Error: invalid response. #{data}" unless data[:response]
+  args[:likes]||=0
   data=data[:response]
   data.shift                  # removes count  - the structure of VK response
   results=[]
@@ -73,7 +75,7 @@ def self.fetch_from_api_response(data, args={})
     fetch_data(result, response, Mapping)
     results << result
   end
-  results.each {|res| res.save} if args[:save]
+  results.each {|res| res.save if args[:likes]<=res.likes_count} if args[:save]
   results.count > 1 ?  results : results[0]
 end
 
