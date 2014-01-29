@@ -81,12 +81,13 @@ class UserProfile < ActiveRecord::Base
     raise "Error: invalid response. #{data}" unless data[:response]
     results=[]
     data[:response].each do |response|
-      result=self.new
+      result=self.where(vk_id: response[:uid]).first_or_create
       Mapping.each do |key,value|
         value = key=~/_count$/ ? response[:counters] && response[:counters][value] : response[value]
         value=value.to_i if INTEGERS.include? key.to_s
         result.send "#{key}=".to_sym, value
       end
+      result.status=1           # fetched
       results << result
     end
     results.each {|res| res.save} if args[:save]

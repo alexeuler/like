@@ -23,19 +23,9 @@ class Fetcher
 
   def fetch(id)
     posts=Post.fetch(uids: id, save: true, min_likes: MIN_LIKES)
-    get_likes posts
+    posts.each { |post| post.fetch_likes(with_profiles: true)  }
     user=UserProfile.fetch(uids: id, save: true)
     user.fetch_friends(uids: id, save: true)
   end
 
-  def get_likes(posts)
-    posts.each do |post| 
-      uids=post.fetch_like_uids
-      fetched=UserProfile.find_all_by_vk_id(uids).map(&:vk_id)
-      uids.delete_if { |uid| fetched.include? uid }
-      profiles=UserProfile.fetch(uids: uids, save: true)
-      post.profiles << profiles
-      post.save
-    end
-  end
 end

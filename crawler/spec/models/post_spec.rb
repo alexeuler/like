@@ -1,6 +1,6 @@
 require "config/active_record"
 require "post"
-
+require "like"
 POSTS={
   body:{
     :id=>333,
@@ -183,6 +183,34 @@ describe Post do
       Post.api.should_receive(:likes_getList).with({item_id: 5, owner_id: 6, type: "post"}).and_return({response:{count: 2, users:[3,4]}})
       post=Post.new(vk_id: 5, owner_id: 6)
       post.fetch_like_uids.should == [3,4]
+    end
+  end
+
+
+  describe "#fetch_likes" do
+    let!(:post) {Post.new vk_id: 1, owner_id: 2}
+
+    before :each do
+      @profiles=[]
+      3.times { |i| @profiles << FactoryGirl.create(:user_profile, vk_id: i+1)}
+      @profiles[1].status=1
+      @profiles[1].save
+    end
+
+    it "fetches likes and saves them in db" do
+      post.should_receive(:fetch_like_uids).and_return([1,2,3,4])
+      post.should_receive(:save)
+      UserProfile.should_receive(:new).twice
+      post.fetch_likes
+    end
+    context "with_profiles: true" do
+      it "fetches profiles that are not fetched yet", now: true do
+        post.should_receive(:fetch_like_uids).and_return([1,2,3,4])
+        post.should_receive(:save)
+        UserProfile.should_receive(:fetch).with({uids: [2,4],save: true}).and_return([])
+        post.fetch_likes with_profiles: true
+        post.likes_user_profiles.to_a.map(&:vk_id).should==[1,3]
+      end
     end
   end
 

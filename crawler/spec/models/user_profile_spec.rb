@@ -127,16 +127,17 @@ describe UserProfile do
   end
 
   context "::fetch_from_api_response" do
-    it "creates new UserProfile with filled attributes" do
+    it "creates new UserProfile with filled attributes and status = 1" do
       profile=UserProfile.fetch_from_api_response(RESPONSE)
       PROFILE.each do |key, value|
         profile[key].should==value
       end
+      profile.status.should == 1
     end
 
     context "::fetch(response, save: true)" do
       it "persists the object" do
-        UserProfile.fetch_from_api_response({response: [{},{}]}, save: true)
+        UserProfile.fetch_from_api_response({response: [{uid: 1},{uid: 2}]}, save: true)
         UserProfile.all.count.should==2
       end
     end
@@ -146,6 +147,11 @@ describe UserProfile do
         expect {UserProfile.fetch_from_api_response({error: [{}]})}.to raise_error
       end
     end
+
+
     
   end
+
+
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126233706) do
+ActiveRecord::Schema.define(version: 20140130002713) do
 
   create_table "friendships", force: true do |t|
     t.integer "user_profile_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140126233706) do
     t.integer  "online_friends_count"
     t.integer  "user_videos_count"
     t.integer  "followers_count"
+    t.integer  "status",               default: 0
   end
 
 end

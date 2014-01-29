@@ -79,6 +79,17 @@ class Post < ActiveRecord::Base
     results.count > 1 ?  results : results[0]
   end
 
+  def fetch_likes(args={})
+    uids=fetch_like_uids
+    fetched=UserProfile.where(vk_id: uids, status: 0).to_a
+    fetched_uids=fetched.map(&:vk_id)
+    uids.delete_if { |uid| fetched_uids.include? uid }
+    profiles=args[:with_profiles] ? UserProfile.fetch(uids: uids, save: true) : uids.map {|uid| UserProfile.new(vk_id: uid) }
+    likes_user_profiles.clear
+    likes_user_profiles << (profiles + fetched).compact
+    save
+  end
+
   def fetch_like_uids
     data=Post.api.likes_getList owner_id: owner_id, item_id: vk_id, type: "post"             # no more than 1000 by design
     raise "Error: invalid response. #{data}" unless data[:response]
