@@ -34,7 +34,7 @@ module Crawler
           begin
             client=@server.accept
           rescue IOError => e
-            log.error("Error accepting connection. Message: #{e}")
+            @active && log.error("Error accepting connection. Message: #{e}")
           else
             @active ? @scheduler.async.push(socket: client) : client.close
           end
@@ -51,6 +51,7 @@ module Crawler
       private
       
       def shutdown
+        @active=false
         @server.close if @server
       rescue
       end
