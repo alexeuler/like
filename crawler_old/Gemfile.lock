@@ -21,9 +21,6 @@ GEM
     builder (3.1.4)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    celluloid-io (0.15.0)
-      celluloid (>= 0.15.0)
-      nio4r (>= 0.5.0)
     columnize (0.3.6)
     daemons (1.0.10)
     debugger (1.6.5)
@@ -43,7 +40,6 @@ GEM
       gem_plugin (~> 0.2.3)
     multi_json (1.8.2)
     mysql2 (0.3.14)
-    nio4r (1.0.0)
     rack (1.5.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -66,7 +62,6 @@ DEPENDENCIES
   activerecord
   activesupport
   celluloid
-  celluloid-io
   daemons
   debugger
   factory_girl

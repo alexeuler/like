@@ -1,0 +1,59 @@
+require 'celluloid/io'
+require 'celluloid/autostart'
+require_relative "logging"
+module Crawler
+  module Api
+    
+    class Listener
+      include Celluloid::IO
+      include Logging
+      finalizer :shutdown
+      
+      DEFAULTS={host:"localhost", port: "9000"}
+
+      attr_accessor :active
+        
+      def initialize(args={})
+        args=DEFAULTS.merge args
+        @host=args[:host]
+        @port=args[:port]
+        @scheduler=args[:scheduler]
+        begin
+          @server=TCPServer.new @host, @port
+        rescue Exception => e
+          log.error "Error starting server. Message: #{e.message}"
+        end
+        log.info "Started server on #{@host}:#{@port}"
+        async.start
+      end
+
+      def start
+        return if @active
+        @active=true
+        while @active
+          begin
+            client=@server.accept
+          rescue IOError => e
+            log.error("Error accepting connection. Message: #{e}")
+          else
+            @active ? @scheduler.async.push(socket: client) : client.close
+          end
+        end
+      end
+
+      def stop
+        @active=false
+        socket=TCPSocket.new(@host, @port) # hack to unblock accept
+        socket.close
+      end
+
+      private
+      
+      def shutdown
+        @server.close if @server
+      rescue
+      end
+      
+    end
+  end
+end
