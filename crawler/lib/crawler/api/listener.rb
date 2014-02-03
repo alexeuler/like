@@ -42,6 +42,7 @@ module Crawler
       end
 
       def stop
+        return unless @active
         @active=false
         socket=TCPSocket.new(@host, @port) # hack to unblock accept
         socket.close
