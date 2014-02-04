@@ -1,63 +1,77 @@
 require "json"
-require "celluloid"
-require_relative "logger"
-module Api
-  class Scheduler
-    
-    #JSON protocol : {method: <name>, params: {<param1>: <value1>}}
-    CONNECTION_TIMEOUT=360
-    
-    include Logger
+require "celluloid/io"
+require_relative "logging"
+module Crawler
+  module Api
+    class Scheduler
+      
+      #JSON protocol : {method: <name>, params: {<param1>: <value1>}}\n
+      CONNECTION_TIMEOUT=600
+      include Celluloid::IO
+      include Logging
+      finalizer :shutdown
+      
+      class << self 
+        attr_accessor :queue
+      end
 
-    class << self 
-      attr_accessor :request_queue
-    end
-
-    include Celluloid
-    def push(args={})
-      @socket=args[:socket]
-      begin
-        while line=Timeout::timeout(CONNECTION_TIMEOUT) {@socket.gets}
-          line.chomp!
-          request=process_request line
-          request && self.class.request_queue.push({socket: @socket, request: request, incoming: line})
+      attr_accessor :timeout, :active
+      
+      def initialize(args={})
+        @timeout=args[:timeout] || CONNECTION_TIMEOUT
+      end
+      
+      def push(args={})
+        @socket=args[:socket]
+        @active=true
+        timer=after(@timeout) do
+          @active=false
+          shutdown
         end
-      ensure
-        @socket.close unless @socket.nil?
+        while @active && incoming=@socket.gets
+          incoming.chomp!
+          request=make_request incoming
+          request && self.class.queue.push({socket: @socket, request: request, incoming: incoming})
+          timer.reset
+        end
       end
-    end
 
-    private
+      private
 
-    def process_request(request)
-      begin
-        hash=JSON.parse(request)
-      rescue JSON::ParserError => e
-        send_error("Unable to parse request")
-        return
-      end
-      unless hash["method"]
-        send_error("Method is not specified")
-        return
-      end
-      res="https://api.vk.com/method/#{hash["method"]}?"
-      if hash["params"]
-        if hash["params"].class.name=="Hash"
-          hash["params"].each_pair {|key,value| res+="#{key.to_s}=#{value.to_s}&"} if hash["params"]
-        else
-          send_error("Params must be a hash")
+      def make_request(request)
+        begin
+          hash=JSON.parse(request)
+        rescue JSON::ParserError => e
+          send_error("Unable to parse request")
           return
         end
+        unless hash["method"]
+          send_error("Method is not specified")
+          return
+        end
+        res="https://api.vk.com/method/#{hash["method"]}?"
+        if hash["params"]
+          if hash["params"].class.name=="Hash"
+            hash["params"].each_pair {|key,value| res+="#{key.to_s}=#{value.to_s}&"} if hash["params"]
+          else
+            send_error("Params must be a hash")
+            return
+          end
+        end
+        res
       end
-      res
-    end
 
-    private
+      private
 
-    def send_error(message)
-      message={error: message}.to_json
-      @socket.puts message
+      def send_error(message)
+        message={error: message}.to_json
+        @socket.puts message
+      end
+
+      def shutdown
+        @socket.close unless @socket.nil?
+      rescue
+      end
     end
-    
   end
 end
