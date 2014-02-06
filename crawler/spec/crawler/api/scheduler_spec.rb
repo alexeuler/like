@@ -67,10 +67,7 @@ module Crawler
               @socket.gets.chomp.should=={error: "Params must be a hash"}.to_json
             end
           end
-          
         end
-
-        
       end
     end
   end
