@@ -9,7 +9,6 @@ module Crawler
       CONNECTION_TIMEOUT=600
       include Celluloid::IO
       include Logging
-      finalizer :shutdown
       
       class << self 
         attr_accessor :queue
@@ -23,19 +22,26 @@ module Crawler
       
       def push(args={})
         @socket=args[:socket]
-        @active=true
-        timer=after(@timeout) do
-          @active=false
+        begin
+          while incoming=Celluloid.timeout(@timeout) {@socket.gets}
+            incoming.chomp!
+            request=make_request incoming
+            request && self.class.queue.push({socket: @socket, request: request, incoming: incoming})
+          end
+        rescue Celluloid::Task::TimeoutError
+          log.warn "Timeout in scheduler"
+        rescue IOError
+          #shutdown is called
+        ensure
           shutdown
-        end
-        while @active && incoming=@socket.gets
-          incoming.chomp!
-          request=make_request incoming
-          request && self.class.queue.push({socket: @socket, request: request, incoming: incoming})
-          timer.reset
         end
       end
 
+      def shutdown
+        @socket.close unless @socket.closed?
+      end
+
+      
       private
 
       def make_request(request)
@@ -60,18 +66,13 @@ module Crawler
         end
         res
       end
-
-      private
-
+      
+      
       def send_error(message)
         message={error: message}.to_json
         @socket.puts message
       end
 
-      def shutdown
-        @socket.close unless @socket.nil?
-      rescue
-      end
     end
   end
 end
