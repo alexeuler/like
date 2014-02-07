@@ -3,7 +3,7 @@ require "tempfile"
 
 module Crawler
   module Api
-    describe Manager, focus: true do
+    describe Manager do
       describe "#start" do
         it "Reads from request_queue, chooses token, delays to conform frequency and spawns a requester" do
           token_file=Tempfile.new('tokens')
