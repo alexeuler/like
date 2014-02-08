@@ -78,7 +78,7 @@ module Crawler
       end
 
       def defaults
-        {server_requests_per_sec: 5, id_requests_per_sec: 3}
+        {server_requests_per_sec: 5, id_requests_per_sec: 3, token_file_name: 'tokens.csv'}
       end
 
     end

@@ -33,7 +33,7 @@ module Crawler
         File.open(source) do |f|
           while line=f.gets
             values=line.chomp.split(";")
-            @data << {value: values[0], expires: Time.at(values[1].to_i), id: values[2], last_used: Time.now}
+            @data << {value: values[0], expires: Time.at(values[1].to_i), id: values[2], last_used: Time.now} if Time.at(values[1].to_i)>Time.now
           end
         end
         raise "Source contains no tokens" if @data.count == 0

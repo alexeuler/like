@@ -7,22 +7,23 @@ module Crawler
 
     #Tokenfile structure : value, expires, vk_id
     
-    describe Tokens, focus: true do
-
+    describe Tokens do
+      
+      let :payload do
+        res=[]
+        timestamp=Time.now
+        res << {value: "sfh6d", expires: timestamp+60*60*24, id: "id1"}
+        res << {value: "dsjflsdjflkds", expires: timestamp+60*60*24, id: "id2"}
+        res << {value: "dgfdg", expires: timestamp-1, id: "id3"}
+        res
+      end
+      
       def make_tokens_file(filename="tokens")
         file=Tempfile.new(filename)
-        payload.each {|p| file.puts "#{p[:value]};#{p[:expires].to_i};#{p[:id]}"}
+        payload.each { |p| file.puts "#{p[:value]};#{p[:expires].to_i};#{p[:id]}"}
         file.close
         file
       end
-
-      def payload
-        res=[]
-        res << {value: "sfh6d", expires: Time.new(2012,1,2,4,5,6), id: "id1"}
-        res << {value: "dsjflsdjflkds", expires: Time.new(2012,1,2,4,5,7), id: "id2"}
-        res
-      end
-
       
       describe "#new(source: <filename>)" do
         it "initializes new tokens object with the tokens source specified by filename" do
@@ -35,23 +36,21 @@ module Crawler
             expect {Tokens.new}.to raise_error("Source is not specified")
           end
         end
-      end
-
+      end        
       describe "#any other method" do
-        it "forwards message to array of tokens" do
-          tokens=Tokens.new source: __FILE__
-          tokens.stub(:load)
-          tokens.instance_variable_get(:@data).should_receive(:[]).with(1,2)
-          tokens[1, 2]
-        end
-
+        
+        
         context "when no tokens loaded and any method called" do
-          it "loads the tokens from source" do
+          it "loads the tokens from source and discards expired tokens" do
             timestamp=Time.now
-            Time.stub(:now).and_return(timestamp)
             file=make_tokens_file
             tokens=Tokens.new source: file.path
-            2.times {|i| tokens[i].should==payload[i].merge({last_used: timestamp})}
+            tokens.count.should==payload.count-1
+            tokens.count.times do |i|
+              tokens[i].delete(:expires).to_i.should == payload[i][:expires].to_i
+              tokens[i].delete(:last_used).should < Time.now
+              tokens[i].keys.each {|key| tokens[i][key].should == payload[i][key]}
+            end
             file.unlink
           end
           context "when source is not available" do
@@ -63,7 +62,7 @@ module Crawler
         end
 
         context "when the source file has been modified and any method called" do
-          it "loads the tokens from source" do
+          it "loads the tokens from source and discards expired tokens" do
             file=make_tokens_file
             tokens=Tokens.new source: file.path
             tokens[0] #to call load
@@ -91,6 +90,7 @@ module Crawler
         
       end
 
+      
       describe "#pick" do
         it "picks the oldest (by :last_used) token" do
           file=make_tokens_file
@@ -110,7 +110,7 @@ module Crawler
         end
       end
     end
-
-    
   end
 end
+
+
