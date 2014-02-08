@@ -90,6 +90,14 @@ module Crawler
         
       end
 
+      describe "#last_used" do
+        it "returns the lastest :last_used" do
+          file=make_tokens_file
+          tokens=Tokens.new source: file.path
+          tokens.last_used.should == tokens.last[:last_used]
+        end
+      end
+
       
       describe "#pick" do
         it "picks the oldest (by :last_used) token" do
@@ -99,13 +107,13 @@ module Crawler
         end
       end
 
-      describe "#extract(token)" do
-        it "sets last_used of token to Time.now and returns the token value" do
-          token={value: "123", last_used: Time.now}
+      describe "#touch(token)" do
+        it "sets last_used of token to Time.now" do
+          token={last_used: Time.now}
           timestamp=Time.now+99
           Time.stub(:now).and_return(timestamp)
           tokens=Tokens.new source: ""
-          tokens.extract(token).should == "123"
+          tokens.touch(token)
           token[:last_used].should == timestamp
         end
       end

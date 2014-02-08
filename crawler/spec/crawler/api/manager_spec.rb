@@ -30,23 +30,27 @@ module Crawler
         end
       end
       
-      describe "#sleep_time (private method)" do
-        it "calculates sleepeing time with respect to last server request and defined frequency" do
+      describe "#sleep_time (private method)", focus: true do
+        it "calculates sleeping time for a token to be polite to vk server" do
           now=Time.now
           id_freq=3
           serv_freq=10
+          manager=Manager.new(server_requests_per_sec: serv_freq, id_requests_per_sec: id_freq)
           tokens=[]
           4.times do |i| 
-            tokens << Manager::Token.new(i, now+100, i, now+i.to_f/serv_freq)
+            tokens << {value: i, expires: now+100, id: i, last_used: now+i.to_f/serv_freq}
           end
-          manager=Manager.new(server_requests_per_sec: serv_freq, id_requests_per_sec: id_freq)
-          manager.stub(:load_tokens)
-          manager.tokens=tokens
+          manager.instance_variable_set(:@tokens, tokens)
+          manager.instance_variable_get(:@tokens).stub(:method_missing) do |method, *args|
+            raise "undefined method: #{method}" unless method==:last_used
+            tokens[3][:last_used]
+          end
           now+=3.0/serv_freq      # now is the time of last request
-          manager.send(:sleep_time,tokens[0],now).round(3).should==(1.0/serv_freq).round(3) # here only server delay matters
-          manager.send(:sleep_time,tokens[1],now).round(3).should==(1.0/id_freq-2.0/serv_freq).round(3)
-          manager.send(:sleep_time,tokens[2],now).round(3).should==(1.0/id_freq-1.0/serv_freq).round(3)
-          manager.send(:sleep_time,tokens[3],now).round(3).should==(1.0/id_freq).round(3)
+          Time.stub(:now).and_return now
+          manager.send(:sleep_time,tokens[0]).should==(1.0/serv_freq).round(3) # here only server delay matters
+          manager.send(:sleep_time,tokens[1]).should==(1.0/id_freq-2.0/serv_freq).round(3)
+          manager.send(:sleep_time,tokens[2]).should==(1.0/id_freq-1.0/serv_freq).round(3)
+          manager.send(:sleep_time,tokens[3]).should==(1.0/id_freq).round(3)
         end
       end
     end

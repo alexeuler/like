@@ -16,9 +16,14 @@ module Crawler
         @data.min_by {|x| x[:last_used] }
       end
 
-      def extract(token)
+      def last_used
+        load if @data.count == 0  or source_modified?
+        token=@data.max_by {|x| x[:last_used] }
+        token[:last_used]
+      end
+      
+      def touch(token)
         token[:last_used]=Time.now
-        token[:value]
       end
       
       def method_missing(method, *args, &block)
