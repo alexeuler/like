@@ -11,6 +11,16 @@ module Crawler
         @timestamp=Time.now
       end
 
+      def pick
+        load if @data.count == 0  or source_modified?
+        @data.min_by {|x| x[:last_used] }
+      end
+
+      def extract(token)
+        token[:last_used]=Time.now
+        token[:value]
+      end
+      
       def method_missing(method, *args, &block)
         load if @data.count == 0  or source_modified?
         @data.send(method, *args, &block)
@@ -23,7 +33,7 @@ module Crawler
         File.open(source) do |f|
           while line=f.gets
             values=line.chomp.split(";")
-            @data << {value: values[0], expires: Time.at(values[1].to_i), id: values[2]}
+            @data << {value: values[0], expires: Time.at(values[1].to_i), id: values[2], last_used: Time.now}
           end
         end
         raise "Source contains no tokens" if @data.count == 0

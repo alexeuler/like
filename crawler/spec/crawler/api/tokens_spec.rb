@@ -7,7 +7,7 @@ module Crawler
 
     #Tokenfile structure : value, expires, vk_id
     
-    describe Tokens do
+    describe Tokens, focus: true do
 
       def make_tokens_file(filename="tokens")
         file=Tempfile.new(filename)
@@ -30,14 +30,14 @@ module Crawler
           tokens.source.should == __FILE__
         end
         
-        context "source argument not specified" do
+        context "when source argument not specified" do
           it "raises error 'Source is not specified'" do
             expect {Tokens.new}.to raise_error("Source is not specified")
           end
         end
       end
 
-      describe "#any method" do
+      describe "#any other method" do
         it "forwards message to array of tokens" do
           tokens=Tokens.new source: __FILE__
           tokens.stub(:load)
@@ -47,12 +47,14 @@ module Crawler
 
         context "when no tokens loaded and any method called" do
           it "loads the tokens from source" do
+            timestamp=Time.now
+            Time.stub(:now).and_return(timestamp)
             file=make_tokens_file
             tokens=Tokens.new source: file.path
-            2.times {|i| tokens[i].should==payload[i]}
+            2.times {|i| tokens[i].should==payload[i].merge({last_used: timestamp})}
             file.unlink
           end
-          context "source is not available" do
+          context "when source is not available" do
             it "raises error" do
               tokens=Tokens.new source: "whatever file"
               expect {tokens[0]}.to raise_error
@@ -89,6 +91,24 @@ module Crawler
         
       end
 
+      describe "#pick" do
+        it "picks the oldest (by :last_used) token" do
+          file=make_tokens_file
+          tokens=Tokens.new source: file.path
+          tokens.pick[:value].should == payload[0][:value]
+        end
+      end
+
+      describe "#extract(token)" do
+        it "sets last_used of token to Time.now and returns the token value" do
+          token={value: "123", last_used: Time.now}
+          timestamp=Time.now+99
+          Time.stub(:now).and_return(timestamp)
+          tokens=Tokens.new source: ""
+          tokens.extract(token).should == "123"
+          token[:last_used].should == timestamp
+        end
+      end
     end
 
     

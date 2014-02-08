@@ -37,7 +37,6 @@ module Crawler
           token.last_access=Time.now
         end
       end
-    end
 
       def tokens
         @tokens
@@ -47,9 +46,6 @@ module Crawler
         @tokens=value
       end
 
-    def tokens
-      @tokens
-    end
 
       private
 
@@ -66,8 +62,6 @@ module Crawler
         @tokens.min_by(&:last_access)
       end
 
-      private
-
       def load_tokens
         new_tokens=[]
         File.open(@token_filename, "r") do |f|
@@ -82,17 +76,11 @@ module Crawler
         @tokens.keep_if {|x| new_values.include?(x.value)}
         @tokens.concat(new_tokens.delete_if {|x| old_values.include? x.value})
       end
-      old_values=@tokens.map(&:value)
-      new_values=new_tokens.map(&:value)
-      @tokens.keep_if {|x| new_values.include?(x.value)}
-      @tokens.concat(new_tokens.delete_if {|x| old_values.include? x.value})
-    end
 
       def defaults
         {server_requests_per_sec: 5, id_requests_per_sec: 3}
       end
 
     end
-
   end
 end
