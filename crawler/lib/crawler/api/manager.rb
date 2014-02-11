@@ -6,7 +6,7 @@ module Crawler
     class Manager
       include Logging
       include Celluloid
-
+      #finalizer :shutdown
       # Token file structure
       # token_value;expires;vk_id\n
       
@@ -20,8 +20,14 @@ module Crawler
       end
 
       def start
-        loop do
-          tuple=@queue.pop
+        @active=true
+        while @active
+          begin
+            tuple=@queue.pop(true, Task.current)
+          rescue ThreadError
+            @active ? Task.suspend(:iowait) : next
+            retry
+          end
           token=@tokens.pick
           tuple[:request] << "access_token=#{token[:value]}"
           wait(token)
@@ -31,8 +37,13 @@ module Crawler
         end
       end
 
-      private
+      
+      def shutdown
+        @active=false
+      end
 
+      private
+      
       def wait(token)
           delay=sleep_time(token)
           sleep delay if delay>0

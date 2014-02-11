@@ -1,21 +1,21 @@
 require "crawler/api/manager"
+require "crawler/api/api_queue"
 require "tempfile"
 
 module Crawler
   module Api
     describe Manager do
-      describe "#start" do
+      describe "#start", focus: true do
         it "Reads from request_queue, chooses token, delays to conform frequency and spawns a requester" do
           token_file=Tempfile.new('tokens')
           token_file.puts("qwe;#{Time.now.to_i+100};1")
           token_file.puts("rty;#{Time.now.to_i+100};2")
           token_file.close
 
-          queue=Queue.new
+          queue=ApiQueue.new queue: Queue.new
           queue.push({socket: "Test", request: "Req1&"})
           queue.push({socket: "Test", request: "Req2&"})
           queue.push({socket: "Test", request: "Req3&"})
-
           requester=double("requester")
           async=double("async")
           requester.stub(:async).and_return(async)
@@ -28,6 +28,7 @@ module Crawler
           manager.async.start
           sleep 0.05
           token_file.unlink
+          manager.async.shutdown
         end
       end
       
