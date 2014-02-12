@@ -2,7 +2,7 @@ require "celluloid"
 
 module Crawler
   module Api
-    class ApiQueue < Queue
+    class NonBlockQueue < Queue
 
       #Celluloid use Task class for each method call (which is a fiber in essence)
       #It has methods resume and suspend (equivalent to resume and yield in Fiber)
@@ -15,9 +15,9 @@ module Crawler
         super
       end
 
-      def pop(*args)
-        @task=args.pop if args.count == 2
-        super
+      def pop(non_block=false, task=nil)
+        @task=task if task
+        super(non_block)
       end
       
     end

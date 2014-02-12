@@ -37,19 +37,46 @@ module Crawler
           end
         end
       end        
-      describe "#any other method" do
-        
-        
-        context "when no tokens loaded and any method called" do
+
+      describe "#last_used" do
+        context "data loaded" do
+          it "returns the lastest :last_used" do
+            file=make_tokens_file
+            tokens=Tokens.new source: file.path
+            tokens.pick
+            tokens.last_used.should == tokens.instance_variable_get(:@data).last[:last_used]
+          end
+        end
+        context "data is not loaded" do
+          it "returns a time more than 12 hours ago" do
+            tokens=Tokens.new source: ""
+            tokens.last_used.should <= Time.now - 12*60*60
+          end
+        end
+      end
+
+      
+      describe "#pick" do
+        context "tokens are loaded and token file is up-to-date" do
+          it "picks the oldest (by :last_used) token" do
+            file=make_tokens_file
+            tokens=Tokens.new source: file.path
+            tokens.pick[:value].should == payload[0][:value]
+          end
+        end
+
+        context "when data is not loaded" do
           it "loads the tokens from source and discards expired tokens" do
             timestamp=Time.now
             file=make_tokens_file
             tokens=Tokens.new source: file.path
-            tokens.count.should==payload.count-1
-            tokens.count.times do |i|
-              tokens[i].delete(:expires).to_i.should == payload[i][:expires].to_i
-              tokens[i].delete(:last_used).should < Time.now
-              tokens[i].keys.each {|key| tokens[i][key].should == payload[i][key]}
+            tokens.pick
+            data=tokens.instance_variable_get(:@data)
+            data.count.should==payload.count-1
+            data.count.times do |i|
+              data[i].delete(:expires).to_i.should == payload[i][:expires].to_i
+              data[i].delete(:last_used).should < Time.now
+              data[i].keys.each {|key| data[i][key].should == payload[i][key]}
             end
             file.unlink
           end
@@ -65,7 +92,7 @@ module Crawler
           it "loads the tokens from source and discards expired tokens" do
             file=make_tokens_file
             tokens=Tokens.new source: file.path
-            tokens[0] #to call load
+            tokens.pick
             file.unlink
 
             sleep 0.01
@@ -73,38 +100,12 @@ module Crawler
             tokens.should_receive(:load)
             file=make_tokens_file("tokens1")
             tokens.source=file.path
-            tokens[0] #to call load
+            tokens.pick
             file.unlink
           end
         end
 
-        context "otherwise" do
-          it "does not call load" do
-            file=make_tokens_file
-            tokens=Tokens.new source: file.path
-            tokens[0] #to call load
-            tokens.should_not_receive(:load)
-            tokens[0]
-          end
-        end
         
-      end
-
-      describe "#last_used" do
-        it "returns the lastest :last_used" do
-          file=make_tokens_file
-          tokens=Tokens.new source: file.path
-          tokens.last_used.should == tokens.last[:last_used]
-        end
-      end
-
-      
-      describe "#pick" do
-        it "picks the oldest (by :last_used) token" do
-          file=make_tokens_file
-          tokens=Tokens.new source: file.path
-          tokens.pick[:value].should == payload[0][:value]
-        end
       end
 
       describe "#touch(token)" do

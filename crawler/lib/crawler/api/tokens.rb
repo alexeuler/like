@@ -1,7 +1,6 @@
 module Crawler
   module Api
     class Tokens
-
       attr_accessor :source
 
       def initialize(args={})
@@ -17,7 +16,7 @@ module Crawler
       end
 
       def last_used
-        load if @data.count == 0  or source_modified?
+        return Time.now - 60*60*24 if @data.count == 0
         token=@data.max_by {|x| x[:last_used] }
         token[:last_used]
       end
@@ -26,11 +25,6 @@ module Crawler
         token[:last_used]=Time.now
       end
       
-      def method_missing(method, *args, &block)
-        load if @data.count == 0  or source_modified?
-        @data.send(method, *args, &block)
-      end
-
       private
 
       def load

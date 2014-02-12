@@ -1,5 +1,5 @@
 require "crawler/api/manager"
-require "crawler/api/api_queue"
+require "crawler/api/non_block_queue"
 require "tempfile"
 
 module Crawler
@@ -12,7 +12,7 @@ module Crawler
           token_file.puts("rty;#{Time.now.to_i+100};2")
           token_file.close
 
-          queue=ApiQueue.new
+          queue=NonBlockQueue.new
           queue.push({socket: "Test", request: "Req1&"})
           queue.push({socket: "Test", request: "Req2&"})
           queue.push({socket: "Test", request: "Req3&"})
