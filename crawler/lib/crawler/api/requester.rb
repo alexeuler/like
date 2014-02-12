@@ -3,27 +3,34 @@ require "uri"
 require "celluloid"
 require "json"
 require "timeout"
-module Api
-  class Requester
-    
-    VK_TIMEOUT=30
-    include Celluloid
+module Crawler
+  module Api
+    class Requester
+      
+      VK_TIMEOUT=30
+      include Celluloid::IO
 
-    def push(args)
-      begin
-        vk_response=Timeout::timeout(VK_TIMEOUT) do
-          Net::HTTP.get_response(URI.parse(args[:request]))
-        end
-        response=JSON.parse vk_response.body
-      rescue Timeout::Error =>e
-        response={error: {error_msg: "Requester timeout in #{VK_TIMEOUT} seconds"}}
-      rescue JSON::ParserError => e
-        response={error: {error_msg: "Unable to parse json from vk"}}
-      rescue Exception => e
-        response={error: {error_msg: e.message}}
+      def initialize(args={})
+        @timeout=args[:timeout] || VK_TIMEOUT
       end
-      response[:incoming]=args[:incoming]
-      args[:socket].write response.to_json+"\r\n"
+      
+      def push(args)
+        begin
+          vk_response=Celluloid.timeout(@timeout) do
+            uri=URI.parse(args[:request])
+            Net::HTTP.get_response(uri)
+          end
+          response=JSON.parse vk_response.body, symbolize_name: true
+        rescue Celluloid::Task::TimeoutError =>e
+          response={error: {error_msg: "Requester timeout in #{@timeout} seconds"}}
+        rescue JSON::ParserError => e
+          response={error: {error_msg: "Unable to parse json from vk"}}
+        rescue Exception => e
+          response={error: {error_msg: e.message}}
+        end
+        response[:incoming]=args[:incoming]
+        args[:socket].write response.to_json+"\r\n"
+      end
     end
   end
 end

@@ -57,7 +57,7 @@ module Crawler
           return
         end
         
-        res="https://api.vk.com/method/#{hash["method"]}?"
+        res="https://api.vk.com/method/#{hash["method"].to_s}?"
         return res unless hash["params"]
         
         if hash["params"].class.name=="Hash"
