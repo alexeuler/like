@@ -11,7 +11,8 @@ module Crawler
       #When a value is pushed into ApiQueue the task resumes
       
       def push(*args)
-        @task.resume if @task
+        debugger
+        @task && @task.running? && @task.resume 
         super
       end
 

@@ -12,12 +12,11 @@ module Crawler
       end
 
       def new_socket
-        defaults=Listener::DEFAULTS
-        TCPSocket.new(defaults[:host], defaults[:port])  
+        TCPSocket.new "localhost", 10000  
       end
       
       before(:all) do
-        @listener=Listener.new #scheduler is specified later as doubles don't work in before :all
+        @listener=Listener.new host: "localhost", port: 10000 #scheduler is specified later as doubles don't work in before :all
       end
 
       before(:each) do

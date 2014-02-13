@@ -24,7 +24,6 @@ module Crawler
           log.error "Error starting server. Message: #{e.message}"
         end
         log.info "Started server on #{@host}:#{@port}"
-        async.start
       end
 
       def start
