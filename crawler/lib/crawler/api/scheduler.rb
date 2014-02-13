@@ -10,14 +10,11 @@ module Crawler
       include Celluloid::IO
       include Logging
       
-      class << self 
-        attr_accessor :queue
-      end
-
       attr_accessor :timeout, :active
       
       def initialize(args={})
         @timeout=args[:timeout] || CONNECTION_TIMEOUT
+        @queue=args[:queue]
       end
       
       def push(args={})
@@ -26,7 +23,7 @@ module Crawler
           while incoming=Celluloid.timeout(@timeout) {@socket.gets}
             incoming.chomp!
             request=parse_incoming incoming
-            request && self.class.queue.push({socket: @socket, request: request, incoming: incoming})
+            request && @queue.push({socket: @socket, request: request, incoming: incoming})
           end
         rescue Celluloid::Task::TimeoutError
           log.warn "Timeout in scheduler"

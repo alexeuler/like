@@ -11,8 +11,8 @@ module Crawler
       before :each do
         @socket=Celluloid::IO::TCPSocket.new("localhost", 9001)
         @peer=@server.accept
-        Scheduler.queue=Queue.new
-        @scheduler=Scheduler.new
+        @queue=Queue.new
+        @scheduler=Scheduler.new queue: @queue
         @scheduler.async.push socket: @peer
       end
 
@@ -26,15 +26,14 @@ module Crawler
           payload={method: "users.get", params: {id: 1, v: 5}}.to_json
           @socket.puts payload
           sleep 0.05
-          Scheduler.queue.pop(true).should=={socket: @peer, request:"https://api.vk.com/method/users.get?id=1&v=5&", incoming: payload}
+          @queue.pop(true).should=={socket: @peer, request:"https://api.vk.com/method/users.get?id=1&v=5&", incoming: payload}
         end
 
         context "when it doesn't receive any message in #{Scheduler::CONNECTION_TIMEOUT} seconds" do
           it "closes the connection", skip_before: true do
             @socket=Celluloid::IO::TCPSocket.new("localhost", 9001)
             @peer=@server.accept
-            Scheduler.queue=Queue.new
-            @scheduler=Scheduler.new(timeout: 0.1)
+            @scheduler=Scheduler.new(timeout: 0.1, queue: Queue.new)
             @scheduler.wrapped_object.should_receive(:shutdown)
             @scheduler.async.push(socket: @peer)
             sleep 0.15
