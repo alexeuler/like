@@ -32,7 +32,7 @@ module Crawler
         end
       end
       
-      describe "#sleep_time (private method)" do
+      describe "#token_sleep_time (private method)" do
         it "calculates sleeping time for a token to be polite to vk server" do
           id_freq=3
           serv_freq=10
@@ -52,10 +52,10 @@ module Crawler
           
           now+=3.0/serv_freq      # now is the time of last request
           Time.stub(:now).and_return now
-          manager.send(:sleep_time,tokens[0]).should==(1.0/serv_freq).round(3) # here only server delay matters
-          manager.send(:sleep_time,tokens[1]).should==(1.0/id_freq-2.0/serv_freq).round(3)
-          manager.send(:sleep_time,tokens[2]).should==(1.0/id_freq-1.0/serv_freq).round(3)
-          manager.send(:sleep_time,tokens[3]).should==(1.0/id_freq).round(3)
+          manager.send(:token_sleep_time,tokens[0]).should==(1.0/serv_freq).round(3) # here only server delay matters
+          manager.send(:token_sleep_time,tokens[1]).should==(1.0/id_freq-2.0/serv_freq).round(3)
+          manager.send(:token_sleep_time,tokens[2]).should==(1.0/id_freq-1.0/serv_freq).round(3)
+          manager.send(:token_sleep_time,tokens[3]).should==(1.0/id_freq).round(3)
         end
       end
     end

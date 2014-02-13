@@ -6,10 +6,7 @@ module Crawler
     class Manager
       include Logging
       include Celluloid
-      #finalizer :shutdown
-      # Token file structure
-      # token_value;expires;vk_id\n
-      
+
       def initialize(args={})
         args=defaults.merge args
         @tokens=Tokens.new source: args[:token_filename]
@@ -45,17 +42,17 @@ module Crawler
       private
       
       def wait(token)
-          delay=sleep_time(token)
+          delay=token_sleep_time(token)
           sleep delay if delay>0
       end
 
-      def sleep_time(token)
+      def token_sleep_time(token)
         now=Time.now
-        delay=[abstract_sleep_time(token[:last_used], now, @id_requests_per_sec), abstract_sleep_time(@tokens.last_used, now, @server_requests_per_sec)].max
+        delay=[sleep_time(token[:last_used], now, @id_requests_per_sec), sleep_time(@tokens.last_used, now, @server_requests_per_sec)].max
         delay.round(3)
       end
 
-      def abstract_sleep_time(last_used, now, frequency)
+      def sleep_time(last_used, now, frequency)
         [1.0/frequency-now.to_f+last_used.to_f,0].max
       end
 

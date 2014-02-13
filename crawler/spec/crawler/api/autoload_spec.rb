@@ -1,4 +1,4 @@
-#require "crawler/api/autoload"
+require "crawler/api/autoload"
 require "net/http"
 
 describe "Api" do
