@@ -20,14 +20,14 @@ module Crawler
         @active=true
         while @active
           begin
-            tuple=@queue.pop(true, Task.current)
+            tuple=@queue.pop(true)
           rescue ThreadError
-            @active ? Task.suspend(:iowait) : next
+            @active ? wait(:pushed) : next
             retry
           end
           token=@tokens.pick
           tuple[:request] << "access_token=#{token[:value]}"
-          wait(token)
+          wait_to_be_polite_to_server(token)
           log.info "Starting request #{tuple[:request]}"
           @requester.async.push tuple
           @tokens.touch(token)
@@ -41,7 +41,7 @@ module Crawler
 
       private
       
-      def wait(token)
+      def wait_to_be_polite_to_server(token)
           delay=token_sleep_time(token)
           sleep delay if delay>0
       end

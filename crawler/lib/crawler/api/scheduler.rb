@@ -23,7 +23,10 @@ module Crawler
           while incoming=Celluloid.timeout(@timeout) {@socket.gets}
             incoming.chomp!
             request=parse_incoming incoming
-            request && @queue.push({socket: @socket, request: request, incoming: incoming})
+            if request
+              @queue.push({socket: @socket, request: request, incoming: incoming})
+              Celluloid::Actor[:manager].signal(:pushed, 1)
+            end
           end
         rescue Celluloid::Task::TimeoutError
           log.warn "Timeout in scheduler"

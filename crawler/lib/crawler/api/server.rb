@@ -1,6 +1,5 @@
 require_relative "listener"
 require_relative "manager"
-require_relative "non_block_queue"
 require_relative "scheduler"
 require_relative "requester"
 
@@ -13,11 +12,12 @@ module Crawler
       end
 
       def start
-        queue=NonBlockQueue.new
+        queue=Queue.new
         scheduler_pool=Scheduler.pool size: 50, args: [{queue: queue}]
         requester_pool=Requester.pool size: 50
         @listener=Listener.new(host: "localhost", port: 9000, scheduler: scheduler_pool)
         @manager=Manager.new queue: queue, requester: requester_pool, token_filename: @token_filename
+        Actor[:manager] = @manager
         @manager.async.start
         @listener.async.start
       end
