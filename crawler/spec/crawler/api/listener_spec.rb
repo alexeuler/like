@@ -1,6 +1,5 @@
-require "crawler/api/listener"
 require "spec_helper"
-
+require "crawler/api/listener"
 
 module Crawler
   module Api
