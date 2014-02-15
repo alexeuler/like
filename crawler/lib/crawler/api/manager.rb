@@ -22,7 +22,7 @@ module Crawler
           begin
             tuple=@queue.pop(true)
           rescue ThreadError
-            @active ? wait(:pushed) : next
+            @active ? Actor.current.wait(:pushed) : next
             retry
           end
           token=@tokens.pick

@@ -25,7 +25,7 @@ module Crawler
             request=parse_incoming incoming
             if request
               @queue.push({socket: @socket, request: request, incoming: incoming})
-              Celluloid::Actor[:manager].signal(:pushed, 1)
+              Celluloid::Actor[:manager].signal(:pushed, 1) if Celluloid::Actor[:manager]
             end
           end
         rescue Celluloid::Task::TimeoutError
@@ -46,22 +46,22 @@ module Crawler
 
       def parse_incoming(request)
         begin
-          hash=JSON.parse(request)
+          hash=JSON.parse(request, symbolize_names: true)
         rescue JSON::ParserError => e
           send_error("Unable to parse request")
           return
         end
-        
-        unless hash["method"]
+
+        unless hash[:method]
           send_error("Method is not specified")
           return
         end
-        
-        res="https://api.vk.com/method/#{hash["method"].to_s}?"
-        return res unless hash["params"]
-        
-        if hash["params"].class.name=="Hash"
-          hash["params"].each_pair {|key,value| res+="#{key.to_s}=#{value.to_s}&"}
+
+        res="https://api.vk.com/method/#{hash[:method].to_s}?"
+        return res unless hash[:params]
+
+        if hash[:params].class.name=="Hash"
+          hash[:params].each_pair { |key, value| res+="#{key.to_s}=#{value.to_s}&" }
         else
           send_error("Params must be a hash")
           return

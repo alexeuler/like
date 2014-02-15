@@ -21,15 +21,15 @@ module Crawler
             Net::HTTP.get_response(uri)
           end
           response=JSON.parse vk_response.body, symbolize_name: true
-        rescue Celluloid::Task::TimeoutError =>e
+        rescue Celluloid::Task::TimeoutError
           response={error: {error_msg: "Requester timeout in #{@timeout} seconds"}}
-        rescue JSON::ParserError => e
+        rescue JSON::ParserError
           response={error: {error_msg: "Unable to parse json from vk"}}
         rescue Exception => e
           response={error: {error_msg: e.message}}
         end
         response[:incoming]=args[:incoming]
-        args[:socket].write response.to_json+"\r\n"
+        args[:socket].write response.to_json+"\r\n" unless args[:socket].closed?
       end
     end
   end

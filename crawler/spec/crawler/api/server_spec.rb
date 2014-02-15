@@ -5,8 +5,8 @@ require "crawler/api/server"
 
 module Crawler
   module Api
-    
-    describe Server, focus: true do
+
+    describe Server do
 
       def make_tokens
         token_file=Tempfile.new('tokens')
@@ -17,17 +17,22 @@ module Crawler
       end
       
       it "receives requests and returns responses" do
+        payload = {test: 123}.to_json
         server=Server.new token_filename: make_tokens
         server.async.start
         sleep 1
         Net::HTTP.stub(:get_response) do
-          resp=Net::HTTPResponse.new(1.0, 200, "OK")
-          resp.body="Hello world!"
-          resp
+          #resp=Net::HTTPResponse.new(1.0, 200, "OK")
+          #resp.body="Hello world!"
+          response = double("response")
+          response.stub(:body).and_return(payload)
+          response
         end
         socket=TCPSocket.new "localhost", 9000
         socket.puts({method: "users_get"}.to_json)
-        puts socket.gets
+        response = socket.gets.chomp
+        response = JSON.parse response, symbolize_names: true
+        response.should == {test: 123, incoming: {method: "users_get"}.to_json}
       end
     end
   end
