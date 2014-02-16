@@ -38,7 +38,7 @@ module Crawler
       end
 
       def shutdown
-        @socket.close unless @socket.closed?
+        @socket and not @socket.closed? and @socket.close
       end
 
       

@@ -29,7 +29,11 @@ module Crawler
           response={error: {error_msg: e.message}}
         end
         response[:incoming]=args[:incoming]
-        args[:socket].write response.to_json+"\r\n" unless args[:socket].closed?
+        begin
+          args[:socket].write response.to_json+"\r\n"
+        rescue IOError
+          args[:socket].close
+        end
       end
     end
   end

@@ -23,9 +23,9 @@ module Crawler
           async.should_receive(:push).with({socket: "Test", request: "Req3&access_token=qwe"})
 
           manager=Manager.new token_filename: token_file.path, requester: requester, queue: queue
-          manager.wrapped_object.stub(:wait)
+          manager.wrapped_object.stub(:wait_to_be_polite_to_server)
           manager.async.start
-          sleep 1
+          sleep 0.05
           token_file.unlink
           manager.async.shutdown
         end

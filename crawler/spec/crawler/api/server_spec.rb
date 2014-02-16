@@ -15,15 +15,13 @@ module Crawler
         token_file.close
         token_file.path
       end
-      
+
       it "receives requests and returns responses" do
         payload = {test: 123}.to_json
         server=Server.new token_filename: make_tokens
         server.async.start
         sleep 1
         Net::HTTP.stub(:get_response) do
-          #resp=Net::HTTPResponse.new(1.0, 200, "OK")
-          #resp.body="Hello world!"
           response = double("response")
           response.stub(:body).and_return(payload)
           response

@@ -12,7 +12,7 @@ module Crawler
         @socket=Celluloid::IO::TCPSocket.new("localhost", 9001)
         @peer=@server.accept
         @queue=Queue.new
-        @scheduler=Scheduler.new queue: @queue
+        @scheduler=Scheduler.new queue: @queue, timeout: 0.5
         @scheduler.async.push socket: @peer
       end
 
@@ -30,13 +30,9 @@ module Crawler
         end
 
         context "when it doesn't receive any message in #{Scheduler::CONNECTION_TIMEOUT} seconds" do
-          it "closes the connection", skip_before: true do
-            @socket=Celluloid::IO::TCPSocket.new("localhost", 9001)
-            @peer=@server.accept
-            @scheduler=Scheduler.new(timeout: 0.1, queue: Queue.new)
+          it "closes the connection" do
             @scheduler.wrapped_object.should_receive(:shutdown)
-            @scheduler.async.push(socket: @peer)
-            sleep 0.15
+            sleep 1
           end
         end
         
