@@ -6,14 +6,14 @@ require "timeout"
 module Crawler
   module Api
     class Requester
-      
+
       VK_TIMEOUT=30
       include Celluloid::IO
 
       def initialize(args={})
         @timeout=args[:timeout] || VK_TIMEOUT
       end
-      
+
       def push(args)
         begin
           vk_response=Celluloid.timeout(@timeout) do
@@ -32,7 +32,7 @@ module Crawler
         begin
           args[:socket].write response.to_json+"\r\n"
         rescue IOError
-          args[:socket].close
+          log.warn "Requester attempted to write a response, but the socket was closed"
         end
       end
     end
