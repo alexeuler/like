@@ -4,6 +4,7 @@ require "crawler/api/tokens"
 module Crawler
   module Api
     class Manager
+
       include Logging
       include Celluloid
 
@@ -34,16 +35,17 @@ module Crawler
         end
       end
 
-      
+
       def shutdown
         @active=false
       end
 
       private
-      
+
       def wait_to_be_polite_to_server(token)
-          delay=token_sleep_time(token)
-          sleep delay if delay>0
+        delay=token_sleep_time(token)
+        cushion = 0.025
+        sleep delay + cushion if delay>0
       end
 
       def token_sleep_time(token)
@@ -53,7 +55,7 @@ module Crawler
       end
 
       def sleep_time(last_used, now, frequency)
-        [1.0/frequency-now.to_f+last_used.to_f,0].max
+        [1.0/frequency-now.to_f+last_used.to_f, 0].max
       end
 
       def defaults
