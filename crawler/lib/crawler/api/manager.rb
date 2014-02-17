@@ -28,6 +28,7 @@ module Crawler
           end
           token=@tokens.pick
           tuple[:request] << "access_token=#{token[:value]}"
+          tuple[:queue] = @queue
           wait_to_be_polite_to_server(token)
           log.info "Starting request #{tuple[:request]}"
           @requester.async.push tuple
