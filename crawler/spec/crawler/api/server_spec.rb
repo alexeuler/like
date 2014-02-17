@@ -35,7 +35,7 @@ module Crawler
       end
     end
 
-    describe Server, focus: true do
+    describe Server do
 
       before(:all) do
         @token_filename=make_tokens
@@ -76,6 +76,10 @@ module Crawler
       end
 
       context "when one token available" do
+        before :each do
+          update_tokens(@token_filename, 1)
+        end
+
         it "receives many requests through one socket and returns responses with 1/3 frequency" do
           socket=TCPSocket.new "localhost", 9000
           10.times { socket.puts({method: "users_get"}.to_json) }
@@ -123,7 +127,6 @@ module Crawler
             response[:error].should be_nil
           end
           HttpDouble.min_interval.should <= 1.0 / 5
-          puts HttpDouble.log
           socket.close
         end
       end
