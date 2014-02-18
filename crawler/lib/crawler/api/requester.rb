@@ -1,6 +1,6 @@
 require "net/http"
 require "uri"
-require "celluloid"
+require "celluloid/io"
 require "json"
 require "timeout"
 module Crawler
@@ -43,15 +43,15 @@ module Crawler
       private
 
       def do_retry(args)
-        args[:request] = /access_token/.match(args[:request]).pre_match
+        args[:request] = match.pre_match if match = /access_token/.match(args[:request])
         args[:retries] ||= MAX_RETRIES
         if args[:retries] > 0
           args[:retries]-=1
-          tuple[:queue].push args
+          args[:queue].shift args
           Celluloid::Actor[:manager].signal(:pushed, 1) if Celluloid::Actor[:manager]
           return true
         end
-        return false
+        false
       end
 
     end

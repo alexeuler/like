@@ -17,8 +17,8 @@ module Crawler
           socket, peer = Socket.socketpair(:UNIX, :DGRAM, 0)
           Net::HTTP.should_receive(:get_response) do |uri|
             uri.host.should == "vk.com"
-            res=OpenStruct.new
-            res.body={response: "ok"}.to_json
+            res=double ("response")
+            res.stub(:body).and_return({response: "ok"}.to_json)
             res
           end
           requester=Requester.new
@@ -30,32 +30,46 @@ module Crawler
         end
 
         context "when server doesn't respond" do
-          it "returns timeout error" do
-            socket, peer = Socket.socketpair(:UNIX, :DGRAM, 0)
+          it "retries #{Requester::MAX_RETRIES} times and returns timeout error" do
             timeout=0.000001
             requester=Requester.new timeout: timeout
-            Net::HTTP.should_receive(:get_response) do |uri|
+            Net::HTTP.should_receive(:get_response).exactly(
+                Requester::MAX_RETRIES + 1).times do |uri|
               raise Celluloid::Task::TimeoutError
             end
-            requester.async.push(request: "http://vk.com", incoming: "incoming", socket: socket)
+            queue = double("queue")
+            queue.should_receive(:shift).exactly(
+                Requester::MAX_RETRIES).times do |tuple|
+              requester.async.push(tuple)
+            end
+            socket, peer = Socket.socketpair(:UNIX, :DGRAM, 0)
+            requester.async.push(request: "http://vk.com", incoming: "incoming",
+                                 socket: socket, queue: queue)
             answer=peer.gets.chomp
-            JSON.parse(answer, symbolize_names: true).should == {error: {error_msg: "Requester timeout in #{timeout} seconds"}, incoming: "incoming"}
+            JSON.parse(answer, symbolize_names: true).should ==
+                {error: {error_msg: "Requester timeout in #{timeout} seconds"}, incoming: "incoming"}
             socket.close
             peer.close
           end
         end
 
-        context "when server respond not with JSON" do
-          it "returns JSON error" do
+        context "when server responds not with JSON" do
+          it "retries #{Requester::MAX_RETRIES} times and returns JSON error" do
             socket, peer = Socket.socketpair(:UNIX, :DGRAM, 0)
-            Net::HTTP.should_receive(:get_response) do |uri|
+            requester=Requester.new
+            Net::HTTP.should_receive(:get_response).exactly(
+                Requester::MAX_RETRIES + 1).times do |uri|
               uri.host.should == "vk.com"
-              res=OpenStruct.new
-              res.body="sdfsdf"
+              res=double("response")
+              res.stub(:body).and_return("sdfsdf");
               res
             end
-            requester=Requester.new
-            requester.async.push(request: "http://vk.com", incoming: "incoming", socket: socket)
+            queue = double("queue")
+            queue.should_receive(:shift).exactly(
+                Requester::MAX_RETRIES).times do |tuple|
+              requester.async.push(tuple)
+            end
+            requester.async.push(request: "http://vk.com", incoming: "incoming", socket: socket, queue: queue)
             answer=peer.gets.chomp
             JSON.parse(answer, symbolize_names: true).should == {:error=>{:error_msg=>"Unable to parse json from vk"}, incoming: "incoming"}
             socket.close
