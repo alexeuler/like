@@ -3,6 +3,8 @@ require "uri"
 require "celluloid/io"
 require "json"
 require "timeout"
+require_relative "logging"
+
 module Crawler
   module Api
     class Requester
@@ -10,6 +12,7 @@ module Crawler
       VK_TIMEOUT=30
       MAX_RETRIES = 3
       include Celluloid::IO
+      include Logging
 
       def initialize(args={})
         @timeout=args[:timeout] || VK_TIMEOUT
