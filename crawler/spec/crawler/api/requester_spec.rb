@@ -80,10 +80,8 @@ module Crawler
 
         context "when server responds with {error: ...}" do
           it "retries #{Requester::MAX_RETRIES} times and returns the error" do
-            requester=Requester.new
             stub_http_response response: {error: "vk error"}
-            queue=make_queue requester
-            requester.async.push(request: "http://vk.com", incoming: "incoming", socket: @socket, queue: queue)
+            make_requester queue: true
             answer=@peer.gets.chomp
             JSON.parse(answer, symbolize_names: true).should == {:error => "vk error", incoming: "incoming"}
           end
