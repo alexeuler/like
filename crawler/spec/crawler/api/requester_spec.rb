@@ -78,7 +78,32 @@ module Crawler
           end
         end
 
-        
+        context "when server responds with {error: ...}" do
+          it "retries #{Requester::MAX_RETRIES} times and returns the error" do
+            socket, peer = Socket.socketpair(:UNIX, :DGRAM, 0)
+            requester=Requester.new
+            Net::HTTP.should_receive(:get_response).exactly(
+                Requester::MAX_RETRIES + 1).times do |uri|
+              uri.host.should == "vk.com"
+              res=double("response")
+              res.stub(:body).and_return({error: "vk error"}.to_json)
+              res
+            end
+            queue = double("queue")
+            queue.should_receive(:shift).exactly(
+                Requester::MAX_RETRIES).times do |tuple|
+              requester.async.push(tuple)
+            end
+            requester.async.push(request: "http://vk.com", incoming: "incoming", socket: socket, queue: queue)
+            answer=peer.gets.chomp
+            JSON.parse(answer, symbolize_names: true).should == {:error => "vk error", incoming: "incoming"}
+            socket.close
+            peer.close
+
+          end
+        end
+
+
       end
       
     end
