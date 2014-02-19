@@ -9,13 +9,14 @@ module Crawler
       include Celluloid
 
       def initialize(args={})
-        @token_filename=args[:token_filename] || File.join(File.dirname(__FILE__), "tokens/tokens.csv")
+        @token_filename=args[:token_filename] || File.expand_path("../tokens/tokens.csv", File.dirname(__FILE__))
+        @retries = args[:retries]
       end
 
       def start
         queue=Queue.new
         scheduler_pool=Scheduler.pool size: 50, args: [{queue: queue}]
-        requester_pool=Requester.pool size: 50
+        requester_pool=Requester.pool size: 50, args: [{retries: @retries}]
         @listener=Listener.new(host: "localhost", port: 9000, scheduler: scheduler_pool)
         @manager=Manager.new queue: queue, requester: requester_pool,
                              token_filename: @token_filename, server_requests_per_sec: 10,

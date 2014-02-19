@@ -1,6 +1,6 @@
 require "celluloid"
 require_relative "logging"
-require "crawler/api/tokens"
+require_relative "tokens"
 module Crawler
   module Api
     class Manager

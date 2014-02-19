@@ -16,6 +16,7 @@ module Crawler
 
       def initialize(args={})
         @timeout=args[:timeout] || VK_TIMEOUT
+        @retries = args[:retries] || MAX_RETRIES
       end
 
       def push(args)
@@ -45,7 +46,7 @@ module Crawler
 
       def do_retry(args)
         args[:request] = match.pre_match if match = /access_token/.match(args[:request])
-        args[:retries] ||= MAX_RETRIES
+        args[:retries] ||= @retries
         if args[:retries] > 0
           args[:retries]-=1
           args[:queue].shift args
