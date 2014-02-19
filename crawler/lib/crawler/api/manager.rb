@@ -8,6 +8,8 @@ module Crawler
       include Logging
       include Celluloid
 
+      attr_accessor :cushion
+
       def initialize(args={})
         args=defaults.merge args
         @tokens=Tokens.new source: args[:token_filename]
@@ -15,6 +17,7 @@ module Crawler
         @id_requests_per_sec=args[:id_requests_per_sec]
         @queue=args[:queue]
         @requester=args[:requester]
+        @cushion = args[:cushion] || 0.025
       end
 
       def start
@@ -45,8 +48,7 @@ module Crawler
 
       def wait_to_be_polite_to_server(token)
         delay=token_sleep_time(token)
-        cushion = 0.025
-        sleep delay + cushion if delay>0
+        sleep delay + @cushion if delay>0
       end
 
       def token_sleep_time(token)

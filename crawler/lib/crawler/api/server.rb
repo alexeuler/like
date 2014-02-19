@@ -9,7 +9,7 @@ module Crawler
       include Celluloid
 
       def initialize(args={})
-        @token_filename=args[:token_filename] || File.join(File.dirname(__FILE__), "tokens.csv")
+        @token_filename=args[:token_filename] || File.join(File.dirname(__FILE__), "tokens/tokens.csv")
       end
 
       def start
