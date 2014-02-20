@@ -45,7 +45,8 @@ module Crawler
       private
 
       def do_retry(args)
-        args[:request] = match.pre_match if match = /access_token/.match(args[:request])
+        regex = /access_token/.match(args[:request])
+        regex && args[:request] = regex.pre_match
         args[:retries] ||= @retries
         if args[:retries] > 0
           args[:retries]-=1

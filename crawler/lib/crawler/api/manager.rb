@@ -8,6 +8,23 @@ module Crawler
       include Logging
       include Celluloid
 
+      # Cushion is additional time to delay between requests
+      # It appears that it is actually not needed, moreover you can boost performance
+      # by setting it negative
+
+      # The results of the tests are
+      # for 2 tokens
+      #   {:average_request_time=>0.1667786095, :fail_rate=>0.0, :cushion=>0.0}
+      #   {:average_request_time=>0.1534757537, :fail_rate=>0.0, :cushion=>-0.025}
+      #   {:average_request_time=>0.15984273987, :fail_rate=>0.1, :cushion=>-0.05}
+      # for 1 token
+      #   {:time=>0.3371227969, :fail_rate=>0.0, :cushion=>0.0}
+      #   {:time=>0.33942607017000004, :fail_rate=>0.1, :cushion=>-0.025}
+      #   {:time=>0.3450395382, :fail_rate=>0.2, :cushion=>-0.05}
+      # See rake cushion task for details
+
+      # overall 0 value is pretty safe, while negative value give random boost or not
+
       attr_accessor :cushion
 
       def initialize(args={})
@@ -17,7 +34,7 @@ module Crawler
         @id_requests_per_sec=args[:id_requests_per_sec]
         @queue=args[:queue]
         @requester=args[:requester]
-        @cushion = args[:cushion] || 0.025
+        @cushion = args[:cushion] || 0
       end
 
       def start
