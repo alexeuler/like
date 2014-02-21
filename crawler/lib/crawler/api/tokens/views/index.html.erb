@@ -1,0 +1,18 @@
+<table cellpadding="20px">
+  <tr>
+    <th>Value</th>
+    <th>Expires</th>
+    <th>Id</th>
+    <th></th>
+  </tr>
+  <%@tokens||=[]%>
+  <%@tokens.each do |token|%>
+    <tr>
+      <td><%=token[:value]%></td>
+      <td><%=Time.at(token[:expires].to_i)%></td>
+      <td><%=token[:id]%></td>
+      <td><a href="<%="?delete=#{token[:id]}"%>">Delete</a></td>
+    </tr>
+  <% end %>
+</table>
+  <p><a href="<%="http://api.vk.com/oauth/authorize?client_id=#{@id}&redirect_uri=#{@redirect_uri}"%>">New / Update</a></p>
