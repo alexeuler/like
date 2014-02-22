@@ -67,6 +67,7 @@ module Crawler
       end
 
       it "receives one request and returns one response" do
+        update_tokens(@token_filename, 1)
         socket=TCPSocket.new "localhost", 9000
         socket.puts({method: "users_get"}.to_json)
         response = socket.gets.chomp

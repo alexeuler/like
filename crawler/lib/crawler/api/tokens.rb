@@ -48,6 +48,8 @@ module Crawler
           end
         rescue Errno::ENOENT
           log.error "File not found: #{source}"
+        rescue Exception
+          log.error "Unknown exception opening file: #{source}"
         end
         raise EmptyTokensFile if @data.count == 0
         @timestamp=Time.now
@@ -58,6 +60,7 @@ module Crawler
           File::mtime(source) >= @timestamp
         rescue Errno::ENOENT
           log.error "File not found: #{source}"
+          false
         end
       end
 

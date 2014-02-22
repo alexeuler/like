@@ -45,6 +45,7 @@ module Crawler
                               requester: requester, queue: queue
           manager.async.start
           response = client.gets.chomp
+          manager.async.shutdown
           response.should == {error: "Tokens file is empty",incoming:"incoming"}.to_json
         end
       end

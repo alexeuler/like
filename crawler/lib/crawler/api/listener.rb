@@ -32,7 +32,7 @@ module Crawler
         while @active
           begin
             client=@server.accept
-          rescue IOError => e
+          rescue Exception => e
             @active && log.error("Error accepting connection. Message: #{e}")
           else
             @active ? @scheduler.async.push(socket: client) : client.close
@@ -45,6 +45,8 @@ module Crawler
         @active=false
         socket=TCPSocket.new(@host, @port) # hack to unblock accept
         socket.close
+      rescue
+        log.error "Failed in stopping listener"
       end
 
       private
@@ -53,6 +55,7 @@ module Crawler
         @active=false
         @server.close if @server
       rescue
+        log.warn "Error in shutting down listener"
       end
       
     end
