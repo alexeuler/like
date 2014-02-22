@@ -47,4 +47,5 @@ pkg
 
 # For rubinius:
 #*.rbc
-.idea
+
+.idea/*
