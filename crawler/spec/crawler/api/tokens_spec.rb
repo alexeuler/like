@@ -31,12 +31,7 @@ module Crawler
           tokens.source.should == __FILE__
         end
         
-        context "when source argument not specified" do
-          it "raises error 'Source is not specified'" do
-            expect {Tokens.new}.to raise_error("Source is not specified")
-          end
-        end
-      end        
+      end
 
       describe "#last_used" do
         context "data loaded" do

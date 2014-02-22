@@ -1,4 +1,5 @@
 require "crawler/api/manager"
+require 'socket'
 require "tempfile"
 
 module Crawler
@@ -28,6 +29,23 @@ module Crawler
           sleep 0.05
           token_file.unlink
           manager.async.shutdown
+        end
+      end
+
+      context "when tokens file is empty" do
+        it "responds with error" do
+          server, client = Socket.socketpair(:UNIX, :DGRAM, 0)
+          queue=Queue.new
+          queue.push({socket: server, request: "Req1&", incoming: "incoming"})
+          requester=double("requester")
+          async=double("async")
+          requester.stub(:async).and_return(async)
+          async.should_not_receive(:push)
+          manager=Manager.new token_filename: nil,
+                              requester: requester, queue: queue
+          manager.async.start
+          response = client.gets.chomp
+          response.should == {error: "Tokens file is empty",incoming:"incoming"}.to_json
         end
       end
 

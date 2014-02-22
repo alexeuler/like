@@ -46,7 +46,13 @@ module Crawler
             @active ? Actor.current.wait(:pushed) : next
             retry
           end
-          token=@tokens.pick
+          begin
+            token=@tokens.pick
+          rescue Tokens::EmptyTokensFile
+            response = {error: "Tokens file is empty", incoming: tuple[:incoming]}
+            tuple[:socket].puts(response.to_json)
+            next
+          end
           tuple[:request] << "access_token=#{token[:value]}"
           tuple[:queue] = @queue
           wait_to_be_polite_to_server(token)

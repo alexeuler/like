@@ -1,15 +1,20 @@
 require_relative "logging"
+require 'json'
+
 
 module Crawler
   module Api
     class Tokens
+
+      class EmptyTokensFile < RuntimeError
+      end
+
       include Logging
 
       attr_accessor :source
 
       def initialize(args={})
-        raise "Source is not specified" unless args[:source]
-        @source=args[:source]
+        @source=args[:source] || ""
         @data=[]
         @timestamp=Time.now
       end
@@ -44,7 +49,7 @@ module Crawler
         rescue Errno::ENOENT
           log.error "File not found: #{source}"
         end
-        raise "Source contains no tokens" if @data.count == 0
+        raise EmptyTokensFile if @data.count == 0
         @timestamp=Time.now
       end
 

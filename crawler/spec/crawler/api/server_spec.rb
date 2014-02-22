@@ -90,7 +90,7 @@ module Crawler
             response[:error].should be_nil
           end
           HttpDouble.min_interval.should <= 1.0 / 3 + 0.03
-          HttpDouble.min_interval.should >= 1.0 / 3
+          HttpDouble.min_interval.should >= 1.0 / 3 - 0.03
           socket.close
         end
 
@@ -105,7 +105,7 @@ module Crawler
             response[:error].should be_nil
           end
           HttpDouble.min_interval.should <= 1.0 / 3 + 0.03
-          HttpDouble.min_interval.should >= 1.0 / 3
+          HttpDouble.min_interval.should >= 1.0 / 3 - 0.03
           10.times do |i|
             sockets[i].close
           end
