@@ -9,8 +9,8 @@ module Crawler
       include Celluloid
 
       def initialize(args={})
-        @token_filename=args[:token_filename] || File.expand_path("../tokens/tokens.csv", File.dirname(__FILE__))
-        @retries = args[:retries]
+        @token_filename=args[:token_filename] || File.expand_path("./tokens/tokens.csv", File.dirname(__FILE__))
+        @retries = args[:retries] || 3
       end
 
       def start

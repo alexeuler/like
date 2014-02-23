@@ -11,7 +11,7 @@ module Crawler
       #Singleton logger
       def self.log
         if @log.nil?
-          @log=::Logger.new(File.dirname(__FILE__)+"/api.log", 2 , 512_000_000)
+          @log=::Logger.new(File.dirname(__FILE__)+"/log/api.log", 2 , 512_000_000)
           log.level = ::Logger::INFO
         end
         @log

@@ -26,6 +26,7 @@ module Crawler
       # overall 0 value is pretty safe, while negative value give random boost or not
 
       attr_accessor :cushion
+      finalizer :shutdown
 
       def initialize(args={})
         args=defaults.merge args

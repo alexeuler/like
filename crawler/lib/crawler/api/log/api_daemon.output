@@ -1,0 +1,20 @@
+api_daemon: process with pid 3053 started.
+D, [2014-02-24T01:18:24.210391 #3053] DEBUG -- : Terminating 109 actors...
+W, [2014-02-24T01:18:24.218527 #3053]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:__shutdown__}, status=:callwait
+W, [2014-02-24T01:18:24.258022 #3053]  WARN -- : Terminating task: type=:call, meta={:method_name=>:start}, status=:callwait
+W, [2014-02-24T01:18:24.258282 #3053]  WARN -- : Terminating task: type=:call, meta={:method_name=>:start}, status=:iowait
+W, [2014-02-24T01:18:24.258809 #3053]  WARN -- : Terminating task: type=:call, meta={:method_name=>:wait}, status=:condwait
+W, [2014-02-24T01:18:24.260467 #3053]  WARN -- : Terminating task: type=:finalizer, meta={:method_name=>:shutdown}, status=:callwait
+E, [2014-02-24T01:18:24.261181 #3053] ERROR -- : Crawler::Api::Manager#finalize crashed!
+Celluloid::Task::TerminatedError: task was terminated
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/tasks/task_fiber.rb:32:in `terminate'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `block in cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `each'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:404:in `cleanup'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:375:in `shutdown'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:185:in `run'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/actor.rb:157:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/thread_handle.rb:13:in `block in initialize'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `call'
+	/home/alex/.rvm/gems/ruby-2.0.0-p247@crawler/gems/celluloid-0.15.2/lib/celluloid/internal_pool.rb:100:in `block in create'
+E, [2014-02-24T01:18:34.210332 #3053] ERROR -- : Couldn't cleanly terminate all actors in 10 seconds!
