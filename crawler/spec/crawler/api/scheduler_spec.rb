@@ -23,10 +23,11 @@ module Crawler
 
       describe "#push" do
         it "reads in the infinite loop incoming json from socket and pushes request string into the queue"  do
-          payload={method: "users.get", params: {id: 1, v: 5}}.to_json
-          @socket.puts payload
+          payload={method: "users.get", params: {id: 1, v: 5}}
+          @socket.puts payload.to_json
           sleep 0.05
-          @queue.pop(true).should=={socket: @peer, request:"https://api.vk.com/method/users.get?id=1&v=5&", incoming: payload}
+          @queue.pop(true).should=={socket: @peer, request:"https://api.vk.com/method/users.get?id=1&v=5&",
+                                    incoming: payload}
         end
 
         context "when it doesn't receive any message in #{Scheduler::CONNECTION_TIMEOUT} seconds" do

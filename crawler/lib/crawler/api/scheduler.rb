@@ -24,7 +24,8 @@ module Crawler
             incoming.chomp!
             request=parse_incoming incoming
             if request
-              @queue.push({socket: @socket, request: request, incoming: incoming})
+              @queue.push({socket: @socket, request: request,
+                           incoming: JSON::parse(incoming, symbolize_names:true)})
               Celluloid::Actor[:manager].signal(:pushed, 1) if Celluloid::Actor[:manager]
             end
           end

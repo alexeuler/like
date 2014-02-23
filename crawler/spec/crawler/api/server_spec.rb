@@ -72,7 +72,7 @@ module Crawler
         socket.puts({method: "users_get"}.to_json)
         response = socket.gets.chomp
         response = JSON.parse response, symbolize_names: true
-        response.should == {double: 0, incoming: {method: "users_get"}.to_json}
+        response.should == {double: 0, incoming: {method: "users_get"}}
         socket.close
       end
 
