@@ -5,8 +5,16 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 #Celluloid.logger=nil
+
+module Helpers
+  def socket_pair
+    Socket.socketpair(:UNIX, :DGRAM, 0)
+  end
+end
+
 require File.dirname(__FILE__) + "/factories"
 RSpec.configure do |config|
+  config.include Helpers
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
@@ -17,3 +25,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
