@@ -6,6 +6,7 @@ require_relative "requester"
 module Crawler
   module Api
     class Server
+
       include Celluloid
 
       def initialize(args={})

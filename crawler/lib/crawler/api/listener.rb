@@ -1,5 +1,4 @@
 require 'celluloid/io'
-require 'celluloid/autostart'
 require_relative "logging"
 module Crawler
   module Api
