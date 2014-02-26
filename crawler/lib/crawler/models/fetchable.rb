@@ -1,17 +1,31 @@
 module Fetchable
 
+  attr_accessor :fetcher_mapping
+
   def fetch(args={})
-    #send a call to api
-    #map_data
-    #the problem is what to do with multiple profiles request
+    id=args[:id]
+    response = fetcher.call(id)
+    model = new
+    map_fetched_data(model, response, fetcher_mapping)
+    model.save if args[:save]
+  end
+
+  def fetcher(method, args_name, mapping)
+    fetcher_mapping = mapping
+    lambda { |id| api.send(method.to_sym, {args_name.to_sym => id}) }
   end
 
   private
 
-  def map_fetched_data(data, hash)
-    hash.each do |key,value|
+  def api
+    Thread.current[:api]
+  end
+
+  def map_fetched_data(model, data, mapping)
+    mapping.each do |key, value|
       next if data[key]==nil
-      value.class.name=="Hash" ? fetch_data(data[key], value) : send("#{value}=".to_sym, data[key])
+      value.class.name=="Hash" ? map_fetched_data(model, data[key], value)
+          : model.send("#{value}=".to_sym, data[key])
     end
   end
 end

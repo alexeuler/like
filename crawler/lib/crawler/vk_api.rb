@@ -17,6 +17,7 @@ module Crawler
     def initialize(args={})
       @socket = args[:socket]
       @timeout = args[:timeout] || DEFAULTS[:timeout]
+      Thread.current[:api] = self
     end
 
     def method_missing(method, *args, &block)
@@ -33,12 +34,10 @@ module Crawler
       begin
         socket.puts request.to_json
       rescue IOError
-        puts "VkApi could not write to socket: #{socket}"
-        raise SocketError
+        raise SocketError, "VkApi could not write to socket: #{socket}"
       rescue Exception => e
-        puts "Unknown exception. VkApi could not write to socket: #{socket}.
+        raise SocketError, "Unknown exception. VkApi could not write to socket: #{socket}.
           Message: #{e.message}"
-        raise SocketError
       end
     end
 
@@ -46,15 +45,12 @@ module Crawler
       begin
       response = Timeout::timeout(timeout) {socket.gets}
       rescue Timeout::Error
-        puts "VkApi connection did not respond in #{timeout} secs"
-        raise SocketError
+        raise SocketError, "VkApi connection did not respond in #{timeout} secs"
       rescue IOError
-        puts "VkApi could not read from socket: #{socket}"
-        raise SocketError
+        raise SocketError, "VkApi could not read from socket: #{socket}"
       rescue  Exception => e
-        puts "Unknown exception reading from socket: #{socket}.
+        raise SocketError, "Unknown exception reading from socket: #{socket}.
           Message: #{e.message}"
-        raise SocketError
       end
       response.chomp!
       begin
@@ -62,8 +58,7 @@ module Crawler
         .select{|c| c.bytes.count < 4 }.join('') # remove all special characters
         JSON::parse sanitized, symbolize_names: true
       rescue
-        puts "VkApi was unable to parse response: #{response}"
-        raise InvalidResponse
+        raise InvalidResponse, "VkApi was unable to parse response: #{response}"
       end
     end
 

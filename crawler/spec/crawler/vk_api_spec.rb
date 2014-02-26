@@ -5,6 +5,16 @@ require 'crawler/vk_api'
 module Crawler
   describe VkApi do
 
+    context "new" do
+      it "sets Thread[:api] to self" do
+        @client, @server = socket_pair
+        @api=VkApi.new socket: @client
+        Thread.current[:api].should == @api
+        @client.close
+        @server.close
+      end
+    end
+
     context "when any method is called" do
       before :each do
         @client, @server = socket_pair
@@ -14,6 +24,7 @@ module Crawler
         @client.close
         @server.close
       end
+
       it 'replaces . with _ and sends the request to socket in api format' do
         @server.puts({response: "Test"}.to_json)
         @api.users_get(uid: [1, 2, 3]).should == {response: "Test"}
