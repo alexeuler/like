@@ -5,11 +5,13 @@ module Crawler
 
     class Model
 
+      attr_accessor :full_name, :city, :country
+
       MAPPING = {
           name: "full_name",
           location: {
-              country: "Russia",
-              city: "Moscow"
+              country: "country",
+              city: "city"
           }
       }
       extend Fetchable
@@ -33,13 +35,12 @@ module Crawler
                  town: "Whatever"
              }
             }
-            Model.should_receive(:name=).with("Robot")
-            Model.should_receive(:country=).with("Russia")
-            Model.should_receive(:city=).with("Moscow")
-            Model.should_not_receive(:town)
           end
-          Model.fetch("id")
-
+          Model.any_instance.should_not_receive(:town=)
+          model = Model.fetch("id")
+          model.full_name.should == "Robot"
+          model.country.should == "Russia"
+          model.city.should == "Moscow"
         end
 
       end

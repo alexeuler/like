@@ -6,14 +6,14 @@ module Crawler
 
       def fetch(id)
         response = fetcher_lambda.call(id)
-        model = new
-        map_fetched_data(model, response, fetcher_mapping)
-        model.save if args[:save]
+        fetcher_model = new
+        map_fetched_data(fetcher_model, response, fetcher_mapping)
+        fetcher_model
       end
 
       def fetcher(method, args_name, mapping)
-        fetcher_mapping = mapping
-        fetcher_lambda = lambda { |id| api.send(method.to_sym, {args_name.to_sym => id}) }
+        @fetcher_mapping = mapping
+        @fetcher_lambda = lambda { |id| api.send(method.to_sym, {args_name.to_sym => id}) }
       end
 
       private
