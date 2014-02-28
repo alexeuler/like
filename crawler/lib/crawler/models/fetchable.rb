@@ -5,15 +5,28 @@ module Crawler
       attr_accessor :fetcher_mapping, :fetcher_lambda
 
       def fetch(id)
+        models = []
+        mapping = @fetcher_mapping[:single]
         response = fetcher_lambda.call(id)
-        fetcher_model = new
-        map_fetched_data(fetcher_model, response, fetcher_mapping)
-        fetcher_model
+        response = [response] unless response.is_a?(Array)
+        i=-1
+        response.each do |tuple|
+          i+=1
+          next if i < fetcher_mapping[:multiple]
+          fetcher_model = new
+          map_fetched_data(fetcher_model, tuple, mapping)
+          models << fetcher_model
+        end
+        models.count == 1 ? models[0] : models
       end
 
-      def fetcher(method, args_name, mapping)
+      def fetcher(method, args_id_name, mapping)
         @fetcher_mapping = mapping
-        @fetcher_lambda = lambda { |id| api.send(method.to_sym, {args_name.to_sym => id}) }
+        @fetcher_lambda = lambda do |id|
+          args = mapping[:extra_args] || {}
+          args.merge!({args_id_name.to_sym => id})
+          api.send(method.to_sym, args)
+        end
       end
 
       private
