@@ -27,7 +27,7 @@ module Crawler
 
       it 'replaces . with _ and sends the request to socket in api format' do
         @server.puts({response: "Test"}.to_json)
-        @api.users_get(uid: [1, 2, 3]).should == {response: "Test"}
+        @api.users_get(uid: [1, 2, 3]).should == "Test"
         response = @server.gets.chomp
         response.should == {method: "users.get", params: {uid: [1, 2, 3]}}.to_json
       end

@@ -22,7 +22,7 @@ module Crawler
 
     def method_missing(method, *args, &block)
       method=method.to_s
-      method.gsub!("_",".")
+      method.gsub!("_", ".")
       put(method, args)
       get
     end
@@ -43,20 +43,21 @@ module Crawler
 
     def get
       begin
-      response = Timeout::timeout(timeout) {socket.gets}
+        response = Timeout::timeout(timeout) { socket.gets }
       rescue Timeout::Error
         raise SocketError, "VkApi connection did not respond in #{timeout} secs"
       rescue IOError
         raise SocketError, "VkApi could not read from socket: #{socket}"
-      rescue  Exception => e
+      rescue Exception => e
         raise SocketError, "Unknown exception reading from socket: #{socket}.
           Message: #{e.message}"
       end
       response.chomp!
       begin
         sanitized = response.force_encoding("UTF-8").each_char
-        .select{|c| c.bytes.count < 4 }.join('') # remove all special characters
-        JSON::parse sanitized, symbolize_names: true
+        .select { |c| c.bytes.count < 4 }.join('') # remove all special characters
+        result = JSON::parse sanitized, symbolize_names: true
+        result[:response]
       rescue
         raise InvalidResponse, "VkApi was unable to parse response: #{response}"
       end
