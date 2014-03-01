@@ -1,23 +1,24 @@
 module Crawler
   module Models
     module Fetchable
+      class FetchingError < RuntimeError
+      end
 
       attr_accessor :fetcher_mapping, :fetcher_lambda
 
       def fetch(id)
-        models = []
-        mapping = @fetcher_mapping[:single]
         response = fetcher_lambda.call(id)
-        response = [response] unless response.is_a?(Array)
-        i=-1
+        response.is_a?(Hash) && response[:error] && raise(FetchingError,
+                                                          "Vk responded with error: #{response}")
+        type = id.is_a?(Array) ? :multiple : :single
+        response = @fetcher_mapping[type].call(response) #extracting array of models in json format
+        models = []
         response.each do |tuple|
-          i+=1
-          next if i < fetcher_mapping[:multiple]
           fetcher_model = new
-          map_fetched_data(fetcher_model, tuple, mapping)
+          map_fetched_data(fetcher_model, tuple, @fetcher_mapping[:item])
           models << fetcher_model
         end
-        models.count == 1 ? models[0] : models
+        type == :single ? models[0] : models
       end
 
       def fetcher(method, args_id_name, mapping)

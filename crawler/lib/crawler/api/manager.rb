@@ -51,7 +51,7 @@ module Crawler
             token=@tokens.pick
           rescue Tokens::EmptyTokensFile
             response = {error: "Tokens file is empty", incoming: tuple[:incoming]}
-            tuple[:socket].puts(response.to_json)
+            tuple[:socket].write response.to_json+"\r\n"
             next
           end
           tuple[:request] << "access_token=#{token[:value]}"

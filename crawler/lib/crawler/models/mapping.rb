@@ -3,7 +3,7 @@ module Crawler
     module Mapping
       def self.user_profile
         {
-            single: {
+            item: {
                 uid: :vk_id,
                 first_name: :first_name,
                 last_name: :last_name,
@@ -28,8 +28,9 @@ module Crawler
                     followers: :followers
                 }
             },
-            multiple: 0,
-            extra_args: {
+            single: lambda {|x| x},
+            multiple: lambda {|x| x},
+            args: {
                 fields: "uid,first_name,last_name,nickname,screen_name,
                             sex,bdate,city,country,timezone,photo,photo_medium,
                             photo_big,has_mobile,rate,contacts,education,online,counters"

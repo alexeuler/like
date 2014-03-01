@@ -29,8 +29,9 @@ module Crawler
 
     private
 
-    def put(method, args = {})
-      request = {method: method, params: args[0]}
+    def put(method, args = nil)
+      request = {method: method}
+      request.merge!({params: args[0]}) if args
       begin
         socket.puts request.to_json
       rescue IOError
@@ -57,7 +58,7 @@ module Crawler
         sanitized = response.force_encoding("UTF-8").each_char
         .select { |c| c.bytes.count < 4 }.join('') # remove all special characters
         result = JSON::parse sanitized, symbolize_names: true
-        result[:response]
+        result[:response] || result #if error return the whole result
       rescue
         raise InvalidResponse, "VkApi was unable to parse response: #{response}"
       end

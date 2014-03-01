@@ -12,7 +12,7 @@ task :console do
   Rake::Task["api:start"].invoke
   retries = 0
   begin
-    socket = TCPSocket.new("localhost", 9000)
+    @socket = TCPSocket.new("localhost", 9000)
   rescue Errno::ECONNREFUSED
     sleep 0.1
     retries+=1
@@ -20,7 +20,8 @@ task :console do
   end
   begin
     DB.checkout
-    @api = Crawler::VkApi.new(socket: socket)
+    include Crawler::Models
+    @api = Crawler::VkApi.new(socket: @socket)
     IRB.start
   ensure
     DB.checkin
