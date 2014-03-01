@@ -15,7 +15,7 @@ module Crawler
     attr_accessor :socket, :timeout
 
     def initialize(args={})
-      @socket = args[:socket]
+      @socket = args[:socket] || TCPSocket.new("localhost", 9000)
       @timeout = args[:timeout] || DEFAULTS[:timeout]
       Thread.current[:api] = self
     end

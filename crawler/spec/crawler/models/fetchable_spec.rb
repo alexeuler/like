@@ -8,14 +8,15 @@ module Crawler
       attr_accessor :full_name, :city, :country
 
       MAPPING ={
-          single: {
+          item: {
               name: "full_name",
               location: {
                   country: "country",
                   city: "city"
               }
           },
-          multiple: 0
+          single: lambda {|x| [x]},
+          multiple: lambda {|x| x}
       }
       extend Fetchable
       fetcher :users_get, :uids, MAPPING
