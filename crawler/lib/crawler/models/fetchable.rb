@@ -9,11 +9,11 @@ module Crawler
       def fetch(id)
         type = id.is_a?(Array) ? :multiple : :single
         id = id.join(",") if type == :multiple
-        response =  fetcher_lambda.call(id)
+        response = fetcher_lambda.call(id)
         response.is_a?(Hash) && response[:error] && raise(FetchingError,
                                                           "Vk responded with error: #{response}")
 
-        response = @fetcher_mapping[type].call(response) #extracting array of models in json format
+        response = @fetcher_mapping[type].call(response) #extracting array of models from response
         models = []
         response.each do |tuple|
           fetcher_model = new
@@ -23,11 +23,16 @@ module Crawler
         models.count == 1 ? models[0] : models
       end
 
-      def fetcher(method, args_id_name, mapping)
+      def fetcher(method, args_id_names, mapping)
         @fetcher_mapping = mapping
         @fetcher_lambda = lambda do |id|
           args = mapping[:args] || {}
-          args.merge!({args_id_name.to_sym => id})
+          id = id.is_a?(Array) ? id : [id]
+          args_id_names = args_id_names.is_a?(Array) ? args_id_names : [args_id_names]
+          i=0
+          args_id_names.each do |args_id_name|
+            args.merge!({args_id_name.to_sym => id[i]})
+          end
           api.send(method.to_sym, args)
         end
       end

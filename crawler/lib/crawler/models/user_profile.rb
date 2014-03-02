@@ -15,6 +15,10 @@ module Crawler
       has_many :likes
       has_many :likes_posts, through: :likes, source: "post"
 
+      def friends
+        primary_friends + inverse_friends
+      end
+
     end
   end
 end

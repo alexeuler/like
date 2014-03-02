@@ -84,6 +84,21 @@ module Crawler
             args: {count: 100}
         }
       end
+
+      def self.like
+        {
+            item:
+                {post_id: "post_id",
+                 user_profile_id: "user_profile_id"
+                },
+            single: lambda do |x|
+              data = x[:users]
+              data.map do |tuple|
+                {post_id: tuple, user_profile_id: id}
+              end
+            end
+        }
+      end
     end
   end
 end
