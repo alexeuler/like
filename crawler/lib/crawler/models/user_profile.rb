@@ -6,6 +6,12 @@ module Crawler
     class UserProfile < ActiveRecord::Base
       extend Fetchable
       fetcher :users_get, :uids, Mapping.user_profile
+
+      has_many :primary_friendships, :class_name => "Friendship", :foreign_key => "user_profile_id"
+      has_many :primary_friends, through: :primary_friendships, :source => :friend
+      has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+      has_many :inverse_friends, :through => :inverse_friendships, :source => :user_profile
+
     end
   end
 end
