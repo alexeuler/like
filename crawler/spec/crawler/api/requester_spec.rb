@@ -36,7 +36,7 @@ module Crawler
 
         def make_queue(requester)
           queue = double("queue")
-          queue.should_receive(:shift).exactly(
+          queue.should_receive(:push).exactly(
               Requester::MAX_RETRIES).times do |tuple|
             requester.async.push(tuple)
           end

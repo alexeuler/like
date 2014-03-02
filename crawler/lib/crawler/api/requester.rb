@@ -50,7 +50,7 @@ module Crawler
         args[:retries] ||= @retries
         if args[:retries] > 0
           args[:retries]-=1
-          args[:queue].shift args
+          args[:queue].push args
           Celluloid::Actor[:manager].signal(:pushed, 1) if Celluloid::Actor[:manager]
           return true
         end
