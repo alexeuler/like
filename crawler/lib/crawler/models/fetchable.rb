@@ -20,7 +20,7 @@ module Crawler
           map_fetched_data(fetcher_model, tuple, @fetcher_mapping[:item])
           models << fetcher_model
         end
-        type == :single ? models[0] : models
+        models.count == 1 ? models[0] : models
       end
 
       def fetcher(method, args_id_name, mapping)
