@@ -93,9 +93,14 @@ module Crawler
                 },
             single: lambda do |x, id|
               data = x[:users]
-              data.map do |tuple|
-                {post_id: tuple, user_profile_id: id[1]}
-              end
+              existing_models = UserProfile.where(vk_id: data).to_a
+              existing = existing_models.map(&:vk_id)
+              new =data - existing
+              new_models = UserProfile.fetch(new)
+              models = new_models + existing_models
+              post = Post.where(vk_id: id[0], owner_id: id[1]).first
+              post.likes_user_profiles = models
+              []
             end,
             args:{
                 type: "post"
