@@ -28,8 +28,8 @@ module Crawler
                     followers: :followers_count
                 }
             },
-            single: lambda { |x| x },
-            multiple: lambda { |x| x },
+            single: lambda { |x, id| x },
+            multiple: lambda { |x, id| x },
             args: {
                 fields: "uid,first_name,last_name,nickname,screen_name,"\
                             "sex,bdate,city,country,timezone,photo,photo_medium,"\
@@ -77,7 +77,7 @@ module Crawler
                     }
                 }
             },
-            single: lambda do |x|
+            single: lambda do |x, id|
               x.shift
               x
             end,
@@ -91,12 +91,16 @@ module Crawler
                 {post_id: "post_id",
                  user_profile_id: "user_profile_id"
                 },
-            single: lambda do |x|
+            single: lambda do |x, id|
               data = x[:users]
               data.map do |tuple|
-                {post_id: tuple, user_profile_id: id}
+                {post_id: tuple, user_profile_id: id[1]}
               end
-            end
+            end,
+            args:{
+                type: "post"
+            }
+
         }
       end
     end
