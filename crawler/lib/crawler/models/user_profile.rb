@@ -19,6 +19,15 @@ module Crawler
         primary_friends + inverse_friends
       end
 
+      def self.load_or_fetch(id)
+        ids = id.is_a?(Array) ? id : [id]
+        models = UserProfile.where(vk_id: ids).to_a
+        existing = models.map(&:vk_id)
+        new = ids - existing
+        models += UserProfile.fetch(new)
+        models
+      end
+
     end
   end
 end

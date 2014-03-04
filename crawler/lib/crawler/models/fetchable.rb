@@ -13,7 +13,7 @@ module Crawler
       # The extraction function is in Mapping model - single for one element
       # request, muliple for multiple element request
       def fetch(id)
-        return if id is [] or id.nil?
+        return if id == [] or id.nil?
         type = (id.is_a?(Array) and not @compound_id) ? :multiple : :single
 
         # call for api method with args to get a response
