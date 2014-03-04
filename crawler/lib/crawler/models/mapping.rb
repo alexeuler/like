@@ -28,8 +28,8 @@ module Crawler
                     followers: :followers_count
                 }
             },
-            single: lambda { |x, id| x },
-            multiple: lambda { |x, id| x },
+            single: lambda { |x| x },
+            multiple: lambda { |x| x },
             args: {
                 fields: "uid,first_name,last_name,nickname,screen_name,"\
                             "sex,bdate,city,country,timezone,photo,photo_medium,"\
@@ -77,7 +77,7 @@ module Crawler
                     }
                 }
             },
-            single: lambda do |x, id|
+            single: lambda do |x|
               x.shift
               x
             end,
@@ -87,25 +87,11 @@ module Crawler
 
       def self.like
         {
-            item:
-                {post_id: "post_id",
-                 user_profile_id: "user_profile_id"
-                },
-            single: lambda do |x, id|
-              data = x[:users]
-              existing_models = UserProfile.where(vk_id: data).to_a
-              existing = existing_models.map(&:vk_id)
-              new =data - existing
-              new_models = UserProfile.fetch(new)
-              models = new_models + existing_models
-              post = Post.where(vk_id: id[0], owner_id: id[1]).first
-              post.likes_user_profiles = models
-              []
-            end,
-            args:{
+            item: :user_profile_id,
+            single: lambda { |x| x[:users] },
+            args: {
                 type: "post"
             }
-
         }
       end
     end

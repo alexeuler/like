@@ -9,6 +9,12 @@ module Crawler
 
       has_many :likes
       has_many :likes_user_profiles, through: :likes, source: "user_profile"
+
+      def fetch_likes
+        user_ids=Like.fetch([vk_id, owner_id]).map(&:user_profile_id)
+        users = UserProfile.load_or_fetch(user_ids)
+        self.likes_user_profiles = users
+      end
     end
   end
 end

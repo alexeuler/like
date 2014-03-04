@@ -21,7 +21,7 @@ module Crawler
         response = fetcher_lambda.call(id)
         response.is_a?(Hash) && response[:error] && raise(FetchingError,
                                                           "Vk responded with error: #{response}")
-        response = @fetcher_mapping[type].call(response, id) #extracting array of json models from response
+        response = @fetcher_mapping[type].call(response) #extracting array of json models from response
         models = []
         response.each do |tuple|
           fetcher_model = new
@@ -60,6 +60,10 @@ module Crawler
       end
 
       def map_fetched_data(model, data, mapping)
+        if mapping.is_a?(Symbol) || mapping.is_a?(String)
+          model.send("#{mapping}=".to_sym, data)
+          return
+        end
         mapping.each do |key, value|
           next if data[key]==nil
           value.class.name=="Hash" ? map_fetched_data(model, data[key], value)
