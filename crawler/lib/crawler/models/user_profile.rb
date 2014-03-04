@@ -28,6 +28,12 @@ module Crawler
         models
       end
 
+      def fetch_friends
+        ids = Friendship.fetch(vk_id).map(&:user_profile_id)
+        users = self.class.load_or_fetch(ids)
+        self.primary_friends = users
+      end
+
     end
   end
 end

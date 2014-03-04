@@ -94,6 +94,14 @@ module Crawler
             }
         }
       end
+
+      def self.friendship
+        {
+            item: :user_profile_id,
+            single: lambda { |x| x },
+        }
+      end
+
     end
   end
 end
