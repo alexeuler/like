@@ -14,6 +14,7 @@ module Crawler
         user_ids=Like.fetch([vk_id, owner_id]).map(&:user_profile_id)
         users = UserProfile.load_or_fetch(user_ids)
         self.likes_user_profiles = users
+        users
       end
     end
   end
