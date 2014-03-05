@@ -7,6 +7,8 @@ module Crawler
       extend Fetchable
       fetcher :wall_get, :owner_id, Mapping.post
 
+      validates_uniqueness_of :vk_id, scope: :owner_id
+
       has_many :likes
       has_many :likes_user_profiles, through: :likes, source: "user_profile"
 

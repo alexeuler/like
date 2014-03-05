@@ -6,6 +6,9 @@ module Crawler
     class UserProfile < ActiveRecord::Base
       extend Fetchable
       fetcher :users_get, :uids, Mapping.user_profile
+      MAX_PROFILES_PER_FETCH = 100
+
+      validates_uniqueness_of :vk_id
 
       has_many :primary_friendships, :class_name => "Friendship", :foreign_key => "user_profile_id"
       has_many :primary_friends, through: :primary_friendships, :source => :friend
@@ -24,13 +27,19 @@ module Crawler
         models = UserProfile.where(vk_id: ids).to_a
         existing = models.map(&:vk_id)
         new = ids - existing
-        models += UserProfile.fetch(new)
+        ((new.count-1) / MAX_PROFILES_PER_FETCH + 1).times do |i|
+          ids_to_fetch = new[i*MAX_PROFILES_PER_FETCH..(i+1)*MAX_PROFILES_PER_FETCH - 1]
+          fetched = UserProfile.fetch(ids_to_fetch)
+          fetched = [fetched] unless fetched.is_a?(Array)
+          models += fetched
+        end
         models
       end
 
       def fetch_friends
         ids = Friendship.fetch(vk_id).map(&:user_profile_id)
         users = self.class.load_or_fetch(ids)
+        users -= inverse_friends
         self.primary_friends = users
         users
       end
