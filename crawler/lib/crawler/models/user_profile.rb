@@ -10,6 +10,7 @@ module Crawler
 
       validates_uniqueness_of :vk_id
 
+      has_many :posts, primary_key: "vk_id", foreign_key: "owner_id"
       has_many :primary_friendships, :class_name => "Friendship", :foreign_key => "user_profile_id"
       has_many :primary_friends, through: :primary_friendships, :source => :friend
       has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
