@@ -1,10 +1,10 @@
-require_relative '../lib/crawler/api/server'
-require 'json'
+require_relative '../lib/crawler/spider'
+require_relative "../lib/config/helpers"
+path = File.expand_path("../lib/crawler/models", __dir__)
+Helpers.require_dir(path)
 
-server = Crawler::Api::Server.new
-server.start
-sleep 0.1
-socket = TCPSocket.new "localhost", 9000
-socket.puts({method: "users.get", params: {uids:[1,2]}}.to_json)
-response = socket.gets
-puts response
+include Crawler
+include Crawler::Models
+spider = Spider.new
+spider.async.start
+sleep
