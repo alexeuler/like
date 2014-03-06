@@ -32,6 +32,8 @@ module Crawler
           user.save
         end
       ensure
+        user.status=2
+        user.save
         DB.checkin
       end
 

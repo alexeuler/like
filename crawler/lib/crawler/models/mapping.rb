@@ -73,7 +73,8 @@ module Crawler
                         owner_id: :attachment_owner_id,
                         title: :attachment_title,
                         description: :attachment_text,
-                        src: :attachment_image
+                        src: :attachment_image,
+                        src_big: :attachment_image
                     }
                 }
             },
