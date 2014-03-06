@@ -6,5 +6,5 @@ Helpers.require_dir(path)
 include Crawler
 include Crawler::Models
 spider = Spider.new
-spider.async.start
+#spider.async.start
 sleep

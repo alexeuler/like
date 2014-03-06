@@ -7,17 +7,20 @@ module Crawler
     include Celluloid
 
     MIN_LIKES = 5
+    JOB_SIZE = 10000
 
     def initialize
       @active = true
+      async.start
     end
 
     def start
-      while @active
-        begin
-          DB.checkout
+      begin
+        DB.checkout
+        while @active
           @api = VkApi.new
           user = get_job
+          break if user.nil?
           posts = Post.fetch(user.vk_id)
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
           posts.each do |post|
@@ -27,9 +30,9 @@ module Crawler
           user.fetch_friends
           user.status = 1
           user.save
-        ensure
-          DB.checkin
         end
+      ensure
+        DB.checkin
       end
 
     end
@@ -37,6 +40,7 @@ module Crawler
     private
 
     def get_job
+      return nil if UserProfile.where(status: 1).count > JOB_SIZE
       UserProfile.where(status: 0).first
     end
 

@@ -14,6 +14,3 @@ module DB
     ActiveRecord::Base.clear_active_connections!
   end
 end
-
-DB.checkout
-DB.checkin
