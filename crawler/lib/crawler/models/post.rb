@@ -13,9 +13,10 @@ module Crawler
       has_many :likes
       has_many :likes_user_profiles, through: :likes, source: "user_profile"
 
-      def self.load_or_fetch(id)
+      def self.load_or_fetch(id, mutex = nil)
         fetched = Post.fetch(id)
         existing = Post.where(owner_id: id).to_a
+        mutex.lock if mutex
         existing_ids = existing.map(&:vk_id)
         fetched.delete_if do |model|
           existing_ids.include? model.vk_id
@@ -23,12 +24,14 @@ module Crawler
         fetched.each do |model|
           model.save
         end
+        mutex.unlock if mutex
         fetched + existing
       end
 
-      def fetch_likes
+      def fetch_likes(mutex = nil)
         user_ids=Like.fetch([vk_id, owner_id]).map(&:user_profile_id)
         users = UserProfile.load_or_fetch(user_ids)
+        users = UserProfile.mass_save(users, mutex)
         self.likes_user_profiles = users
         users
       end

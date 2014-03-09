@@ -9,7 +9,8 @@ module Crawler
     MIN_LIKES = 5
     JOB_SIZE = 10000
 
-    def initialize
+    def initialize(args = {})
+      @mutex = args[:mutex]
       @active = true
       async.start
     end
@@ -24,16 +25,19 @@ module Crawler
           posts = Post.fetch(user.vk_id)
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
           posts.each do |post|
-            post.fetch_likes
+            post.fetch_likes(@mutex)
             post.save
           end
-          user.fetch_friends
+          user.fetch_friends(@mutex)
           user.status = 1
           user.save
         end
       ensure
-        user.status=2
-        user.save
+        begin
+          user.status=2
+          user.save
+        rescue
+        end
         DB.checkin
       end
 

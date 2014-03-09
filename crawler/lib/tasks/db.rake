@@ -8,6 +8,27 @@ db_namespace=namespace :db do
         File.expand_path("../crawler/models/migrations", File.dirname(__FILE__))
   end
 
+  desc "create database"
+  task :create => :environment do
+    begin
+      ActiveRecord::Tasks::DatabaseTasks.create_current
+    ensure
+      DB.checkin
+    end
+  end
+
+  desc "drop database"
+  task :drop => :environment do
+    begin
+      ActiveRecord::Tasks::DatabaseTasks.create_current
+    ensure
+      DB.checkin
+    end
+  end
+
+  desc "reset database"
+  task :reset => ['db:drop', 'db:create', 'db:migrate']
+
   desc "runs pending migrations"
   task :migrate => :environment do
     begin
