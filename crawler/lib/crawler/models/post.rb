@@ -7,7 +7,7 @@ module Crawler
       extend Fetchable
       fetcher :wall_get, :owner_id, Mapping.post
 
-      validates_uniqueness_of :vk_id, scope: :owner_id
+      #validates_uniqueness_of :vk_id, scope: :owner_id
 
       belongs_to :user_profile, primary_key: "vk_id", foreign_key: "owner_id"
       has_many :likes
@@ -28,10 +28,10 @@ module Crawler
 
       def fetch_likes
         user_ids=Like.fetch([vk_id, owner_id]).map(&:user_profile_id)
-        users = UserProfile.load_or_fetch(user_ids)
-        users = UserProfile.mass_insert(users)
-        Like.mass_insert(users.map(&:id), self.id)
-        users
+        users1 = UserProfile.load_or_fetch(user_ids)
+        users2 = UserProfile.mass_insert(users1)
+        Like.mass_insert(users2.map(&:id), self.id)
+        users2
       end
     end
   end

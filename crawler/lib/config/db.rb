@@ -15,6 +15,5 @@ module DB
   end
 
   def self.checkin
-    ActiveRecord::Base.clear_active_connections!
   end
 end

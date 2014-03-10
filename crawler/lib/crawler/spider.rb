@@ -20,8 +20,10 @@ module Crawler
         user = nil
         while @active
           @api = VkApi.new
+#ToDo: set status as in-process
           user = get_job
           break if user.nil?
+#ToDo: one post could be returned
           posts = Post.fetch(user.vk_id)
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
           posts.each do |post|

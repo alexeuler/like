@@ -44,21 +44,24 @@ module Crawler
         users = self.class.load_or_fetch(ids)
         users -= inverse_friends
         users = self.class.mass_insert(users)
-        self.primary_friends = users
+        Friendship.mass_insert_primary(users.map(&:id), self.id)
         users
       end
 
       def self.mass_insert(users)
         @@mutex.lock
-          users_to_save = users.select { |u| u.id.nil? }
-          ids = users_to_save.map(&:vk_id)
-          users_in_db = self.where(vk_id: ids).to_a
-          users_to_db = users_to_save - users_in_db
-          users_to_db.each do |u|
-            u.save
-          end
+        users_to_save = users.select { |u| u.id.nil? }
+        ids = users_to_save.map(&:vk_id)
+        users_in_db = self.where(vk_id: ids).to_a
+        users_in_db_ids = users_in_db.map(&:vk_id)
+        users_to_db = users_to_save.map { |u| users_in_db_ids.include?(u.vk_id) ? nil : u }
+        users_to_db.compact!
+        users_to_db.each do |u|
+          u.save
+        end
         @@mutex.unlock
-        users - users_to_save + users_in_db + users_to_db
+        result = users - users_to_save + users_in_db + users_to_db
+        result
       end
 
     end
