@@ -7,13 +7,11 @@ include Crawler::Models
 
 module Crawler
   class Bot
-    SPIDERS_NUMBER = 3
-
+    SPIDERS_NUMBER = 2
     def self.start
       spiders = []
-      mutex = Mutex.new
       SPIDERS_NUMBER.times do
-        spiders << Spider.supervise(mutex: mutex)
+        spiders << Spider.supervise
       end
       sleep
     end

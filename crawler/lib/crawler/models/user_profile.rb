@@ -19,6 +19,8 @@ module Crawler
       has_many :likes
       has_many :likes_posts, through: :likes, source: "post"
 
+      @@mutex = Mutex.new
+
       def friends
         primary_friends + inverse_friends
       end
@@ -37,25 +39,25 @@ module Crawler
         models
       end
 
-      def fetch_friends(mutex = nil)
+      def fetch_friends
         ids = Friendship.fetch(vk_id).map(&:user_profile_id)
         users = self.class.load_or_fetch(ids)
         users -= inverse_friends
-        users = UserProfile.mass_save(users, mutex)
+        users = self.class.mass_insert(users)
         self.primary_friends = users
         users
       end
 
-      def self.mass_save(users, mutex = nil)
-        mutex.lock if mutex
-        users_to_save = users.select { |u| u.id.nil? }
-        ids = users_to_save.map(&:vk_id)
-        users_in_db = self.where(vk_id: ids).to_a
-        users_to_db = users_to_save - users_in_db
-        users_to_db.each do |u|
-          u.save
-        end
-        mutex.unlock if mutex
+      def self.mass_insert(users)
+        @@mutex.lock
+          users_to_save = users.select { |u| u.id.nil? }
+          ids = users_to_save.map(&:vk_id)
+          users_in_db = self.where(vk_id: ids).to_a
+          users_to_db = users_to_save - users_in_db
+          users_to_db.each do |u|
+            u.save
+          end
+        @@mutex.unlock
         users - users_to_save + users_in_db + users_to_db
       end
 
