@@ -17,5 +17,3 @@ module Crawler
     end
   end
 end
-
-Bot.start
