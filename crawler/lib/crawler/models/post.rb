@@ -28,11 +28,21 @@ module Crawler
 
       def fetch_likes
         user_ids=Like.fetch([vk_id, owner_id]).map(&:user_profile_id)
+        log "Load or fetch users"
         users1 = UserProfile.load_or_fetch(user_ids)
+        log "Mass insert users"
         users2 = UserProfile.mass_insert(users1)
+        log "Mass insert likes"
         Like.mass_insert(users2.map(&:id), self.id)
+        log "Done fetch likes"
         users2
       end
+
+      def log(message = "")
+        puts "#{Time.now.strftime('%H - %M - %S # %L')} : #{message}. Thread : #{Thread.current[:number]}"
+      end
+
+
     end
   end
 end

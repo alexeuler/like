@@ -7,11 +7,11 @@ include Crawler::Models
 
 module Crawler
   class Bot
-    SPIDERS_NUMBER = 5
+    SPIDERS_NUMBER = 2
     def self.start
       spiders = []
-      SPIDERS_NUMBER.times do
-        spiders << Spider.supervise
+      SPIDERS_NUMBER.times do |i|
+        spiders << Spider.supervise({number:i})
       end
       sleep
     end

@@ -56,8 +56,10 @@ module Crawler
         users_in_db_ids = users_in_db.map(&:vk_id)
         users_to_db = users_to_save.map { |u| users_in_db_ids.include?(u.vk_id) ? nil : u }
         users_to_db.compact!
-        users_to_db.each do |u|
-          u.save
+        ActiveRecord::Base.transaction do
+          users_to_db.each do |u|
+            u.save
+          end
         end
         @@mutex.unlock
         result = users - users_to_save + users_in_db + users_to_db

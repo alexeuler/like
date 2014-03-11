@@ -13,29 +13,40 @@ module Crawler
 
     def initialize(args = {})
       @active = true
+      @number = args[:number]
       async.start
     end
 
+    def log(message = "")
+      puts "#{Time.now.strftime('%H - %M - %S # %L')} : #{message}. Thread : #{Thread.current[:number]}"
+    end
+
     def start
+      #connection = ActiveRecord::Base.connection_pool.checkout
+      Thread.current[:number] = @number
       begin
-        connection = ActiveRecord::Base.connection_pool.checkout
         while @active
           @api = VkApi.new
           user = get_job
           break if user.nil?
+          log "fetch post"
           posts = Post.fetch(user.vk_id)
+          log "in memory"
           posts = posts.is_a?(Array) ? posts : [posts]
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
+          log "save post"
           posts.each do |post|
             post.save
             post.fetch_likes
           end
+          log "fetch friends"
           user.fetch_friends
+          log "fetch user"
           user.status = 1
           user.save
         end
       ensure
-        ActiveRecord::Base.connection_pool.checkin(connection)
+        # ActiveRecord::Base.connection_pool.checkin(connection)
       end
 
     end
