@@ -1,9 +1,13 @@
 require_relative "fetchable"
 require_relative "mapping"
+require_relative "../logging"
+
 
 module Crawler
   module Models
     class UserProfile < ActiveRecord::Base
+      include Crawler::Logging
+
       extend Fetchable
       fetcher :users_get, :uids, Mapping.user_profile
       MAX_PROFILES_PER_FETCH = 100
@@ -40,10 +44,14 @@ module Crawler
       end
 
       def fetch_friends
+        log "Fetch Friends: Fetching friend ids"
         ids = Friendship.fetch(vk_id).map(&:user_profile_id)
+        log "Fetch Friends: Load or fetch #{ids.count} user profiles"
         users = self.class.load_or_fetch(ids)
         users -= inverse_friends
+        log "Fetch Friends: Mass insert #{users.count} users"
         users = self.class.mass_insert(users)
+        log "Fetch Friends: Mass insert #{users.count} friendships"
         Friendship.mass_insert_primary(users.map(&:id), self.id)
         users
       end

@@ -7,7 +7,7 @@ include Crawler::Models
 
 module Crawler
   class Bot
-    SPIDERS_NUMBER = 2
+    SPIDERS_NUMBER = 5
     def self.start
       spiders = []
       SPIDERS_NUMBER.times do |i|

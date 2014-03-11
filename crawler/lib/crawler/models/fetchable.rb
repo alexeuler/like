@@ -49,7 +49,6 @@ module Crawler
             args.merge!({args_id_name.to_sym => id[i]})
             i+=1
           end
-          puts "#{Time.now.strftime('%H - %M - %S # %L')} - #{method}. Thread: #{Thread.current[:number]}"
           api.send(method.to_sym, args)
         end
       end

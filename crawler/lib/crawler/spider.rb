@@ -1,10 +1,12 @@
 require 'celluloid'
 require_relative "../config/db"
 require_relative "vk_api"
+require_relative "logging"
 
 module Crawler
   class Spider
     include Celluloid
+    include Logging
 
     MIN_LIKES = 5
     JOB_SIZE = 10000
@@ -17,10 +19,6 @@ module Crawler
       async.start
     end
 
-    def log(message = "")
-      puts "#{Time.now.strftime('%H - %M - %S # %L')} : #{message}. Thread : #{Thread.current[:number]}"
-    end
-
     def start
       #connection = ActiveRecord::Base.connection_pool.checkout
       Thread.current[:number] = @number
@@ -29,19 +27,24 @@ module Crawler
           @api = VkApi.new
           user = get_job
           break if user.nil?
-          log "fetch post"
+          log "Spider: fetching wall posts"
           posts = Post.fetch(user.vk_id)
-          log "in memory"
+          log "Spider: In-memory posts processing"
           posts = posts.is_a?(Array) ? posts : [posts]
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
-          log "save post"
+          log "Spider: Saving #{posts.count} posts"
+          ActiveRecord::Base.transaction do
+            posts.each do |post|
+              post.save
+            end
+          end
+          log "Spider: Fetching likes"
           posts.each do |post|
-            post.save
             post.fetch_likes
           end
-          log "fetch friends"
+          log "Spider: Fetching friends"
           user.fetch_friends
-          log "fetch user"
+          log "Spider: Updating user status"
           user.status = 1
           user.save
         end
