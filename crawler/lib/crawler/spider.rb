@@ -9,6 +9,8 @@ module Crawler
     MIN_LIKES = 5
     JOB_SIZE = 10000
 
+    @@mutex = Mutex.new
+
     def initialize(args = {})
       @active = true
       async.start
@@ -17,14 +19,12 @@ module Crawler
     def start
       begin
         connection = ActiveRecord::Base.connection_pool.checkout
-        user = nil
         while @active
           @api = VkApi.new
-#ToDo: set status as in-process
           user = get_job
           break if user.nil?
-#ToDo: one post could be returned
           posts = Post.fetch(user.vk_id)
+          posts = posts.is_a?(Array) ? posts : [posts]
           posts = posts.select { |x| x.likes_count >= MIN_LIKES }
           posts.each do |post|
             post.save
@@ -35,12 +35,6 @@ module Crawler
           user.save
         end
       ensure
-        begin
-          user.status=2
-          user.save
-        rescue Exception => e
-          puts "Unable to save user with error status. Error: #{e.message}"
-        end
         ActiveRecord::Base.connection_pool.checkin(connection)
       end
 
@@ -50,7 +44,13 @@ module Crawler
 
     def get_job
       return nil if UserProfile.where(status: 1).count > JOB_SIZE
-      UserProfile.where(status: 0).first
+      user = nil
+      @@mutex.synchronize do
+        user = UserProfile.where(status: 0).first
+        user.status = 2
+        user.save
+      end
+      user
     end
 
   end
