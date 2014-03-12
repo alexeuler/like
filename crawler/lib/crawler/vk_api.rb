@@ -20,6 +20,10 @@ module Crawler
       Thread.current[:api] = self
     end
 
+    def close
+      @socket.close
+    end
+
     def method_missing(method, *args, &block)
       method=method.to_s
       method.gsub!("_", ".")

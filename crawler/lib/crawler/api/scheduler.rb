@@ -34,6 +34,7 @@ module Crawler
         rescue IOError
           #shutdown was called
         ensure
+          log.warn "Scheduler was closed"
           shutdown
         end
       end

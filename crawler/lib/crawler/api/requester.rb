@@ -33,7 +33,7 @@ module Crawler
         rescue Exception => e
           response={error: {error_msg: e.message}}
         end
-        log.info "Got response from #{args[:request]}. Response: #{response}"
+        log.info "Got response from #{args[:request]}. Response: #{response.to_s[0..100]}"
         response[:error] && do_retry(args) && return
         response[:incoming]=args[:incoming]
         begin

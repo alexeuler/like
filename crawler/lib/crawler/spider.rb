@@ -20,7 +20,7 @@ module Crawler
     end
 
     def start
-      #connection = ActiveRecord::Base.connection_pool.checkout
+      connection = ActiveRecord::Base.connection
       Thread.current[:number] = @number
       begin
         while @active
@@ -49,7 +49,8 @@ module Crawler
           user.save
         end
       ensure
-        # ActiveRecord::Base.connection_pool.checkin(connection)
+        ActiveRecord::Base.connection_pool.checkin(connection)
+        @api.close
       end
 
     end
