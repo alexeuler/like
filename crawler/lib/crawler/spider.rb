@@ -65,6 +65,7 @@ module Crawler
         user.status = 2
         user.save
       end
+      log "Spider: Fetched job"
       user
     end
 
